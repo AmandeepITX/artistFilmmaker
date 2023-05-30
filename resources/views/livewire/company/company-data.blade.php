@@ -30,7 +30,7 @@
                 </td>
                 @else
                 <td>
-                    
+
                     <button class="btn btn-primary btn-sm btndeit" id="editDeal">Edit</button>
                     <button wire:click="deleteId({{ $value->id }})" class="btn btn-danger btn-sm btndel" data-toggle="modal" data-target="#exampleModal">Delete</button>
                 </td>

@@ -85,54 +85,7 @@ class CreateNewUser implements CreatesNewUsers
 
         return $user;
     }
-    //     if ($input["user_type"] == "filmMaker") {
 
-    //         // $this->details($input);
-
-    //         // if (@$request->croplogo && !empty($request->croplogo)) {
-    //         //     $folderPath = "uploads/filmmaker/image/";
-    //         //     $base64Image = explode(";base64,", $request->croplogo);
-    //         //     $explodeImage = explode("image/", $base64Image[0]);
-    //         //     $imageType = $explodeImage[1];
-    //         //     $image_base64 = base64_decode($base64Image[1]);
-    //         //     $file = $folderPath . uniqid() . '.' . $imageType;
-    //         //     $success = file_put_contents($file, $image_base64);
-    //         //     $companyDeals->logo = $file;
-    //         // }
-
-    //         $user = User::create([
-    //             'user_type' => $input['user_type'],
-    //             'image' => $input['image'],
-    //             'name' => $input['name'],
-    //             'media_url' => $input['media_url'],
-    //             'website' => $input['website'],
-    //             'email' => $input['email'],
-    //             'password' => Hash::make($input['password']),
-    //             'bio_info' => $input['bio_info'],
-
-    //         ]);
-    //         // \Mail::to('example@gmail.com')->send(new NewRegisterMailToAdmin($user));
-
-    //         return $user;
-    //     } else {
-
-    //         $user = User::create([
-    //             'user_type' => $input['user_type'],
-    //             'image' => $input['image'],
-    //             'name' => $input['name'],
-    //             'media_url' => $input['media_url'],
-    //             'website' => $input['website'],
-    //             'email' => $input['email'],
-    //             'password' => Hash::make($input['password']),
-    //             'bio_info' => $input['bio_info'],
-
-    //         ]);
-
-    //         \Mail::to('example@gmail.com')->send(new NewRegisterMailToAdmin($user));
-
-    //         return $user;
-    //     }
-    // }
 
     public function validationCheck(array $input)
     {
