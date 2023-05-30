@@ -1,2 +1,0 @@
-[02-Jun-2022 11:43:10 UTC] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.0.2". You are running 7.4.29. in /home/ahap/public_html/vendor/composer/platform_check.php on line 24
-[12-Oct-2022 10:03:44 UTC] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.1.0". You are running 7.4.30. in /home/smallbizxlr/public_html/bcn/vendor/composer/platform_check.php on line 24
