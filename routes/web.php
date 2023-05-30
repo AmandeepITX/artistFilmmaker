@@ -52,6 +52,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/dashboard', [AdminController::class, 'adminDashboard'])->name('admin-dashboard');
         Route::get('/user-index', [AdminController::class, 'userListing'])->name('user-index');
         Route::get('/users', [AdminController::class, 'companyListing'])->name('company-index');
+        Route::get('/filmmaker', [AdminController::class, 'filmmakerListing'])->name('filmaker-index');
         Route::get('/category-index', [AdminController::class, 'categoryListing'])->name('category-index');
         Route::get('/subcategory-index/{id}', [AdminController::class, 'subcategoryListing'])->name('subcategory-index');
         Route::get('/settings', [AdminController::class, 'settings'])->name('settings');
