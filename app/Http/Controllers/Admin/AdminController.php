@@ -16,9 +16,10 @@ class AdminController extends Controller
         $total_registrations = User::count() - 1;
         $total_companies =  User::where('user_type', 'company')->count();
         $total_users =  User::where('user_type', 'artist')->count();
+        $total_filmmaker = User::where('user_type','filmMaker')->count();
         $category =  Categories::count();
         $industry =  Industry::count();
-        return view('pages.admin.pages.dashboard.dashboard', \compact('total_registrations', 'total_companies', 'total_users','industry'));
+        return view('pages.admin.pages.dashboard.dashboard', \compact('total_registrations', 'total_companies', 'total_users','industry', 'total_filmmaker'));
     }
 
     public function userListing()
@@ -36,6 +37,10 @@ class AdminController extends Controller
         return view('pages.admin.pages.category.index');
     }
 
+    public function filmmakerListing()
+    {
+        return view('pages.admin.pages.filmmaker.index');
+    }
 
     public function subcategoryListing($id)
     {

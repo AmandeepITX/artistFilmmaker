@@ -40,18 +40,18 @@
                         </p>
                     </a>
                 </li>
-                {{--
+
                 <li class="nav-item">
-                    <a class="nav-link{{ request()->routeIs('user-index') ? ' active' : '' }}" href="{{ route('user-index') }}">
+                    <a class="nav-link{{ request()->routeIs('filmaker-index') ? ' active' : '' }}" href="{{ route('filmaker-index') }}">
                         <i class="nav-icon far fa-plus-square"></i>
                         <p>
-                            Users Listing
+                            Film Maker Listing
                             <!-- <i class="fas fa-angle-left right"></i> -->
                         </p>
                     </a>
                 </li>
 
-
+{{--
                 <li class="nav-item">
                     <a class="nav-link{{ request()->routeIs('category-index') ? ' active' : '' }}" href="{{ route('category-index') }}">
                         <i class="nav-icon far fa-plus-square"></i>

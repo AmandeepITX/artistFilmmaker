@@ -7,7 +7,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Category</h1>
+                    <h1 class="m-0">Film Makers</h1>
                 </div>
 
             </div>
@@ -16,7 +16,7 @@
     <section class="content">
         <div class="container-fluid">
             <div class="card-body">
-                @livewire('admin.category.category-index')
+                @livewire('admin.filmmaker-index')
             </div>
         </div>
     </section>
