@@ -15,6 +15,4 @@ yarn-error.log
 
 /public/storage
 /public/uploads
-/public-old
-/public-old/storage1
-/public-old/uploads
+
