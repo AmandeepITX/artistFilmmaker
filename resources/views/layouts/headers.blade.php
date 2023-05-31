@@ -19,17 +19,17 @@
                   @endif
 
                   @endif
-                  
+
                   @if(Auth::check() && Auth::user()->user_type == "artist")
                   <div class="nav-item loginbtn">
                      <a class="nav-link{{ request()->routeIs('user-profile') ? ' active' : '' }}" href="{{ route('user-profile') }}">Profile</a>
                   </div>
                   @endif
-                  @if(Auth::check() && Auth::user()->user_type== "filmMaker") <div class="nav-item loginbtn">
+                  @if(Auth::check() && Auth::user()->user_type== "filmmaker") <div class="nav-item loginbtn">
                      <a class="nav-link{{ request()->routeIs('company-profile') ? ' active' : '' }}" href="{{ route('company-profile') }}">Profile</a>
                   </div>
                   @endif
-                  
+
                   @if(Auth::check() && Auth::user()->user_type == "company")
                   <div class="my-account">
                      <a class="nav-link{{ request()->routeIs('company-profile') ? ' active' : '' }}" href="{{route('company-profile')}}">My Account</a>
@@ -45,7 +45,7 @@
                   <span class="navbar-toggler-icon">x</span>
                </button></li>
                      <li class="nav-item">
-                        <a class="nav-link{{ request()->routeIs('discounts-free-services') ? ' active' : '' }}" aria-current="page" href="{{ route('discounts-free-services') }}"> Film Maker </a>
+                        <a class="nav-link{{ request()->routeIs('discounts-free-services') ? ' active' : '' }}" aria-current="page" href="{{ route('discounts-free-services') }}"> Filmmakers & Artist </a>
                      </li>
                      @if(Auth::check())
 
@@ -61,7 +61,7 @@
                      </li> -->
                      @endif
                      <li class="nav-item contactbtn">
-                        <a class="nav-link{{ request()->routeIs('contact-us') ? ' active' : '' }}" href="{{route('contact-us')}}">CONTACT US</a>
+                        <a class="nav-link{{ request()->routeIs('contact-us') ? ' active' : '' }}" href="{{route('contact-us')}}">Contact Us</a>
                      </li>
                      <!-- <li class="nav-item contactbtn">
                         <a class="nav-link{{ request()->routeIs('about-ahap') ? ' active' : '' }}" href="https://theahap.com/about-ahap/">ABOUT AHAP</a>
@@ -71,7 +71,7 @@
                      <!--   <a class="nav-link{{ request()->routeIs('user-profile') ? ' active' : '' }}" href="{{ route('user-profile') }}">Profile</a>-->
                      <!--</li>-->
                      <!--@endif-->
-                     <!--@if(Auth::check() && Auth::user()->user_type== "filmMaker") <li class="nav-item loginbtn">-->
+                     <!--@if(Auth::check() && Auth::user()->user_type== "filmmaker") <li class="nav-item loginbtn">-->
                      <!--   <a class="nav-link{{ request()->routeIs('company-profile') ? ' active' : '' }}" href="{{ route('company-profile') }}">Profile</a>-->
                      <!--</li>-->
                      <!--@endif-->

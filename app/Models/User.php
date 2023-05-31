@@ -19,27 +19,14 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array<int, string>
      */
     protected $fillable = [
-        'member_id',
-        'image',
-        'name',
-        'media_url',
-        'website',
-        'email',
-        'bio_info',
-        'status',
-        'chamber_member',
-        'description',
+        'first_name',
+        'last_name',
         'user_type',
-        'service',
-        'service_status',
-        'service_from',
-        'service_to',
-        'personalization',
-        'card_info',
-        'other_id',
-        'headshot_card',
+        'email',
         'email_verified_at',
         'password',
+        'website',
+        'status',
     ];
 
     /**
@@ -61,21 +48,24 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at' => 'datetime',
     ];
 
+    protected $appends = ['name'];
 
-
-    // protected $appends = ['name'];
-
-    // public function getNameAttribute()
-    // {
-    //     return $this->f_name. ' '.$this->l_name;
-    // }
-
-    public function company_deal()
+    public function getNameAttribute()
     {
-        return $this->hasOne(CompanyDeals::class);
+        return $this->f_name . ' ' . $this->l_name;
     }
 
-    public function industries(){
-        return $this->hasMany(UsersIndustry::class, 'users_id', 'id');
+    // public function company_deal()
+    // {
+    //     return $this->hasOne(CompanyDeals::class);
+    // }
+
+    // public function industries(){
+    //     return $this->hasMany(UsersIndustry::class, 'users_id', 'id');
+    // }
+
+    public function userProfile()
+    {
+        return $this->hasOne(UserProfile::class, 'user_id', 'id');
     }
 }

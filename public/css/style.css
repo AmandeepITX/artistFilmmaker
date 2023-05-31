@@ -358,7 +358,7 @@ a.nav-link {
     border-radius: 10px;
     text-align: center;
     padding: 12px 20px !important;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
 }
 
 .listbtn a {

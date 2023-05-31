@@ -12,7 +12,7 @@ class CompanyIndex extends Component
     use WithPagination;
 
     public $searchTerm;
-    public $user_id, $name, $website, $media_url, $bio_info;
+    public $user_id, $first_name, $website, $bio_info;
 
     public $view_page = false;
 
@@ -52,9 +52,8 @@ class CompanyIndex extends Component
         $user = User::where('id', $id)->first();
 
         $this->user_id = $id;
-        $this->name = $user->name;
+        $this->first_name = $user->name;
         $this->website = $user->website;
-        $this->media_url = $user->media_url;
         $this->bio_info = $user->bio_info;
 
         // $this->username = $user->username;
@@ -75,7 +74,7 @@ class CompanyIndex extends Component
     {
         $searchTerm = '%' . $this->searchTerm . '%';
         $artists = User::where('user_type', 'artist')->where(function ($query) use ($searchTerm) {
-            $query->where('name', 'like', '%' .  $searchTerm  . '%');
+            $query->where('first_name', 'like', '%' .  $searchTerm  . '%');
             $query->orWhere('email', 'like', '%' .  $searchTerm . '%');
         })->orderBy('id', 'desc')->paginate(10);
 

@@ -19,17 +19,17 @@
             <div class="col-md-6">
                 <label for="profile_image">Image</label>
 
-                <img src="{{asset('uploads/filmmaker/'.@$company->image) }}" height="120">
-
-                {{-- <img src="{{ @$company->company_deal->profile_image }}" id="customerimagePreview"> --}}
+                {{-- <img src="{{asset('uploads/filmmaker/'.@$user->userProfile->image) }}" id="customerimagePreview" height="120"> --}}
 
                 <input class="file-upload" name="image" id="profile_image" type="file" accept="image/*" />
                 <input type="hidden" name="profileCroplogo" id="profile-upload-img" />
-                @if (empty(@$company->company_deal->profile_image))
+
+                @if (empty(@$user->userProfile->image))
                     <img src="" style="display: none;" id="dis-pro-img" height="120" width="120">
                 @else
-                    <img src="{{ @$company->company_deal->profile_image }}" id="dis-pro-img" height="120"
+                    <img src="{{ asset('uploads/filmmaker/'.@$user->userProfile->image) }}" id="dis-pro-img" height="120"
                         width="120">
+
                 @endif
             </div>
 

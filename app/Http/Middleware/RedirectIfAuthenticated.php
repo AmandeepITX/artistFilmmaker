@@ -42,7 +42,7 @@ class RedirectIfAuthenticated
             return redirect()->route('admin-dashboard');
         } elseif ($user == 'artist') {
             return redirect()->route('user-profile');
-        } elseif ($user == 'filmMaker') {
+        } elseif ($user == 'filmmaker') {
             return redirect()->route('company-profile');
         }else{
             $guards = empty($guards) ? [null] : $guards;

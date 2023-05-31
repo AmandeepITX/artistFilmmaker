@@ -32,52 +32,53 @@ class CreateNewUser implements CreatesNewUsers
 
     public function create(array $input)
     {
+        // dd($input);
+        // $this->validationCheck($input);
 
-        $this->validationCheck($input);
-        if ($input["user_type"] == "filmMaker") {
-            if ($input['croplogo'] && !empty($input['croplogo'])) {
-                $folderPath = "uploads/filmmaker/";
-                $base64Image = explode(";base64,", $input['croplogo']);
-                $explodeImage = explode("image/", $base64Image[0]);
-                $imageType = $explodeImage[1];
-                $image_base64 = base64_decode($base64Image[1]);
+        // if ($input["user_type"] == "filmmaker") {
+        //     if ($input['croplogo'] && !empty($input['croplogo'])) {
+        //         $folderPath = "uploads/filmmaker/";
+        //         $base64Image = explode(";base64,", $input['croplogo']);
+        //         $explodeImage = explode("image/", $base64Image[0]);
+        //         $imageType = $explodeImage[1];
+        //         $image_base64 = base64_decode($base64Image[1]);
 
-                // Generate a unique filename with the original extension
-                $filename = uniqid() . '.' . $imageType;
+        //         // Generate a unique filename with the original extension
+        //         $filename = uniqid() . '.' . $imageType;
 
-                $file = $filename;
-                $filePath = $folderPath . $file;
-                $success = file_put_contents($filePath, $image_base64);
-                // $companyDeals->logo = $file;
-            }
-        } else {
-            if ($input['croplogo'] && !empty($input['croplogo'])) {
-                $folderPath = "uploads/artist/";
-                $base64Image = explode(";base64,", $input['croplogo']);
-                $explodeImage = explode("image/", $base64Image[0]);
-                $imageType = $explodeImage[1];
-                $image_base64 = base64_decode($base64Image[1]);
+        //         $file = $filename;
+        //         $filePath = $folderPath . $file;
+        //         $success = file_put_contents($filePath, $image_base64);
+        //         // $companyDeals->logo = $file;
+        //     }
+        // } else {
+        //     if ($input['croplogo'] && !empty($input['croplogo'])) {
+        //         $folderPath = "uploads/artist/";
+        //         $base64Image = explode(";base64,", $input['croplogo']);
+        //         $explodeImage = explode("image/", $base64Image[0]);
+        //         $imageType = $explodeImage[1];
+        //         $image_base64 = base64_decode($base64Image[1]);
 
-               // Generate a unique filename with the original extension
-               $filename = uniqid() . '.' . $imageType;
+        //        // Generate a unique filename with the original extension
+        //        $filename = uniqid() . '.' . $imageType;
 
-               $file = $filename;
-               $filePath = $folderPath . $file;
-               $success = file_put_contents($filePath, $image_base64);
-                // $companyDeals->profile_image = $file;
+        //        $file = $filename;
+        //        $filePath = $folderPath . $file;
+        //        $success = file_put_contents($filePath, $image_base64);
+        //         // $companyDeals->profile_image = $file;
 
-            }
-        }
+        //     }
+        // }
 
         $user = User::create([
             'user_type' => $input['user_type'],
-            'image' => $file,
-            'name' => $input['name'],
-            'media_url' => $input['media_url'],
+            // 'image' => $file,
+            'first_name' => $input['first_name'],
+            'last_name' => $input['last_name'],
             'website' => $input['website'],
             'email' => $input['email'],
             'password' => Hash::make($input['password']),
-            'bio_info' => $input['bio_info'],
+            // 'bio_info' => $input['bio_info'],
 
         ]);
 
@@ -92,10 +93,10 @@ class CreateNewUser implements CreatesNewUsers
         Validator::make(
             $input,
             [
-                'name' => ['required', 'max:255'],
-                'media_url' => ['required', 'url'],
+                'first_name' => ['required', 'max:255'],
+                'last_name' => ['required', 'max:255'],
                 'website' => ['required'],
-                'image' => ['required'],
+                // 'image' => ['required'],
                 'user_type' => ['required'],
                 'email' => [
                     'required', 'string', 'email', 'max:255', Rule::unique(User::class)
@@ -105,8 +106,8 @@ class CreateNewUser implements CreatesNewUsers
 
             ],
             [
-                'name.required' => 'Name is Required',
-                'media_url.required' => 'Media url is Required',
+                'first_name.required' => 'First Name is Required',
+                'last_name.required' => 'Last Name is Required',
                 'website.required' => 'Website is Required',
                 'confirm_password.required' => 'Confirm password required',
                 'confirm_password.same' => 'Password and Confirm password must be same',

@@ -15,26 +15,14 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('image')->nullable();;
-            $table->string('name', 100);
-            $table->string('media_url')->nullable();
-            $table->string('website')->nullable();
+            $table->string('first_name', 100);
+            $table->string('last_name', 100);
+            $table->enum('user_type', ['admin', 'filmmaker', 'artist'])->default('filmmaker');
             $table->string('email')->unique();
             $table->string('password');
-            $table->timestamp('email_verified_at')->nullable();
-            $table->text('bio_info')->nullable();
-            // $table->string('phone');
-            // $table->string('address')->nullable();
-            // $table->string('city');
-            // $table->string('state');
-            // $table->integer('zip_code');
-            // $table->enum('user_type', ['admin', 'user', 'company'])->default('user');
-            $table->enum('user_type', ['admin', 'filmMaker', 'artist'])->default('filmMaker');
+            $table->string('website')->nullable();
             $table->enum('status', ['pending', 'approved', 'unapproved'])->default('pending');
-            $table->string('service')->nullable();;
-            $table->text('card_info')->nullable();;
-            $table->string('other_id')->nullable();
-            $table->string('headshot_card')->nullable();
+            $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

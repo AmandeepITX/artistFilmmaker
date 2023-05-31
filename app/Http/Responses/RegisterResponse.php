@@ -16,7 +16,7 @@ class RegisterResponse implements RegisterResponseContract {
 			return redirect()->route('user-profile');
 		}
 
-		elseif($user->user_type == 'filmMaker')
+		elseif($user->user_type == 'filmmaker')
 		{
             // dd('loginrespkjkhj');
 			return redirect()->route('company-profile');
