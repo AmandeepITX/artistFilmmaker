@@ -29,7 +29,7 @@
                 @include('sweetalert::alert')
                 @if(Auth::user()->status == "pending" || Auth::user()->status == "unapproved")
                 <div class="alert alert-dark" role="alert">
-                    <h3>Wait for admin approval </h3>
+                    <h3>Waiting for profile approval </h3>
                 </div>
                 @endif
                 @yield('content')

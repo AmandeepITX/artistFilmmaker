@@ -10,7 +10,7 @@
         <div class="businessform sign-up">
             <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                 @csrf
-               
+
                 <div class="row mt-5">
                 <div class="mb-1 radio-main">
                     <label class="radio-nw"><input type="radio" name="type" value="filmMaker" /> Film Maker</label>
@@ -22,7 +22,7 @@
                         <span class="error error-message">{{ $errors->first('user_type') }}</span>
                     @endif
                 </div>
-                    <div class="col-md-12 upload-btn">
+                    {{-- <div class="col-md-12 upload-btn">
 
                         <input class="file-upload" name="image" id="upload" type="file" accept="image/*"
                             placeholder="Upload Image" />
@@ -33,7 +33,7 @@
 
                         <input type="hidden" name="croplogo" id="upload-img" />
                         <img src="" style="display: none;" id="dis-img" height="120" width="120">
-                    </div>
+                    </div> --}}
                 </div>
                 <div class="row">
                     <div class="col-md-6">
@@ -42,13 +42,13 @@
                             <span class="error error-message">{{ $errors->first('name') }}</span>
                         @endif
                     </div>
-                    <div class="col-md-6">
+                    {{-- <div class="col-md-6">
                         <input type="url" placeholder="Social Media URL" class="media-url" name="media_url"
                             value="{{ old('media_url') }}">
                         @if ($errors->has('media_url'))
                             <span class="error error-message">{{ $errors->first('media_url') }}</span>
                         @endif
-                    </div>
+                    </div> --}}
                 </div>
                 <div class="row">
                     <div class="col-md-6">
@@ -80,17 +80,20 @@
                         @endif
                     </div>
                 </div>
-                <div class="row">
+                {{-- <div class="row">
                     <div class="col-md-12">
-                        <textarea type="text" placeholder="Bio Information" name="bio_info" value="{{ old('bio_info') }}"> </textarea>
+                        <textarea type="text" placeholder="Bio Information" name="bio_info" value="{{ old('bio_info') }}"> </textarea> --}}
 
                         {{-- @if ($errors->has('bio_info'))
                             <span class="error error-message">{{ $errors->first('bio_info') }}</span>
                         @endif --}}
-                    </div>
-                </div>
+                    {{-- </div>
+                </div> --}}
 
                 <input type="submit" value="SUBMIT">
+                <div class="col-md-12 art-submit-btn py-2">
+                    <p> Already have an account? <a href="{{ route('login') }}" >Login </a> </p>
+                </div>
             </form>
         </div>
     </div>

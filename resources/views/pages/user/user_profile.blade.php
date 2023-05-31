@@ -5,7 +5,7 @@
 <div class=" sign-up" id="signupclient">
     <div class="container">
 
-        <h2>ARTIST INFORMATION</h2>
+        <h2>Artist Information</h2>
         <form method="POST" action="{{ route('user-profile-update') }}" enctype="multipart/form-data">
             @csrf
             @if($errors->any())
