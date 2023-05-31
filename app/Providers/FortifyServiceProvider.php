@@ -52,9 +52,9 @@ class FortifyServiceProvider extends ServiceProvider
         });
 
         Fortify::registerView(function () {
-            $categories = Member::all();
+            // $categories = Member::all();
             $state = State::all();
-            return view('auth.register.company', compact('categories', 'state'));
+            return view('auth.register.company', compact('state'));
         });
 
         Fortify::verifyEmailView(function () {

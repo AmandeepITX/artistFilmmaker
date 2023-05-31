@@ -32,11 +32,11 @@
         </div>
     </div>
     {{-- @if (count($lists) > 0) --}}
-    {{-- @dd($filmMakers) --}}
-    @if (count($filmMakers) > 0)
+    {{-- @dd($filmmakers) --}}
+    @if (count($filmmakers) > 0)
         <div class="container">
             <div class="row member-cards pt-5">
-                @foreach ($filmMakers as $user)
+                @foreach ($filmmakers as $user)
                     <div class="col-md-6 col-lg-3">
                         <div class="card deals-card">
                             <div class="card-img">

@@ -22,8 +22,8 @@ class UserController extends Controller
     public function userProfile()
     {
         $user = User::find(Auth::user()->id);
-        $settings=SettingsModel::first();
-        return view('pages.user.user_profile', \compact('user','settings'));
+        // $settings=SettingsModel::first();
+        return view('pages.user.user_profile', \compact('user'));
     }
 
     public function changePassView()
@@ -171,8 +171,8 @@ class UserController extends Controller
 
       public function heroCard()
     {
-       $settings=SettingsModel::first();
+    //    $settings=SettingsModel::first();
         $users = User::find(Auth::user()->id);
-        return view('pages.user.hero_card', \compact('users','settings'));
+        return view('pages.user.hero_card', \compact('users'));
     }
 }

@@ -82,22 +82,24 @@ class CommonController extends Controller
 
     public function disFreSerView()
     {
-        if(Auth::check()){
-            $settings = SettingsModel::first();
-            return view('pages.common.dis-fre-ser', \compact('settings'));
-        }
-        else
-        {
-           return redirect()->route('login');
-        }
-
+        // if(Auth::check()){
+        //     $settings = SettingsModel::first();
+        //     return view('pages.common.dis-fre-ser', \compact('settings'));
+        // }
+        // else
+        // {
+        //    return redirect()->route('login');
+        // }
+        return view('pages.common.dis-fre-ser');
     }
 
     public function contactView()
     {
-      $settings = SettingsModel::first();
-      $industryName =Industry::all();
-        return view('pages.common.contact-us', \compact('settings','industryName'));
+    //   $settings = SettingsModel::first();
+    //   $industryName =Industry::all();
+    //     return view('pages.common.contact-us', \compact('settings','industryName'));
+
+        return view('pages.common.contact-us');
     }
 
     public function aboutView()

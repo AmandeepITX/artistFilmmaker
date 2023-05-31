@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\Validator;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Response;
 use App\Models\SettingsModel;
+use App\Models\UserProfile;
 use NunoMaduro\Collision\Adapters\Phpunit\State as PhpunitState;;
 
 class CompanyController extends Controller
@@ -30,10 +31,12 @@ class CompanyController extends Controller
     public function companyProfile()
     {
         $user_id = Auth::user()->id;
-        $company = User::with('company_deal')->find(Auth::user()->id);
-        $IDES = Industry::all();
+        // $company = User::with('company_deal')->find(Auth::user()->id);
+        $user = User::where('id', $user_id)->first();
+        // dd($company);
+        // $IDES = Industry::all();
         $state = State::all();
-        return view('pages.company.company_profile', \compact('company', 'IDES', 'state'));
+        return view('pages.company.company_profile', \compact('user', 'state'));
     }
 
     public function changePassView()
@@ -67,95 +70,144 @@ class CompanyController extends Controller
     }
     public function addDeal(Request $request)
     {
+        // dd($request);
         $request->validate(
             [
-                'name' => 'required|max:100',
+                'first_name' => 'required|max:100',
+                'last_name' => 'required|max:100',
                 'website' => 'required|url',
-                'media_url' => 'required|url',
+                // 'media_url' => 'required|url',
+                'facebook_link' => 'nullable|url',
+                'youtube_link' => 'nullable|url',
+                'instagram_link' => 'nullable|url',
+                'twitter_link' => 'nullable|url',
             ],
             [
-                'name.required' => 'The name field is required.',
+                'first_name.required' => 'The first_name field is required.',
+                'last_name.required' => 'The last_name field is required.',
             ]
         );
-        $file = null; // Initialize $file variable with null
 
+$file= null;
+
+
+        // $user->image = $file;
 
         $user = Auth::user();
-        $user->name = $request->name;
+        $user_id = $user->id;
+        $user = User::find($user_id);
+        $user->first_name = $request->first_name;
+        $user->last_name = $request->last_name;
         $user->website = $request->website;
-        $user->media_url = $request->media_url;
-        $user->bio_info = $request->bio_info;
-
-
-        if (@$request->profileCroplogo && !empty($request->profileCroplogo)) {
-            // dd('new');
-            $folderPath = "uploads/filmmaker/";
-            $base64Image = explode(";base64,", $request->profileCroplogo);
-            $explodeImage = explode("image/", $base64Image[0]);
-            $imageType = $explodeImage[1];
-            $image_base64 = base64_decode($base64Image[1]);
-            $filename = uniqid() . '.' . $imageType;
-
-            $file = $filename;
-            $filePath = $folderPath . $file;
-            $success = file_put_contents($filePath, $image_base64);
-
-
-            // Delete the old image if necessary
-            if (!empty($user->image)) {
-                $oldImagePath = $folderPath . $user->image;
-                if (file_exists($oldImagePath)) {
-                    unlink($oldImagePath);
-                }
-            }
-
-            $user->image = $file;
-        } else {
-            // No new image provided, retain the previous image
-            $user->image = $user->image;
-        }
-
         $user->save();
 
+        $userProfile = UserProfile::where(['user_id' => $user->id])->first();
+        if ($userProfile) {
 
-        $companyDeals = new CompanyDeals;
-        $profile = CompanyDeals::where(['user_id' => $user->id])->first();
-        if ($profile) {
-            $companyDeals->id = $profile->id;
-            $companyDeals->exists = true;
+            $userProfile->city = $request->city;
+            $userProfile->state = $request->state;
+            $userProfile->zip_code = $request->zip_code;
+            $userProfile->bio_info = $request->bio_info;
+            $userProfile->available_to_film = $request->available_to_film;
+            $userProfile->facebook_link = $request->facebook_link;
+            $userProfile->twitter_link = $request->twitter_link;
+            $userProfile->instagram_link = $request->instagram_link;
+            $userProfile->youtube_link = $request->youtube_link;
+
+            if (@$request->profileCroplogo && !empty($request->profileCroplogo)) {
+                // dd('new');
+                $folderPath = "uploads/filmmaker/";
+                $base64Image = explode(";base64,", $request->profileCroplogo);
+                $explodeImage = explode("image/", $base64Image[0]);
+                $imageType = $explodeImage[1];
+                $image_base64 = base64_decode($base64Image[1]);
+                $filename = uniqid() . '.' . $imageType;
+
+                $file = $filename;
+                $filePath = $folderPath . $file;
+                $success = file_put_contents($filePath, $image_base64);
+                $userProfile->image = $file;
+            }
+            else {
+                // No new image provided, retain the previous image
+                $userProfile->image = $user->userProfile->image;
+            }
+
+
+
+            $userProfile->save();
+        } else {
+
+            $userProfile = new UserProfile;
+            $userProfile->user_id = $user->id;
+            $userProfile->city = $request->city;
+            $userProfile->state = $request->state;
+            $userProfile->zip_code = $request->zip_code;
+            $userProfile->bio_info = $request->bio_info;
+            $userProfile->available_to_film = $request->available_to_film;
+            $userProfile->facebook_link = $request->facebook_link;
+            $userProfile->twitter_link = $request->twitter_link;
+            $userProfile->instagram_link = $request->instagram_link;
+            $userProfile->youtube_link = $request->youtube_link;
+
+            if (@$request->profileCroplogo && !empty($request->profileCroplogo)) {
+                // dd('new');
+                $folderPath = "uploads/filmmaker/";
+                $base64Image = explode(";base64,", $request->profileCroplogo);
+                $explodeImage = explode("image/", $base64Image[0]);
+                $imageType = $explodeImage[1];
+                $image_base64 = base64_decode($base64Image[1]);
+                $filename = uniqid() . '.' . $imageType;
+
+                $file = $filename;
+                $filePath = $folderPath . $file;
+                $success = file_put_contents($filePath, $image_base64);
+            }
+            $userProfile->image = $file;
+
+            $userProfile->save();
         }
 
-        // ....
+        //
 
-        if (@$request->croplogo && !empty(@$request->croplogo)) {
-            // dd('not used now');
-            $folderPath = "uploads/filmmaker/";
-            $base64Image = explode(";base64,", @$request->croplogo);
-            $explodeImage = explode("image/", $base64Image[0]);
-            $imageType = $explodeImage[1];
-            $image_base64 = base64_decode($base64Image[1]);
+        // $companyDeals = new CompanyDeals;
+        // $profile = CompanyDeals::where(['user_id' => $user->id])->first();
+        // if ($profile) {
+        //     $companyDeals->id = $profile->id;
+        //     $companyDeals->exists = true;
+        // }
 
-            // Generate a unique filename with the original extension
-            $filename = uniqid() . '.' . $imageType;
+        // // ....
 
-            $file = $folderPath . $filename;
-            $success = file_put_contents($file, $image_base64);
-            $companyDeals->logo = $file;
-        }
-        // .....
+        // if (@$request->croplogo && !empty(@$request->croplogo)) {
+        //     // dd('not used now');
+        //     $folderPath = "uploads/filmmaker/";
+        //     $base64Image = explode(";base64,", @$request->croplogo);
+        //     $explodeImage = explode("image/", $base64Image[0]);
+        //     $imageType = $explodeImage[1];
+        //     $image_base64 = base64_decode($base64Image[1]);
+
+        //     // Generate a unique filename with the original extension
+        //     $filename = uniqid() . '.' . $imageType;
+
+        //     $file = $folderPath . $filename;
+        //     $success = file_put_contents($file, $image_base64);
+        //     $companyDeals->logo = $file;
+        // }
+        // // .....
 
 
 
-        $companyDeals->user_id = $user->id;
-        // $companyDeals->description = $request->description;
-        // $companyDeals->industry = @implode(',', $request->industryname);
-        $companyDeals->website_address = $request->website_address;
-        $companyDeals->facebook_link = $request->facebook_link;
-        $companyDeals->twitter_link = $request->twitter_link;
-        $companyDeals->linkedin_link = $request->linkedin_link;
-        $companyDeals->instagram_link = $request->instagram_link;
+        // $companyDeals->user_id = $user->id;
+        // // $companyDeals->description = $request->description;
+        // // $companyDeals->industry = @implode(',', $request->industryname);
+        // $companyDeals->website_address = $request->website_address;
+        // $companyDeals->facebook_link = $request->facebook_link;
+        // $companyDeals->twitter_link = $request->twitter_link;
+        // $companyDeals->linkedin_link = $request->linkedin_link;
+        // $companyDeals->instagram_link = $request->instagram_link;
 
-        $companyDeals->save();
+        // $companyDeals->save();
 
         // if ($request->industryname) {
 

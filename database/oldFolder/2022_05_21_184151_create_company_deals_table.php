@@ -19,10 +19,7 @@ return new class extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->integer('category_id');
             $table->integer('discount');
-            $table->text('description');
-            $table->string('logo')->nullable();
-            $table->string('deal_type')->nullable();
-             $table->timestamps();
+            $table->timestamps();
         });
     }
 

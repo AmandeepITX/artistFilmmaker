@@ -17,7 +17,7 @@ class LoginResponse implements LoginResponseContract {
 			return redirect()->route('user-profile');
 		}
 
-		elseif($user->user_type == 'filmMaker')
+		elseif($user->user_type == 'filmmaker')
 		{
             // dd('loginrespkjkhj');
 			return redirect()->route('company-profile');
@@ -31,7 +31,7 @@ class LoginResponse implements LoginResponseContract {
 		else{
 
 		Auth::logout();
-		return redirect()->route('/login')->with('message', 'Your account is deactivated by administrator, please contact support.');
+		return redirect()->route('\login')->with('message', 'Your account is deactivated by administrator, please contact support.');
 		}
 
     }

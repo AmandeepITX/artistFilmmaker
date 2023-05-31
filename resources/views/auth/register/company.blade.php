@@ -13,7 +13,7 @@
 
                 <div class="row mt-5">
                 <div class="mb-1 radio-main">
-                    <label class="radio-nw"><input type="radio" name="type" value="filmMaker" /> Film Maker</label>
+                    <label class="radio-nw"><input type="radio" name="type" value="filmmaker" /> Film Maker</label>
                     <label class="radio-nw"><input type="radio" name="type" value="artist" /> Artist</label>
 
                     <input type="hidden" class="radioBtnChoose" name="user_type" value="{{ old('user_type') }}">
@@ -37,18 +37,17 @@
                 </div>
                 <div class="row">
                     <div class="col-md-6">
-                        <input type="text" placeholder="Name" class="name" name="name" value="{{ old('name') }}">
-                        @if ($errors->has('name'))
-                            <span class="error error-message">{{ $errors->first('name') }}</span>
+                        <input type="text" placeholder="First Name" class="name" name="first_name" value="{{ old('first_name') }}">
+                        @if ($errors->has('first_name'))
+                            <span class="error error-message">{{ $errors->first('first_name') }}</span>
                         @endif
                     </div>
-                    {{-- <div class="col-md-6">
-                        <input type="url" placeholder="Social Media URL" class="media-url" name="media_url"
-                            value="{{ old('media_url') }}">
-                        @if ($errors->has('media_url'))
-                            <span class="error error-message">{{ $errors->first('media_url') }}</span>
+                    <div class="col-md-6">
+                        <input type="text" placeholder="Last_Name" class="name" name="last_name" value="{{ old('last_name') }}">
+                        @if ($errors->has('last_name'))
+                            <span class="error error-message">{{ $errors->first('last_name') }}</span>
                         @endif
-                    </div> --}}
+                    </div>
                 </div>
                 <div class="row">
                     <div class="col-md-6">

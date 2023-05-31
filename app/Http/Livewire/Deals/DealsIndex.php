@@ -28,14 +28,6 @@ class DealsIndex extends Component
     }
 
 
-    // public function filmMakerProfile()
-    // {
-    //     $filmMakerDetails = User::where('user_type', 'filmMaker')
-    //     ->orderBy('id', 'desc')
-    //     ->get();
-    //     return $filmMakerDetails;
-    // }
-
 
 
     public function render()
@@ -58,12 +50,18 @@ class DealsIndex extends Component
 
         // $list = Industry::all();
 
+
+            // NOW WORKING HEREEEEEEEEEEEEEEEEEEEEEEEEEEE
+
+            // $showList = User::all();
+
+
         $showList = User::query();
 
         if($this->searchTerm){
             $search = $this->searchTerm;
             $showList = $showList->where(function ($query) use ($search) {
-				$query->where('name', 'like', '%' . $search . '%');
+				$query->where('first_name', 'like', '%' . $search . '%');
                 $query->orWhere('website', 'like', '%' . $search . '%');
 			});
         }
@@ -82,11 +80,13 @@ class DealsIndex extends Component
 		// 		$query->where('industries_id', $industryId);
 		// 	});
 		// }
-        $showList = $showList->where('user_type', 'filmMaker')
+        $showList = $showList->where('user_type', 'filmmaker')
                     ->orderBy('id', 'desc')
                     ->get();
 
-// dd($showList);
+            // dd($showList);
+
+
         // ....................
         // $showList = $showList->with('user')
         // ->whereHas('user', function($q){
@@ -136,7 +136,14 @@ class DealsIndex extends Component
         // })
         // ->get();
         // return view('livewire.deals.deals-index',['users'=>$list,'lists'=>$showList]);
-        return view('livewire.deals.deals-index',['filmMakers' => $showList]);
+
+
+
+
+
+
+
+        return view('livewire.deals.deals-index',['filmmakers' => $showList]);
     }
 
      /**

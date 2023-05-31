@@ -78,7 +78,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
 
     // Company Panel
-    Route::group(['middleware' =>  ['role:filmMaker']], function () {
+    Route::group(['middleware' =>  ['role:filmmaker']], function () {
         Route::get('/filmmaker-profile', [CompanyController::class, 'companyProfile'])->name('company-profile');
         Route::post('/company-profile-update', [CompanyController::class, 'companyProfileUpdate'])->name('company-profile-update');
         Route::get('/change-company-password', [CompanyController::class, 'changePassView'])->name('change-company-password');
