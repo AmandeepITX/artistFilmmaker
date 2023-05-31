@@ -31,27 +31,28 @@
             </div>
         </div>
     </div>
-    {{-- @if (count($lists) > 0) --}}
-    {{-- @dd($filmmakers) --}}
-    @if (count($filmmakers) > 0)
+{{-- @dd($users) --}}
+    @if (count($users) > 0)
         <div class="container">
             <div class="row member-cards pt-5">
-                @foreach ($filmmakers as $user)
+                @foreach ($users as $user)
                     <div class="col-md-6 col-lg-3">
                         <div class="card deals-card">
                             <div class="card-img">
-                                @if (empty($user->image))
+                                @if (empty($user->userProfile->image))
                                     <img src="https://via.placeholder.com/300?text=Black Chamber Network"
                                         class="card-img-top" alt="...">
                                 @else
-                                    <img src="{{asset('uploads/filmmaker/' .@$user->image)}}"
+                                    <img src="{{asset('uploads/filmmaker/' .@$user->userProfile->image)}}"
                                        {{--   onerror="this.src='https://via.placeholder.com/300?text=Black Chamber Network'"--}}
                                         class="card-img-top" alt="...">
                                 @endif
                             </div>
                             <div class="card-body">
-                                <h5 class="card-title">{{ $user->name }}</h5>
-                                <span class="">{{ $user->media_url }}</span>
+                                <h5 class="card-title">{{ $user->first_name }}</h5>
+                                <span class="">{{ @$user->userProfile->city }}</span>
+                                <span class="">{{ @$user->userProfile->state }}</span>
+                                <span class="">{{ @$user->userProfile->zip_code }}</span>
                                 <span class="">{{ $user->website }}</span>
                                 {{-- @php
                                     //$industrysId = explode(',', $show->industry ?? []);
@@ -65,8 +66,8 @@
                                     @endif
                                 </span></strong> --}}
                                 <p class="card-text">{{ $user->bio_info }}</p>
-                                <a href="{{ route('profilePage') . '?id=' . $user->id }}" class=" business-btn">FILM MAKER
-                                    PROFILE</a>
+                                <a href="{{ route('profilePage') . '?id=' . $user->id }}" class=" business-btn">View
+                                    Profile</a>
                             </div>
                         </div>
                     </div>
