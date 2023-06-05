@@ -50,6 +50,15 @@
                         </p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link{{ request()->routeIs('genre-index') ? ' active' : '' }}" href="{{ route('genre-index') }}">
+                        <i class="nav-icon far fa-plus-square"></i>
+                        <p>
+                            Genre
+                            <!-- <i class="fas fa-angle-left right"></i> -->
+                        </p>
+                    </a>
+                </li>
 
 {{--
                 <li class="nav-item">

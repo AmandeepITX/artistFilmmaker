@@ -6,6 +6,7 @@ use App\Http\Controllers\Common\CommonController;
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\Company\CompanyController;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Livewire\Admin\Genre\GerneList;
 use App\Http\Controllers\Profile;
 use App\Models\SettingsModel;
 
@@ -56,6 +57,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/category-index', [AdminController::class, 'categoryListing'])->name('category-index');
         Route::get('/subcategory-index/{id}', [AdminController::class, 'subcategoryListing'])->name('subcategory-index');
         Route::get('/settings', [AdminController::class, 'settings'])->name('settings');
+        Route::get('/genre-index',GerneList::class)->name('genre-index');
+
         Route::get('/industries', function(){
             return view('pages.admin.pages.industry.index');
         })->name('admin.industry.index');

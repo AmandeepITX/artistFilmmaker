@@ -16,10 +16,10 @@ class AuthController extends Controller
         // $catSubCat = Categories::with('subcategories')->get();
         // $categories = Categories::get();
         // $settings=SettingsModel::first();
-        $categories = Member::all();
+        // $categories = Member::all();
         $state = State::all();
         // dd($state );
-        return view('auth.register.company', \compact('categories','state'));
+        return view('auth.register.company', \compact('state'));
     }
 
     public function geSubCategory(Request $request){
@@ -27,10 +27,10 @@ class AuthController extends Controller
         if(!empty($request->category_id) ){
             $subcategories = SubCategories::whereIn('category_id', $request->category_id)->get();
         }else{
-            $subcategories = SubCategories::all();    
+            $subcategories = SubCategories::all();
         }
         // $subcategories = SubCategories::where(['category_id' => $request->category_id])->get();
-         
+
         return response()->json(['data' => $subcategories]);
     }
 

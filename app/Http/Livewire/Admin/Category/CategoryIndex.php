@@ -18,6 +18,9 @@ class CategoryIndex extends Component
     public $deleteId = '';
     // public $category;
 
+
+
+
     public function render()
     {
 
@@ -82,7 +85,7 @@ class CategoryIndex extends Component
         $this->clearForm();
     }
 
-    public function deleteId($id) 
+    public function deleteId($id)
     {
         $this->deleteId = $id;
     }
@@ -97,7 +100,7 @@ class CategoryIndex extends Component
     public function subcategory($id)
     {
         return redirect()->to('/subcategory-index/'.$id);
-        // $category = Categories::where('id', $id)->first();       
+        // $category = Categories::where('id', $id)->first();
         // return view('livewire.admin.category.subcategory-view', compact('category'));
 
     }

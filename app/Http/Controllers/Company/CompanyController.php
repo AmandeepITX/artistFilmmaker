@@ -21,6 +21,7 @@ use Illuminate\Support\Facades\Response;
 use App\Models\SettingsModel;
 use App\Models\UserProfile;
 use NunoMaduro\Collision\Adapters\Phpunit\State as PhpunitState;;
+use App\Models\Genre;
 
 class CompanyController extends Controller
 {
@@ -33,10 +34,10 @@ class CompanyController extends Controller
         $user_id = Auth::user()->id;
         // $company = User::with('company_deal')->find(Auth::user()->id);
         $user = User::where('id', $user_id)->first();
-        // dd($company);
         // $IDES = Industry::all();
+        $genres = Genre::all();
         $state = State::all();
-        return view('pages.company.company_profile', \compact('user', 'state'));
+        return view('pages.company.company_profile', \compact('user', 'state', 'genres'));
     }
 
     public function changePassView()
@@ -88,7 +89,7 @@ class CompanyController extends Controller
             ]
         );
 
-$file= null;
+        $file = null;
 
 
         // $user->image = $file;
@@ -127,8 +128,7 @@ $file= null;
                 $filePath = $folderPath . $file;
                 $success = file_put_contents($filePath, $image_base64);
                 $userProfile->image = $file;
-            }
-            else {
+            } else {
                 // No new image provided, retain the previous image
                 $userProfile->image = $user->userProfile->image;
             }

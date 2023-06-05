@@ -152,9 +152,9 @@
                         </select>
                     </div>
                     <div class="mb-1 radio-main">
-                        <label>Category</label>
+                        <label>Genre</label>
                         <select class="form-select">
-                            <option></option>
+                            <option>Rock</option>
                             <option> </option>
                     </select>
                     </div>
