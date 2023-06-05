@@ -21,17 +21,20 @@
                     <div class="col-md-5 sm-px-3">
                         <!-- <input type="search" class="form-control my-0" placeholder="search by city,name,zipcode etc.." > -->
                         <form class="search-form">
-                            <input type="search" class="form-control my-0" placeholder="Search by name"
+                            <input type="search" class="form-control my-0" placeholder="Search by name, zip code & role"
                                 wire:model="searchTerm" placeholder="Search" class="searchTerm">
                             <button class="search-btn"><img src="./img/search.png"></button>
                         </form>
                     </div>
                 </div>
+                {{-- <select value = "{{$users->user_type}}">
+                    <option value = 'filmmaker' {{$users->user_type == 'filmmaker' ? 'selected' :''}}> Film Maker </option>
+                    <option value = 'artist' {{$users->user_type == 'artist' ? 'selected' : ''}}> Artist </option>
+                </select> --}}
 
             </div>
         </div>
     </div>
-{{-- @dd($users) --}}
     @if (count($users) > 0)
         <div class="container">
             <div class="row member-cards pt-5">
@@ -43,13 +46,13 @@
                                     <img src="https://via.placeholder.com/300?text=Black Chamber Network"
                                         class="card-img-top" alt="...">
                                 @else
-                                    <img src="{{asset('uploads/filmmaker/' .@$user->userProfile->image)}}"
-                                       {{--   onerror="this.src='https://via.placeholder.com/300?text=Black Chamber Network'"--}}
-                                        class="card-img-top" alt="...">
+                                    <img src="{{ asset('uploads/filmmaker/' . @$user->userProfile->image) }}"
+                                        {{--   onerror="this.src='https://via.placeholder.com/300?text=Black Chamber Network'" --}} class="card-img-top" alt="...">
                                 @endif
                             </div>
                             <div class="card-body">
                                 <h5 class="card-title">{{ $user->first_name }}</h5>
+                                {{-- <h5 class="card-title">{{ $user->user_type }}</h5> --}}
                                 <span class="">{{ @$user->userProfile->city }}</span>
                                 <span class="">{{ @$user->userProfile->state }}</span>
                                 <span class="">{{ @$user->userProfile->zip_code }}</span>
