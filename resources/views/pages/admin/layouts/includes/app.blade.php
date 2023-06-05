@@ -1,4 +1,5 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
@@ -17,28 +18,31 @@
 <body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper">
         @include('pages.admin.layouts.includes.header')
-        
+
         @include('pages.admin.layouts.includes.sidebar')
 
 
-        @if($errors->any())
-        <div class="alert alert-danger">
-            <p><strong>Opps Something went wrong</strong></p>
-            <ul>
-                @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <p><strong>Opps Something went wrong</strong></p>
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
         @endif
         @yield('content')
     </div>
     </div> -->
     </div>
+
     @include('pages.admin.layouts.includes.footer')
     @include('pages.admin.layouts.includes.script')
 </body>
 @livewireScripts
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<x-livewire-alert::scripts />
 @stack('scripts')
-</html>
 
+</html>

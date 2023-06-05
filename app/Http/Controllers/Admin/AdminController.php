@@ -61,4 +61,8 @@ class AdminController extends Controller
     public function stateListing(){
         return view('pages.admin.pages.states.index');
     }
+    // public function genreIndex()
+    // {
+    //     return view('pages.admin.pages.category.genre-index');
+    // }
 }
