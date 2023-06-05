@@ -32,17 +32,20 @@ class UserProfile extends Model
     public function state()
     {
         return $this->belongsTo(state::class, 'states_id', 'id');
-
     }
 
     public function User()
     {
         return $this->belongsTo(User::class, 'user_id', 'id');
-
     }
 
     public function Genre()
     {
-        return $this->hasOne(Genre::class, 'genres_id', 'id');
+        return $this->hasOne(Genre::class, 'id', 'genres_id');
     }
+
+    // public function genreType()
+    // {
+    //     return $this->belongsTo(Genre::class);
+    // }
 }
