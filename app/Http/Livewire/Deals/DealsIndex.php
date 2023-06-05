@@ -17,6 +17,7 @@ class DealsIndex extends Component
 
     use WithPagination;
     public $searchTerm;
+    public $searchGenre;
     public $searchIndustry;
     public $list;
     public $showList;
@@ -24,6 +25,7 @@ class DealsIndex extends Component
     public $search = '';
     public $industryId, $zip_code, $city;
     public $user_type;
+
 
     public function mount()
     {
@@ -35,23 +37,22 @@ class DealsIndex extends Component
     {
         $genreTypes = Genre::all();
 
+
         $showList = User::query();
 
-        // if ($this->searchTerm) {
-        //     $search = $this->searchTerm;
-        //     $showList = $showList->with('userProfile')->where(function ($query) use ($search) {
-        //         $query->where('first_name', 'like', '%' . $search . '%');
-        //         $query->orWhere('city', 'like', '%' . $search . '%');
-        //         $query->orWhere('zip_code', 'like', '%' . $search . '%');
-        //     });
+        if($this->searchGenre){
+            $genre = $this->searchGenre;
+            $showList = $showList->whereHas('userProfile', function($query) use ($genre)  {
 
-        // }
+                $query->where('genres_id', $genre);
+            });
+        }
 
         if ($this->searchTerm) {
             $search = $this->searchTerm;
             $showList = $showList->where(function ($query) use ($search) {
                 $query->where('first_name', 'like', '%' . $search . '%')
-                ->orWhere('user_type', 'like', '%' . $search . '%')
+                    ->orWhere('user_type', 'like', '%' . $search . '%')
                     ->orWhereHas('userProfile', function ($query) use ($search) {
                         $query->where('city', 'like', '%' . $search . '%')
                             ->orWhere('zip_code', 'like', '%' . $search . '%');
@@ -60,9 +61,9 @@ class DealsIndex extends Component
         }
 
         $showList = $showList->whereNot('user_type', 'admin')
-            ->orderBy('id', 'desc')
+            ->latest()
             ->get();
-            // dd( $showList);
+
         return view('livewire.deals.deals-index', ['users' => $showList, 'genreTypes' => $genreTypes]);
     }
 

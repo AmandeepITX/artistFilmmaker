@@ -29,12 +29,14 @@
                     </div>
                 </div>
 
-                <select value="">
+                <select id="genre-filter" wire:model="searchGenre" wire:loading.attr="disabled" wire:target="searchGenre">
                     <option>Filter by genre</option>
+
                     @foreach ($genreTypes as $genreType)
-                        <option> {{ $genreType->title }}</option>
+                        <option value="{{ $genreType->id }}">{{ $genreType->title }}</option>
                     @endforeach
                 </select>
+
                 {{-- <select value = "{{$users->user_type}}">
                     <option value = 'filmmaker' {{$users->user_type == 'filmmaker' ? 'selected' :''}}> Film Maker </option>
                     <option value = 'artist' {{$users->user_type == 'artist' ? 'selected' : ''}}> Artist </option>
@@ -43,6 +45,7 @@
             </div>
         </div>
     </div>
+
     @if (count($users) > 0)
         <div class="container">
             <div class="row member-cards pt-5">
@@ -64,6 +67,8 @@
                                 <span class="">{{ @$user->userProfile->city }}</span>
                                 <span class="">{{ @$user->userProfile->state }}</span>
                                 <span class="">{{ @$user->userProfile->zip_code }}</span>
+                                {{-- <span class="">{{ @$user->userProfile->genres_id }}</span> --}}
+                                <span class="">{{ @$user->userProfile->Genre->title }}</span>
                                 <span class="">{{ $user->website }}</span>
                                 {{-- @php
                                     //$industrysId = explode(',', $show->industry ?? []);
@@ -92,5 +97,23 @@
         </div>
     @endif
 </div>
+
 <style>
+
 </style>
+{{-- <script>
+    document.getElementById('genre-filter').addEventListener('change', function() {
+        // debugger;
+        var selectedValue = this.value;
+        var options = document.getElementsByTagName('option');
+                console.log(options);
+        for (var i = 0; i < options.length; i++) {
+            var option = options[i];
+            if (option.textContent === selectedValue) {
+                option.selected = true;
+            } else {
+                option.selected = false;
+            }
+        }
+    });
+</script> --}}
