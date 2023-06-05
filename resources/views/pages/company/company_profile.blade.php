@@ -81,9 +81,9 @@
                     </div>
                     <div class="col-md-4">
                         <label>State</label>
-                        <select class="form-select" name="state">
+                        <select class="form-select" name="state" value ="{{@$user->userProfile->state}}">
                             @foreach ($state as $show)
-                                <option>{{ $show->state_name }}</option>
+                                <option value = "{{@$user->userProfile->state}}" >{{ $show->state_name }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -147,9 +147,16 @@
                     <div class="mb-1 radio-main">
                         <label>Available to film</label>
                          <select class="form-select" name="available_to_film"  value="{{ @$user->userProfile->available_to_film }}">
-                                <option value='1'>Yes</option>
-                                <option value='0'>No</option>
+                                <option value='1' {{@$user->userProfile->available_to_film == '1' ? 'selected' : ''}}>Yes</option>
+                                <option value='0' {{@$user->userProfile->available_to_film == '0' ? 'selected' : ''}}>No</option>
                         </select>
+                    </div>
+                    <div class="mb-1 radio-main">
+                        <label>Category</label>
+                        <select class="form-select">
+                            <option></option>
+                            <option> </option>
+                    </select>
                     </div>
                 </div>
 
