@@ -9,6 +9,12 @@ class Genre extends Model
 {
     use HasFactory;
     protected $fillable = [
-                    'title',
+        'title',
     ];
+
+    public function UserProfile()
+    {
+        return $this->belongsTo(UserProfile::class, 'genres_id', 'id');
+
+    }
 }

@@ -40,4 +40,9 @@ class UserProfile extends Model
         return $this->belongsTo(User::class, 'user_id', 'id');
 
     }
+
+    public function Genre()
+    {
+        return $this->hasOne(Genre::class, 'genres_id', 'id');
+    }
 }

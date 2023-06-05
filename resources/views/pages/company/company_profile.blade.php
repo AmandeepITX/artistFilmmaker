@@ -83,7 +83,7 @@
                         <label>State</label>
                         <select class="form-select" name="state" value ="{{@$user->userProfile->state}}">
                             @foreach ($state as $show)
-                                <option value = "{{@$user->userProfile->state}}" >{{ $show->state_name }}</option>
+                                <option value = "{{$show->state_name}}" @if (@$user->userProfile->state == $show->state_name) selected @endif >{{ $show->state_name }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -153,9 +153,10 @@
                     </div>
                     <div class="mb-1 radio-main">
                         <label>Genre</label>
-                        <select class="form-select">
-                            <option>Rock</option>
-                            <option> </option>
+                        <select class="form-select" name = "genres_id" value={{$user->userProfile->genres_id}}>
+                            @foreach($genres as $genre)
+                            <option value= "{{$genre->id}}" @if(@$user->userProfile->genres_id == $genre->id) selected @endif>{{$genre->title}}</option>
+                            @endforeach
                     </select>
                     </div>
                 </div>

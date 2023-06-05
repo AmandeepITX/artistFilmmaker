@@ -21,12 +21,20 @@
                     <div class="col-md-5 sm-px-3">
                         <!-- <input type="search" class="form-control my-0" placeholder="search by city,name,zipcode etc.." > -->
                         <form class="search-form">
-                            <input type="search" class="form-control my-0" placeholder="Search by name, zip code & role"
-                                wire:model="searchTerm" placeholder="Search" class="searchTerm">
+                            <input type="search" class="form-control my-0"
+                                placeholder="Search by name, zip code & role" wire:model="searchTerm"
+                                placeholder="Search" class="searchTerm">
                             <button class="search-btn"><img src="./img/search.png"></button>
                         </form>
                     </div>
                 </div>
+
+                <select value="">
+                    <option>Filter by genre</option>
+                    @foreach ($genreTypes as $genreType)
+                        <option> {{ $genreType->title }}</option>
+                    @endforeach
+                </select>
                 {{-- <select value = "{{$users->user_type}}">
                     <option value = 'filmmaker' {{$users->user_type == 'filmmaker' ? 'selected' :''}}> Film Maker </option>
                     <option value = 'artist' {{$users->user_type == 'artist' ? 'selected' : ''}}> Artist </option>
