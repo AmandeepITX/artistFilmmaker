@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Deals;
 use Livewire\Component;
 use Livewire\WithPagination;
 use App\Models\CompanyDeals;
+use App\Models\Genre;
 use App\Models\Industry;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
@@ -32,7 +33,7 @@ class DealsIndex extends Component
 
     public function render()
     {
-        // $userDetails = User::whereNot('user_type' == 'admin')->get();
+        $genreTypes = Genre::all();
 
         $showList = User::query();
 
@@ -62,7 +63,7 @@ class DealsIndex extends Component
             ->orderBy('id', 'desc')
             ->get();
             // dd( $showList);
-        return view('livewire.deals.deals-index', ['users' => $showList]);
+        return view('livewire.deals.deals-index', ['users' => $showList, 'genreTypes' => $genreTypes]);
     }
 
     /**

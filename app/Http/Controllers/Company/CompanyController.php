@@ -21,6 +21,7 @@ use Illuminate\Support\Facades\Response;
 use App\Models\SettingsModel;
 use App\Models\UserProfile;
 use NunoMaduro\Collision\Adapters\Phpunit\State as PhpunitState;;
+
 use App\Models\Genre;
 
 class CompanyController extends Controller
@@ -77,7 +78,6 @@ class CompanyController extends Controller
                 'first_name' => 'required|max:100',
                 'last_name' => 'required|max:100',
                 'website' => 'required|url',
-                // 'media_url' => 'required|url',
                 'facebook_link' => 'nullable|url',
                 'youtube_link' => 'nullable|url',
                 'instagram_link' => 'nullable|url',
@@ -104,7 +104,7 @@ class CompanyController extends Controller
 
         $userProfile = UserProfile::where(['user_id' => $user->id])->first();
         if ($userProfile) {
-
+            $userProfile->genres_id = $request->genres_id;
             $userProfile->city = $request->city;
             $userProfile->state = $request->state;
             $userProfile->zip_code = $request->zip_code;
@@ -140,6 +140,7 @@ class CompanyController extends Controller
 
             $userProfile = new UserProfile;
             $userProfile->user_id = $user->id;
+            $userProfile->genres_id = $request->genres_id;
             $userProfile->city = $request->city;
             $userProfile->state = $request->state;
             $userProfile->zip_code = $request->zip_code;
