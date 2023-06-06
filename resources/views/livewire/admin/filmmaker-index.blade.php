@@ -22,7 +22,7 @@
                 @foreach($filmmakers as $company)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
-                    <td>{{ $company->name }}</td>
+                    <td>{{ $company->first_name }}</td>
                     <td>{{ $company->email }}</td>
                     <td>{{ $company->created_at->format('M d, Y') }}</td>
                     <td>
