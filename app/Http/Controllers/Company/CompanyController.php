@@ -86,8 +86,8 @@ class CompanyController extends Controller
                 'zip_code' => 'required',
             ],
             [
-                'first_name.required' => 'The first_name field is required.',
-                'last_name.required' => 'The last_name field is required.',
+                'first_name.required' => 'The first name field is required.',
+                'last_name.required' => 'The last name field is required.',
             ]
         );
 
