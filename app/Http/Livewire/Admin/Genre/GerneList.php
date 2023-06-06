@@ -13,8 +13,12 @@ class GerneList extends Component
     public $updateMode = false;
     protected $listeners = ['delete'];
 
+
     public function addGenreTypes()
     {
+        $validateData = $this->validate([
+            'title' => 'required',
+        ]);
         $types = new Genre;
         $types->title = $this->title;
         $types->save();
@@ -26,7 +30,6 @@ class GerneList extends Component
     public function edit($id)
     {
         $this->updateMode = true;
-
         $genreEdit = Genre::find($id);
         $this->userId = $genreEdit->id;
         $this->title = $genreEdit->title;
@@ -34,6 +37,11 @@ class GerneList extends Component
 
     public function updateGenreTypes()
     {
+        $validateData = $this->validate([
+            'title' => 'required',
+        ]);
+
+
         if ($this->userId) {
             $user = Genre::find($this->userId);
             $user->title = $this->title;
@@ -50,7 +58,7 @@ class GerneList extends Component
     {
         $this->userId = $id;
 
-        $this->alert('', 'Are you sure do want to delete team member?', [
+        $this->alert('', 'Are you sure do want to delete?', [
 			'toast' => false,
 			'position' => 'center',
 			'showCancelButton' => true,

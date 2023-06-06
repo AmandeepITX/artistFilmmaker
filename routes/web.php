@@ -36,7 +36,7 @@ Route::get('/logout', function () {
 
 Route::get('/', [CommonController::class, 'home'])->name('home');
 Route::get('/member-directory', [CommonController::class, 'disFreSerView'])->name('discounts-free-services');
-Route::get('/profilePage',[CommonController::class, 'profilePage'])->name('profilePage');
+Route::get('/profilePage', [CommonController::class, 'profilePage'])->name('profilePage');
 Route::get('/contact-us', [CommonController::class, 'contactView'])->name('contact-us');
 Route::post('/contact-store', [CommonController::class, 'contactStore'])->name('contact-store');
 Route::get('/about-ahap', [CommonController::class, 'aboutView'])->name('about-ahap');
@@ -50,24 +50,26 @@ Route::get('/user-signup', [AuthController::class, 'userSignUp'])->name('user-si
 Route::middleware(['auth', 'verified'])->group(function () {
     // Admin Panel
     Route::group(['middleware' => ['role:admin']], function () {
-        Route::get('/dashboard', [AdminController::class, 'adminDashboard'])->name('admin-dashboard');
-        Route::get('/user-index', [AdminController::class, 'userListing'])->name('user-index');
-        Route::get('/users', [AdminController::class, 'companyListing'])->name('company-index');
-        Route::get('/filmmaker', [AdminController::class, 'filmmakerListing'])->name('filmaker-index');
-        Route::get('/category-index', [AdminController::class, 'categoryListing'])->name('category-index');
-        Route::get('/subcategory-index/{id}', [AdminController::class, 'subcategoryListing'])->name('subcategory-index');
-        Route::get('/settings', [AdminController::class, 'settings'])->name('settings');
-        Route::get('/genre-index',GerneList::class)->name('genre-index');
+        Route::prefix('admin')->group(function () {
+            Route::get('/dashboard', [AdminController::class, 'adminDashboard'])->name('admin-dashboard');
+            Route::get('/user-index', [AdminController::class, 'userListing'])->name('user-index');
+            Route::get('/artist', [AdminController::class, 'companyListing'])->name('company-index');
+            Route::get('/filmmaker', [AdminController::class, 'filmmakerListing'])->name('filmaker-index');
+            Route::get('/category-index', [AdminController::class, 'categoryListing'])->name('category-index');
+            Route::get('/subcategory-index/{id}', [AdminController::class, 'subcategoryListing'])->name('subcategory-index');
+            Route::get('/settings', [AdminController::class, 'settings'])->name('settings');
+            Route::get('/genre', GerneList::class)->name('genre-index');
 
-        Route::get('/industries', function(){
-            return view('pages.admin.pages.industry.index');
-        })->name('admin.industry.index');
-        Route::get('/chamber-members', function(){
-            return view('pages.admin.pages.member.chamberMember');
-        })->name('admin.member.index');
-        Route::get('/states', function () {
-            return view('pages.admin.pages.states.index');
-        })->name('admin.states.index');
+            Route::get('/industries', function () {
+                return view('pages.admin.pages.industry.index');
+            })->name('admin.industry.index');
+            Route::get('/chamber-members', function () {
+                return view('pages.admin.pages.member.chamberMember');
+            })->name('admin.member.index');
+            Route::get('/states', function () {
+                return view('pages.admin.pages.states.index');
+            })->name('admin.states.index');
+        });
     });
 
     // User Panel artist
@@ -92,6 +94,4 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::post('/update-deal/{id}', [CompanyController::class, 'updateDeal'])->name('update-deal');
         Route::get('/delete_deal/{id}', [CompanyController::class, 'deleteDeal'])->name('delete_deal');
     });
-
-
 });
