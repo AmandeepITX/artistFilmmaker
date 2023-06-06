@@ -43,8 +43,8 @@ class CompanyController extends Controller
 
     public function changePassView()
     {
-        $settings = SettingsModel::first();
-        return view('pages.company.password_change', \compact('settings'));
+        // $settings = SettingsModel::first();
+        return view('pages.company.password_change');
     }
 
     public function changePassUpdate(Request $request)
@@ -118,7 +118,6 @@ class CompanyController extends Controller
             $userProfile->youtube_link = $request->youtube_link;
 
             if (@$request->profileCroplogo && !empty($request->profileCroplogo)) {
-                // dd('new');
                 $folderPath = "uploads/filmmaker/";
                 $base64Image = explode(";base64,", $request->profileCroplogo);
                 $explodeImage = explode("image/", $base64Image[0]);
@@ -154,7 +153,6 @@ class CompanyController extends Controller
             $userProfile->youtube_link = $request->youtube_link;
 
             if (@$request->profileCroplogo && !empty($request->profileCroplogo)) {
-                // dd('new');
                 $folderPath = "uploads/filmmaker/";
                 $base64Image = explode(";base64,", $request->profileCroplogo);
                 $explodeImage = explode("image/", $base64Image[0]);
