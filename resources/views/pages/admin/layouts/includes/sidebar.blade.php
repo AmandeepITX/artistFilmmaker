@@ -99,14 +99,14 @@
                         </p>
                     </a>
                 </li> --}}
-                  <li class="nav-item">
+                  {{-- <li class="nav-item">
                     <a class="nav-link{{ request()->routeIs('settings') ? ' active' : '' }}" href="{{ route('settings') }}">
                         <i class="nav-icon far fa-plus-square"></i>
                         <p>
                             Settings
                         </p>
                     </a>
-                </li>
+                </li> --}}
 
                 <li class="nav-item">
                     <a class="nav-link{{ request()->routeIs('logout') ? ' active' : '' }}" href="{{ route('user-index') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">

@@ -4,7 +4,7 @@
 
         <ul>
 
-            @if (Auth::user()->user_type == 'company')
+            @if (Auth::user()->user_type == 'filmmaker')
 
 
 
@@ -38,7 +38,7 @@
 
             <!--@endif-->
 
-            <li><a class="{{ request()->routeIs('change-company-password') ? ' active' : '' }}" href="{{ route('change-company-password') }}">
+            <li><a class="{{ request()->routeIs('change-user-password') ? ' active' : '' }}" href="{{ route('change-user-password') }}">
 
                     CHANGE PASSWORD</a></li>
 
