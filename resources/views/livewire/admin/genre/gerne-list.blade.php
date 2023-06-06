@@ -4,18 +4,19 @@
         <div class="content-header">
             <div class="container-fluid">
                 <div class="row mb-2">
-                    <div class="col-sm-6">
+                    <div class="col-sm-12">
+                        <div class="genre-title">
                         <h1 class="m-0">Genre</h1>
 
                         <!-- Button trigger modal -->
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
                             Add
                         </button>
-
+</div>
                         <!-- The Modal -->
                         <div wire:ignore class="modal" id="myModal">
                             <div class="modal-dialog">
-                                <div class="modal-content">
+                                <div class="modal-content gn-modal">
 
                                     <!-- Modal Header -->
                                     <div class="modal-header">
@@ -24,8 +25,8 @@
                                     </div>
 
                                     <!-- Modal body -->
-                                    <div class="modal-body">
-                                        {{-- <label></label> --}}
+                                    <div class="modal-body ">
+                                         <label>Title</label>
                                         <input type="text" wire:model="title">
                                     </div>
 
@@ -48,7 +49,7 @@
                                     <tr>
                                         <th>No.</th>
                                         <th>Title</th>
-                                        <th>Action </th>
+                                        <th class="cus-action">Action </th>
 
                                     </tr>
 
@@ -78,11 +79,11 @@
     </div>
 
 
-{{-- @dd(@$genreEdit->title); --}}
+
 {{-- //Edit-Model --}}
     <div wire:ignore class="modal" id="editModal">
         <div class="modal-dialog">
-            <div class="modal-content">
+            <div class="modal-content gn-modal">
 
                 <!-- Modal Header -->
                 <div class="modal-header">
@@ -91,8 +92,8 @@
                 </div>
 
                 <!-- Modal body -->
-                <div class="modal-body">
-                    {{-- <label></label> --}}
+                <div class="modal-body ">
+                    <label>Title</label>
                     <input type="text" wire:model="title">
                 </div>
 
@@ -108,3 +109,27 @@
         </div>
     </div>
 </div>
+<style>
+    .cus-action {
+    width: 15%;
+}
+.genre-title {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0px;
+}
+.gn-modal input {
+    width: 100%;
+    width: 100%;
+    height: 44px;
+    border-radius: 8px;
+    border: 2px solid #e0e0e0;
+    margin: 10px 0;
+}
+.gn-modal .modal-footer {
+    border-top: 0px;
+}
+.gn-modal .modal-header {
+    border-bottom: 0px;
+}
+</style>
