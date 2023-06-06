@@ -3,7 +3,7 @@
 @section('content')
 <div class="discounts-services">
     <div class="">
-        
+
         @livewire('deals.deals-index')
         <div class="business-bottom-section">
             <div class="container">
