@@ -31,8 +31,8 @@ class UserController extends Controller
     public function changePassView()
     {
         $user = User::where('id', Auth::user()->id);
-        $settings = SettingsModel::first();
-        return view('pages.user.password_change', \compact('user', 'settings'));
+        // $settings = SettingsModel::first();
+        return view('pages.user.password_change', \compact('user'));
     }
 
     public function changePassUpdate(Request $request)
