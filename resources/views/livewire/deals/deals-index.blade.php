@@ -20,7 +20,7 @@
                     <select class="filter-dropdown" wire:model="searchUserType">
                     <option value = 'filmmaker'> Film Maker </option>
                     <option value = 'artist'> Artist </option>
-                </select>  
+                </select>
                 </div>--}}
                 <div class="col-md-4 search-form">
                     <select class="filter-dropdown" id="genre-filter" wire:model="searchGenre" wire:loading.attr="disabled" wire:target="searchGenre">
@@ -43,31 +43,6 @@
     </div>
 </div>
 
-<<<<<<< HEAD
-@if (count($users) > 0)
-<div class="container">
-    <div class="row member-cards pt-5">
-        @foreach ($users as $user)
-        <div class="col-md-6 col-lg-3">
-            <div class="card deals-card">
-                <div class="card-img">
-                    @if (empty($user->userProfile->image))
-                    <img src="https://via.placeholder.com/300?text=Black Chamber Network" class="card-img-top" alt="...">
-                    @else
-                    <img src="{{ asset('uploads/filmmaker/' . @$user->userProfile->image) }}" {{--   onerror="this.src='https://via.placeholder.com/300?text=Black Chamber Network'" --}} class="card-img-top" alt="...">
-                    @endif
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title">{{ $user->first_name }}</h5>
-                    {{-- <h5 class="card-title">{{ $user->user_type }}</h5> --}}
-                    <span class="">{{ @$user->userProfile->city }}</span>
-                    <span class="">{{ @$user->userProfile->state }}</span>
-                    <span class="">{{ @$user->userProfile->zip_code }}</span>
-                    {{-- <span class="">{{ @$user->userProfile->genres_id }}</span> --}}
-                    <span class="">{{ @$user->userProfile->Genre->title }}</span>
-                    <span class="">{{ $user->website }}</span>
-                    {{-- @php
-=======
     @if (count($users) > 0)
         <div class="container">
             <div class="row member-cards pt-5">
@@ -97,7 +72,6 @@
                                 <span class="">{{ @$user->userProfile->Genre->title }}</span>
                                 <span class="">{{ $user->website }}</span>
                                 {{-- @php
->>>>>>> b1006b88644313278d1f7feb927a6adc110661e3
                                     //$industrysId = explode(',', $show->industry ?? []);
                                     //$industrys = App\models\Industry::whereIn('id', $industrysId)->get();
                                 @endphp
@@ -127,8 +101,4 @@
 
 <style>
 
-<<<<<<< HEAD
 </style>
-=======
-</style>
->>>>>>> b1006b88644313278d1f7feb927a6adc110661e3
