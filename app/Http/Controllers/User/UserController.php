@@ -11,26 +11,28 @@ use Illuminate\Support\Facades\Hash;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Storage;
 use App\Models\SettingsModel;
-
+use App\Models\state;
+use App\Models\UserProfile;
 
 class UserController extends Controller
 {
 
-    public function profilePage(){
+    public function profilePage()
+    {
         return view('ad');
     }
     public function userProfile()
     {
         $user = User::find(Auth::user()->id);
-        // $settings=SettingsModel::first();
-        return view('pages.user.user_profile', \compact('user'));
+        $state = State::all();
+        return view('pages.user.user_profile', \compact('user', 'state'));
     }
 
     public function changePassView()
     {
         $user = User::where('id', Auth::user()->id);
-        $settings=SettingsModel::first();
-        return view('pages.user.password_change', \compact('user','settings'));
+        $settings = SettingsModel::first();
+        return view('pages.user.password_change', \compact('user', 'settings'));
     }
 
     public function changePassUpdate(Request $request)
@@ -61,44 +63,89 @@ class UserController extends Controller
 
     public function userProfileUpdate(Request $request)
     {
+        // dd($request);
         $request->validate(
             [
-                'name' => ['required', 'string', 'max:255'],
-                'email' => [
-                    'required', 'string', 'email', 'max:255'
-                ],
-                'website' => ['required', 'url'],
-                'media_url' => ['required', 'url'],
+                'first_name' => 'required|max:100',
+                'last_name' => 'required|max:100',
+                'website' => 'required|url',
+                'facebook_link' => 'nullable|url',
+                'youtube_link' => 'nullable|url',
+                'instagram_link' => 'nullable|url',
+                'twitter_link' => 'nullable|url',
             ],
             [
-
-                'name.required' => 'First name is Required',
-                'website.required' => 'Website is Required',
-                'media_url.required' => 'Media URl is Required',
-
+                'first_name.required' => 'The first_name field is required.',
+                'last_name.required' => 'The last_name field is required.',
             ]
         );
 
-        $user = User::where('id', Auth::user()->id)->first();
 
-        if ($request->hasfile('image')) {
+        $user = Auth::user();
+        $user_id = $user->id;
+        $user = User::find($user_id);
+        $user->first_name = $request->first_name;
+        $user->last_name = $request->last_name;
+        $user->website = $request->website;
+        $user->save();
 
-            $file = $request->file('image');
+        $userProfile = UserProfile::where(['user_id' => $user->id])->first();
+        if ($userProfile) {
+            $userProfile->city = $request->city;
+            $userProfile->state = $request->state;
+            $userProfile->zip_code = $request->zip_code;
+            $userProfile->bio_info = $request->bio_info;
+            $userProfile->seekin_filmmaker = $request->seekin_filmmaker;
+            $userProfile->facebook_link = $request->facebook_link;
+            $userProfile->twitter_link = $request->twitter_link;
+            $userProfile->instagram_link = $request->instagram_link;
+            $userProfile->youtube_link = $request->youtube_link;
 
-            $path = 'uploads/artist/';
+            $userProfile->save();
+        } else {
 
-            if (!is_dir($path)) {
-                mkdir($path, 0775, true);
-                chown($path, exec('whoami'));
-            }
+            $userProfile = new UserProfile;
+            $userProfile->user_id = $user->id;
+            $userProfile->genres_id = $request->genres_id;
+            $userProfile->city = $request->city;
+            $userProfile->state = $request->state;
+            $userProfile->zip_code = $request->zip_code;
+            $userProfile->bio_info = $request->bio_info;
+            $userProfile->seekin_filmmaker = $request->seekin_filmmaker;
+            $userProfile->facebook_link = $request->facebook_link;
+            $userProfile->twitter_link = $request->twitter_link;
+            $userProfile->instagram_link = $request->instagram_link;
+            $userProfile->youtube_link = $request->youtube_link;
 
-            $new_file = auth()->user()->id . uniqid(time()) . '.' . $file->getClientOriginalExtension();
-            $file->move($path, $new_file);
 
-
-
-            $user->image = $new_file;
+            $userProfile->save();
         }
+
+
+
+
+
+
+        // $user = User::where('id', Auth::user()->id)->first();
+
+        // if ($request->hasfile('image')) {
+
+        //     $file = $request->file('image');
+
+        //     $path = 'uploads/artist/';
+
+        //     if (!is_dir($path)) {
+        //         mkdir($path, 0775, true);
+        //         chown($path, exec('whoami'));
+        //     }
+
+        //     $new_file = auth()->user()->id . uniqid(time()) . '.' . $file->getClientOriginalExtension();
+        //     $file->move($path, $new_file);
+
+
+
+        //     $user->image = $new_file;
+        // }
 
         // if ($request->hasfile('headshot_card')) {
 
@@ -138,26 +185,26 @@ class UserController extends Controller
 
 
 
-        if (@$request->profileCroplogo && !empty($request->profileCroplogo)) {
-            // dd('new');
-            $folderPath = "uploads/filmmaker/";
-            $base64Image = explode(";base64,", $request->profileCroplogo);
-            $explodeImage = explode("image/", $base64Image[0]);
-            $imageType = $explodeImage[1];
-            $image_base64 = base64_decode($base64Image[1]);
-            $file = $folderPath . uniqid() . '.' . $imageType;
-            $success = file_put_contents($file, $image_base64);
-            // $companyDeals->profile_image = $file;
-        }
+        // if (@$request->profileCroplogo && !empty($request->profileCroplogo)) {
+        //     // dd('new');
+        //     $folderPath = "uploads/filmmaker/";
+        //     $base64Image = explode(";base64,", $request->profileCroplogo);
+        //     $explodeImage = explode("image/", $base64Image[0]);
+        //     $imageType = $explodeImage[1];
+        //     $image_base64 = base64_decode($base64Image[1]);
+        //     $file = $folderPath . uniqid() . '.' . $imageType;
+        //     $success = file_put_contents($file, $image_base64);
+        //     // $companyDeals->profile_image = $file;
+        // }
 
 
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->website = $request->website;
-        $user->media_url = $request->media_url;
-        $user->bio_info = $request->bio_info;
+        // $user->name = $request->name;
+        // $user->email = $request->email;
+        // $user->website = $request->website;
+        // $user->media_url = $request->media_url;
+        // $user->bio_info = $request->bio_info;
 
-        $user->save();
+        // $user->save();
 
 
         if ($user) {
@@ -169,9 +216,9 @@ class UserController extends Controller
         }
     }
 
-      public function heroCard()
+    public function heroCard()
     {
-    //    $settings=SettingsModel::first();
+        //    $settings=SettingsModel::first();
         $users = User::find(Auth::user()->id);
         return view('pages.user.hero_card', \compact('users'));
     }
