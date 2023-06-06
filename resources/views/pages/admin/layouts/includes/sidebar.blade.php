@@ -35,7 +35,7 @@
                     <a class="nav-link{{ request()->routeIs('company-index') ? ' active' : '' }}" href="{{ route('company-index') }}">
                         <i class="nav-icon far fa-plus-square"></i>
                         <p>
-                            User Listing
+                            Artist Listing
                             <!-- <i class="fas fa-angle-left right"></i> -->
                         </p>
                     </a>

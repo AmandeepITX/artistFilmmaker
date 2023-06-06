@@ -79,7 +79,6 @@
                     </div>
                 </div>
 
-
                 <div class="row">
                     <div class="col-md-12">
                         <label>Bio Information</label>
@@ -140,23 +139,29 @@
                         </div>
                         <div class="col-md-3 Upload-img">
 
-                            <input type="file" class="real-file" id="other_id" name="image"
-                                value="{{ @$user->image }}" hidden="hidden">
+                            <input type="file" class="real-file" id="other_id" name="image" value="{{ @$user->userProfile->image }}" hidden="hidden">
+
                             <a type="button" class="custom-button" onclick="openfileDialog()">UPDATE IMAGE</a><br>
                             {{-- <span class="custom-text" id="other_text">No file chosen.</span> --}}
                             <div class="custom-text" id="other_text1"></div>
 
                         </div>
 
-                        @if (@$user->image)
+                        @if (@$user->userProfile->image)
                             <div class="col-md-3 Upload-img">
 
-                                <img id="other_id_preview" src="{{ asset('uploads/artist/' . $user->image) }}"
+                                <img id="other_id_preview"
+                                    src="{{ asset('uploads/artist/' . $user->userProfile->image) }}"
                                     style="height: 80px; width:80px">
                             </div>
                         @endif
 
                     </div>
+
+
+
+
+
                     {{-- <div class="row ">
                 <div class="col-md-3">
                     <p>Headshot for your card</p>
@@ -213,7 +218,6 @@
         });
 
 
-
         function openfileDialog() {
             $("#other_id").click();
         }
@@ -259,7 +263,6 @@
             $("#headshot_card").click();
         }
         $(document).ready(function(e) {
-
 
             $('#headshot_card').change(function() {
                 var file = $("#headshot_card")[0].files[0];

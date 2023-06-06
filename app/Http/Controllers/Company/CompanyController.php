@@ -82,6 +82,8 @@ class CompanyController extends Controller
                 'youtube_link' => 'nullable|url',
                 'instagram_link' => 'nullable|url',
                 'twitter_link' => 'nullable|url',
+                'city' => 'required',
+                'zip_code' => 'required',
             ],
             [
                 'first_name.required' => 'The first_name field is required.',
