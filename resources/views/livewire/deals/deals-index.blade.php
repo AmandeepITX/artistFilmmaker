@@ -16,34 +16,36 @@
                     @endforeach
                     </select>
                 </div> --}}
-                 <div class="col-md-4 search-form">
+                    <div class="col-md-4 search-form">
 
-                    <select class="filter-dropdown" wire:model="searchUserType" >
-                        <option> User Roles </option>
-                    <option value = 'filmmaker'> Film Maker </option>
-                    <option value = 'artist'> Artist </option>
-                </select>
-                </div>
-                <div class="col-md-4 search-form">
-                    <select class="filter-dropdown" id="genre-filter" wire:model="searchGenre" wire:loading.attr="disabled" wire:target="searchGenre">
-                        <option>Filter by genre</option>
+                        <select class="filter-dropdown" wire:model="searchUserType">
+                            <option value=''> User Roles </option>
+                            <option value='filmmaker'> Film Maker </option>
+                            <option value='artist'> Artist </option>
+                        </select>
+                    </div>
+                    <div class="col-md-4 search-form">
+                        <select class="filter-dropdown" id="genre-filter" wire:model="searchGenre"
+                            wire:loading.attr="disabled" wire:target="searchGenre">
+                            <option value=''>Filter by genre</option>
 
-                        @foreach ($genreTypes as $genreType)
-                        <option value="{{ $genreType->id }}">{{ $genreType->title }}</option>
-                        @endforeach
-                    </select>
-                </div>
-                <div class="col-md-4 sm-px-3">
-                    <!-- <input type="search" class="form-control my-0" placeholder="search by city,name,zipcode etc.." > -->
-                    <form class="search-form">
-                        <input type="search" class="form-control my-0" placeholder="Search by name, zip code" wire:model="searchTerm" placeholder="Search" class="searchTerm">
-                        <button class="search-btn"><img src="./img/search.png"></button>
-                    </form>
+                            @foreach ($genreTypes as $genreType)
+                                <option value="{{ $genreType->id }}">{{ $genreType->title }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="col-md-4 sm-px-3">
+                        <!-- <input type="search" class="form-control my-0" placeholder="search by city,name,zipcode etc.." > -->
+                        <form class="search-form">
+                            <input type="search" class="form-control my-0" placeholder="Search by name, zip code"
+                                wire:model="searchTerm" placeholder="Search" class="searchTerm">
+                            <button class="search-btn"><img src="./img/search.png"></button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
     @if (count($users) > 0)
         <div class="container">
@@ -84,21 +86,21 @@
                     @endforeach
                     @endif
                     </span></strong> --}}
-                    <p class="card-text">{{ $user->bio_info }}</p>
-                    <a href="{{ route('profilePage') . '?id=' . $user->id }}" class=" business-btn">View
-                        Profile</a>
-                </div>
+                                <p class="card-text">{{ $user->bio_info }}</p>
+                                <a href="{{ route('profilePage') . '?id=' . $user->id }}" class=" business-btn">View
+                                    Profile</a>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
             </div>
         </div>
-        @endforeach
-    </div>
-</div>
-@else
-<div class=" no-result-text container">
-    <br>
-    <h1>No Result is found</h1>
-</div>
-@endif
+    @else
+        <div class=" no-result-text container">
+            <br>
+            <h1>No Result is found</h1>
+        </div>
+    @endif
 </div>
 
 <style>
