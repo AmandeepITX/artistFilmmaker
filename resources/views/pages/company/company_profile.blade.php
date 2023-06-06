@@ -3,13 +3,13 @@
 @section('content')
 
     <div class="container">
-        <div class="row profile-titel profile-info-tite">
+        <div class="row profile-titel profile-info-tite pb-3 pt-5 mt-4">
             <div class="col-md-12">
                 <h2>Profile Information</h2>
             </div>
         </div>
     </div>
-    <div class=" sign-up profile-info">
+    <div class=" sign-up  ">
         <form method="POST" action="{{ route('add_deal') }}">
             @csrf
             <div class="container" style="width:100%;">
@@ -112,7 +112,7 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-6">
                         <label>Facebook</label>
                         <input type="text" placeholder="facebook url" class="facebook" name="facebook_link"
                             value="{{ @$user->userProfile->facebook_link }}">
@@ -120,7 +120,7 @@
                             <span class="error error-message">{{ $errors->first('facebook_link') }}</span>
                         @endif
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-6">
                         <label>Twitter</label>
                         <input type="text" placeholder="Twitter url" class="twitter_link" name="twitter_link"
                             value="{{ @$user->userProfile->twitter_link }}">
@@ -128,7 +128,7 @@
                             <span class="error error-message">{{ $errors->first('twitter_link') }}</span>
                         @endif
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-6">
                         <label>Youtube</label>
                         <input type="text" placeholder="youtube url" id="youtube_link" name="youtube_link"
                             value="{{ @$user->userProfile->youtube_link }}">
@@ -136,7 +136,7 @@
                             <span class="error error-message">{{ $errors->first('youtube_link') }}</span>
                         @endif
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-6">
                         <label>Instagram</label>
                         <input type="text" placeholder="youtube url" id="instagram_link" name="instagram_link"
                             value="{{ @$user->userProfile->instagram_link }}">
@@ -144,14 +144,14 @@
                             <span class="error error-message">{{ $errors->first('instagram_link') }}</span>
                         @endif
                     </div>
-                    <div class="mb-1 radio-main">
+                    <div class="mb-1  col-md-6">
                         <label>Available to film</label>
                          <select class="form-select" name="available_to_film"  value="{{ @$user->userProfile->available_to_film }}">
                                 <option value='1' {{@$user->userProfile->available_to_film == '1' ? 'selected' : ''}}>Yes</option>
                                 <option value='0' {{@$user->userProfile->available_to_film == '0' ? 'selected' : ''}}>No</option>
                         </select>
                     </div>
-                    <div class="mb-1 radio-main">
+                    <div class="mb-1 col-md-6">
                         <label>Genre</label>
                         <select class="form-select" name = "genres_id" value={{$user->userProfile->genres_id}}>
                             @foreach($genres as $genre)

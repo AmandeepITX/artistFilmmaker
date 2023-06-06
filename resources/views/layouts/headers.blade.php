@@ -4,7 +4,7 @@
          <div class="col-lg-12">
             <nav class="navbar  top-menu-2">
                <a class="navbar-brand" href="#">
-                  <p class="logo"><img src="{{ asset('/img/artist-logomain-1.png') }}"></p>
+                  <div class="logo"><img src="{{ asset('/img/artist-logomain-1.png') }}"></div>
                </a>
                <div class="right-menu-section">
                   @if(!Auth::check())
@@ -38,12 +38,14 @@
                   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                      <span class="navbar-toggler-icon"><img src="{{ asset('/img/menu1.png') }}"></span>
                   </button>
+                 
                </div>
                <div class="collapse navbar-collapse" id="navbarNavDropdown">
                   <ul class="navbar-nav">
                   <li class="close-menu-btn"><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="true" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon">x</span>
-               </button></li>
+               </button>
+               </li>
                      <li class="nav-item">
                         <a class="nav-link{{ request()->routeIs('discounts-free-services') ? ' active' : '' }}" aria-current="page" href="{{ route('discounts-free-services') }}"> Filmmakers & Artist </a>
                      </li>
