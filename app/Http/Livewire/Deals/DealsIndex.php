@@ -49,13 +49,13 @@ class DealsIndex extends Component
             });
         }
 
-        // if($this->searchUserType){
-        //     $search =$this->searchUserType;
-        //     $showList = $showList->where(function ($query) use ($search) {
-        //         $query->where('user_type', 'like', '%' . $search . '%');
+        if($this->searchUserType){
+            $search =$this->searchUserType;
+            $showList = $showList->where(function ($query) use ($search) {
+                $query->where('user_type', 'like', '%' . $search . '%');
 
-        //     });
-        // }
+            });
+        }
 
         if ($this->searchTerm) {
             $search = $this->searchTerm;
