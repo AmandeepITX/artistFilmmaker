@@ -33,7 +33,7 @@ class CreateNewUser implements CreatesNewUsers
     public function create(array $input)
     {
         // dd($input);
-        // $this->validationCheck($input);
+        $this->validationCheck($input);
 
         // if ($input["user_type"] == "filmmaker") {
         //     if ($input['croplogo'] && !empty($input['croplogo'])) {
