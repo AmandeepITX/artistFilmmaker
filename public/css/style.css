@@ -168,6 +168,7 @@ label {
     font-family: 'Fjalla One';
     font-size: 18px;
     color: #111;
+    margin-top: 15px;
 }
 
 button:focus:not(:focus-visible) {
@@ -1033,8 +1034,8 @@ form.login-form {
 .alert.alert-dark {
     position: relative;
     left: -15px;
+    top: 25px;
 }
-
 .art-submit-btn {
     display: flex;
     justify-content: center;
@@ -1072,7 +1073,7 @@ button.btn.btn-warning {
     border-radius: 8px;
     background-color: #FF00DD;
     font-size: 20px;
-    color: #000;
+    color: #fff;
     font-weight: 500;
     font-family: 'Mohave', sans-serif;
     text-align: center;
@@ -1778,10 +1779,6 @@ text-decoration: underline !important;
 
 /* footer end*/
 
-.alert-dark {
-    position: relative !important;
-    top: 71px !important;
-}
 
 p.alert.alert-info {
     top: 20px !important;
@@ -1997,7 +1994,10 @@ p.alert.alert-info {
 
 .alert-dark h3 {
     color: #dc0000;
-
+    margin: 0px;
+    font-family: 'Roboto';
+    font-size: 25px;
+    font-weight: 600;
 }
 
 .businessform {
@@ -2435,8 +2435,7 @@ svg {
 
 
 .profile-titel {
-    background: #f8f8f8;
-    padding: 60px 0px;
+    padding: 40px 0px 0px;
 }
 
 .profile-titel h2 {
@@ -2608,7 +2607,7 @@ form.search-form input.form-control.my-0 {
 
 button.search-btn {
     border: none;
-    background: #EDAB24;
+    background: #FF00DD;
     width: 60px;
     height: 100%;
     border-top-right-radius: 10px;
@@ -2732,7 +2731,7 @@ form.home-search-form {
 }
 
 .business-section {
-    border-bottom: 2px solid #EDAB23;
+    border-bottom: 2px solid #FF00DD;
     margin-bottom: 35px;
     margin-top: 20px;
     display: flex;
@@ -2875,19 +2874,9 @@ i.fa.fa-star.checked {
     border-radius: 0px 5px 5px 0px;
 }
 
-.profile-info-tite {
-    position: absolute;
-    left: 0;
-    width: 100.9%;
-    top: 0;
-}
-
-.profile-info-tite h2 {
-    padding-left: 120px;
-}
 
 .profile-info {
-    padding-top: 220px;
+    padding-top: 60px;
 }
 
 .web-link {
@@ -2926,7 +2915,7 @@ i.fa.fa-star.checked {
 
 .text-box a:hover,
 .profile-social-icone a:hover {
-    color: #EDAB23;
+    color: #FF00DD;
 
 }
 
@@ -3024,7 +3013,7 @@ textarea.select2-search__field {
 
 .file-upload {
     border: none !important;
-    width: 200px !important;
+    width: 160px !important
 }
 
 .file-upload:before {
@@ -3088,7 +3077,7 @@ span.select2.select2-container .select2-container--default .select2-container--f
     border: none;
   }
   ul.slick-dots .slick-active button{
-    background-color: #EDAB23;
+    background-color: #FF00DD;
   }
   .card.deals-card {
     margin-right: 10px;
@@ -3125,7 +3114,10 @@ span.select2.select2-container .select2-container--default .select2-container--f
     align-items: center;
     gap: 10px;
 }
-
+.upload-file-sections {
+    display: flex;
+    gap: 20px;
+}
 @media (min-width: 992px) {
     .navbar-expand-lg {
         flex-wrap: nowrap;
