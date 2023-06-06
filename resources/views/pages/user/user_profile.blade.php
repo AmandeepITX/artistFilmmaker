@@ -72,7 +72,7 @@
                     </div>
                     <div class="col-md-4">
                         <label>Zip code</label><br>
-                        <input type="text" id="zip-code" name="zip_code" value="{{ $user->userProfile->zip_code }}">
+                        <input type="text" id="zip-code" name="zip_code" value="{{ @$user->userProfile->zip_code }}">
                         @if ($errors->has('zip_code'))
                             <span class="error error-message">{{ $errors->first('zip_code') }}</span>
                         @endif
@@ -83,7 +83,7 @@
                     <div class="col-md-12">
                         <label>Bio Information</label>
                         <br>
-                        <textarea type="text" class="personalization" name="bio_info" value="{{ $user->userProfile->bio_info }}">{{ $user->userProfile->bio_info }}</textarea>
+                        <textarea type="text" class="personalization" name="bio_info" value="{{ @$user->userProfile->bio_info }}">{{@$user->userProfile->bio_info }}</textarea>
                         @if ($errors->has('bio_info'))
                             <span class="error error-message">{{ $errors->first('bio_info') }}</span>
                         @endif
