@@ -153,7 +153,7 @@
                     </div>
                     <div class="mb-1 col-md-6">
                         <label>Genre</label>
-                        <select class="form-select" name = "genres_id" value={{$user->userProfile->genres_id}}>
+                        <select class="form-select" name = "genres_id" value={{@$user->userProfile->genres_id}}>
                             @foreach($genres as $genre)
                             <option value= "{{$genre->id}}" @if(@$user->userProfile->genres_id == $genre->id) selected @endif>{{$genre->title}}</option>
                             @endforeach

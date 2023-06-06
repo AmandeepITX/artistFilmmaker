@@ -12,18 +12,30 @@
     <div class="row">
         <div class="col-4">
             <label for="exampleInputEmail1">Name</label>
-            <input type="text" class="form-control" id="exampleInputEmail1" wire:model="name">
+            <input type="text" class="form-control" id="exampleInputEmail1" wire:model="first_name">
         </div>
-        <div class="col-4">
+        {{-- <div class="col-4">
             <label for="exampleInputEmail1">Media URl</label>
             <input type="text" class="form-control" id="exampleInputEmail1" wire:model="media_url">
-        </div>
+        </div> --}}
     </div>
 
     <div class="row">
         <div class="">
             <label for="exampleInputEmail1">Website</label>
             <input type="text" class="form-control" id="exampleInputEmail1" wire:model="website">
+        </div>
+    </div>
+    <div class="row">
+        <div class="">
+            <label for="exampleInputEmail1">City</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" wire:model="city">
+        </div>
+    </div>
+    <div class="row">
+        <div class="">
+            <label for="exampleInputEmail1">State</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" wire:model="state">
         </div>
     </div>
 

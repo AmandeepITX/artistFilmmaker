@@ -22,34 +22,27 @@ class CommonController extends Controller
         // $banned = array("Whore", "Hoe", "Slut", "Bitch", "Retarded", "Prostitut", "Wetback", "Nigga", "Nigger", "Niger", "Nigg", "Blackface", "Coon", "Fuk", "Fuck", "Democrat", "Republican", "Pussy", "Dick", "Vagina", "Penis", "Lesbian", "Gay", "Sex", "Gender", "Dumb", "Stupid");
         $request->validate(
             [
-                'f_name' => 'required|max:100',
-                'l_name' => 'required|max:100',
-                'b_name' => 'required',
-                'business_website' => 'required',
-                'business_location' => 'required',
-                'industryname' => 'required',
-                'biggest' => 'required',
+                'name' => 'required|max:100',
+                'email' => 'required|email',
+
 
             ],
             [
-                'f_name.required' => 'The first name field is required.',
-                'l_name.required' => 'The last name field is required.',
-                'b_name.required' => 'The business name field is required.',
-                'business_website.required' => 'The business website field is required.',
-                'business_location.required' => 'The business location field is required.',
-                'industryname.required' => 'The industry field is required.',
-                'biggest.required' => 'The biggest field is required.',
+                'name.required' => 'The name field is required.',
             ]
+
         );
 
         $contact = new ContactUs;
-        $contact->f_name = $request->f_name;
-        $contact->l_name = $request->l_name;
-        $contact->b_name = $request->b_name;
-        $contact->business_website = $request->business_website;
-        $contact->business_location = $request->business_location;
-        $contact->industry = @implode(',', $request->industryname);
-        $contact->biggest = @implode(',', $request->biggest);
+        $contact->name = $request->name;
+        $contact->email = $request->email;
+        $contact->description = $request->description;
+
+        // $contact->b_name = $request->b_name;
+        // $contact->business_website = $request->business_website;
+        // $contact->business_location = $request->business_location;
+        // $contact->industry = @implode(',', $request->industryname);
+        // $contact->biggest = @implode(',', $request->biggest);
         $contact->save();
 
         $adminMail= env('ADMIN_MAIL');

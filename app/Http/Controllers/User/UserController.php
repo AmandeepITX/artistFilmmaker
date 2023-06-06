@@ -31,8 +31,8 @@ class UserController extends Controller
     public function changePassView()
     {
         $user = User::where('id', Auth::user()->id);
-        $settings = SettingsModel::first();
-        return view('pages.user.password_change', \compact('user', 'settings'));
+        // $settings = SettingsModel::first();
+        return view('pages.user.password_change', \compact('user'));
     }
 
     public function changePassUpdate(Request $request)
@@ -101,6 +101,26 @@ class UserController extends Controller
             $userProfile->instagram_link = $request->instagram_link;
             $userProfile->youtube_link = $request->youtube_link;
 
+            if ($request->hasfile('image')) {
+
+                    $file = $request->file('image');
+
+                    $path = 'uploads/artist/';
+
+                    if (!is_dir($path)) {
+                        mkdir($path, 0775, true);
+                        chown($path, exec('whoami'));
+                    }
+
+                    $new_file = auth()->user()->id . uniqid(time()) . '.' . $file->getClientOriginalExtension();
+                    $file->move($path, $new_file);
+
+
+
+                    $userProfile->image = $new_file;
+                }
+
+
             $userProfile->save();
         } else {
 
@@ -117,6 +137,24 @@ class UserController extends Controller
             $userProfile->instagram_link = $request->instagram_link;
             $userProfile->youtube_link = $request->youtube_link;
 
+            if ($request->hasfile('image')) {
+
+                $file = $request->file('image');
+
+                $path = 'uploads/artist/';
+
+                if (!is_dir($path)) {
+                    mkdir($path, 0775, true);
+                    chown($path, exec('whoami'));
+                }
+
+                $new_file = auth()->user()->id . uniqid(time()) . '.' . $file->getClientOriginalExtension();
+                $file->move($path, $new_file);
+
+
+
+                $userProfile->image = $new_file;
+            }
 
             $userProfile->save();
         }

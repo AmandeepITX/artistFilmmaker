@@ -12,7 +12,7 @@ class CompanyIndex extends Component
     use WithPagination;
 
     public $searchTerm;
-    public $user_id, $first_name, $website, $bio_info;
+    public $user_id, $first_name, $website, $bio_info, $city, $state;
 
     public $view_page = false;
 
@@ -52,9 +52,11 @@ class CompanyIndex extends Component
         $user = User::where('id', $id)->first();
 
         $this->user_id = $id;
-        $this->first_name = $user->name;
+        $this->first_name = $user->first_name;
         $this->website = $user->website;
-        $this->bio_info = $user->bio_info;
+        $this->bio_info = $user->userProfile->bio_info;
+        $this->city = $user->userProfile->city;
+        $this->state = $user->userProfile->state;
 
         // $this->username = $user->username;
         // $this->email = $user->email;

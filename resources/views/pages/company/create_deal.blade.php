@@ -27,9 +27,8 @@
                 @if (empty(@$user->userProfile->image))
                     <img src="" style="display: none;" id="dis-pro-img" height="120" width="120">
                 @else
-                    <img src="{{ asset('uploads/filmmaker/'.@$user->userProfile->image) }}" id="dis-pro-img" height="120"
-                        width="120">
-
+                    <img src="{{ asset('uploads/filmmaker/' . @$user->userProfile->image) }}" id="dis-pro-img"
+                        height="120" width="120">
                 @endif
             </div>
 
@@ -101,6 +100,15 @@
             </div>
         </div>
     </div> --}}
-    <button type="submit" class="btn btn-warning mt-2 mb-5">Save</button>
+
+
+
+    @if (Auth::user()->status == 'pending' || Auth::user()->status == 'unapproved')
+        <input type="submit" disabled value="Save">
+    @else
+        {{-- <input type="submit" value="SUBMIT" id=submit> --}}
+        <button type="submit" class="btn btn-warning mt-2 mb-5">Save</button>
+    @endif
+
 </div>
 <!-- </form> -->

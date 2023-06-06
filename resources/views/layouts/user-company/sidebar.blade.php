@@ -38,7 +38,7 @@
 
             <!--@endif-->
 
-            <li><a class="{{ request()->routeIs('change-user-password') ? ' active' : '' }}" href="{{ route('change-user-password') }}">
+            <li><a class="{{ request()->routeIs('change-company-password') ? ' active' : '' }}" href="{{ route('change-company-password') }}">
 
                     CHANGE PASSWORD</a></li>
 
