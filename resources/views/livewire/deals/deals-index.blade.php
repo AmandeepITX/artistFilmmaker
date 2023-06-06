@@ -29,7 +29,8 @@
                     </div>
                 </div>
 
-                <select id="genre-filter" wire:model="searchGenre" wire:loading.attr="disabled" wire:target="searchGenre">
+                <select id="genre-filter" wire:model="searchGenre" wire:loading.attr="disabled"
+                    wire:target="searchGenre">
                     <option>Filter by genre</option>
 
                     @foreach ($genreTypes as $genreType)
@@ -37,10 +38,10 @@
                     @endforeach
                 </select>
 
-                {{-- <select value = "{{$users->user_type}}">
-                    <option value = 'filmmaker' {{$users->user_type == 'filmmaker' ? 'selected' :''}}> Film Maker </option>
-                    <option value = 'artist' {{$users->user_type == 'artist' ? 'selected' : ''}}> Artist </option>
-                </select> --}}
+                 {{-- <select wire:model="searchUserType">
+                    <option value = 'filmmaker'> Film Maker </option>
+                    <option value = 'artist'> Artist </option>
+                </select>  --}}
 
             </div>
         </div>
@@ -101,19 +102,4 @@
 <style>
 
 </style>
-{{-- <script>
-    document.getElementById('genre-filter').addEventListener('change', function() {
-        // debugger;
-        var selectedValue = this.value;
-        var options = document.getElementsByTagName('option');
-                console.log(options);
-        for (var i = 0; i < options.length; i++) {
-            var option = options[i];
-            if (option.textContent === selectedValue) {
-                option.selected = true;
-            } else {
-                option.selected = false;
-            }
-        }
-    });
-</script> --}}
+

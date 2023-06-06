@@ -18,6 +18,7 @@ class DealsIndex extends Component
     use WithPagination;
     public $searchTerm;
     public $searchGenre;
+    public $searchUserType;
     public $searchIndustry;
     public $list;
     public $showList;
@@ -47,6 +48,14 @@ class DealsIndex extends Component
                 $query->where('genres_id', $genre);
             });
         }
+
+        // if($this->searchUserType){
+        //     $search =$this->searchUserType;
+        //     $showList = $showList->where(function ($query) use ($search) {
+        //         $query->where('user_type', 'like', '%' . $search . '%');
+
+        //     });
+        // }
 
         if ($this->searchTerm) {
             $search = $this->searchTerm;
