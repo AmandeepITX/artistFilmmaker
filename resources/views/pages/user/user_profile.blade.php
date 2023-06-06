@@ -4,8 +4,11 @@
 
     <div class=" sign-up" id="signupclient">
         <div class="container">
-
+        <div class="row profile-titel profile-info-tite pb-3 pt-5 mt-4">
+            <div class="col-md-12">
             <h2>Artist Information</h2>
+            </div>
+        </div>
             <form method="POST" action="{{ route('user-profile-update') }}" enctype="multipart/form-data">
                 @csrf
                 @if ($errors->any())
@@ -90,7 +93,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-6">
                         <label>Facebook</label>
                         <input type="text" placeholder="facebook url" class="facebook" name="facebook_link"
                             value="{{ @$user->userProfile->facebook_link }}">
@@ -98,7 +101,7 @@
                             <span class="error error-message">{{ $errors->first('facebook_link') }}</span>
                         @endif
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-6">
                         <label>Twitter</label>
                         <input type="text" placeholder="Twitter url" class="twitter_link" name="twitter_link"
                             value="{{ @$user->userProfile->twitter_link }}">
@@ -106,7 +109,7 @@
                             <span class="error error-message">{{ $errors->first('twitter_link') }}</span>
                         @endif
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-6">
                         <label>Youtube</label>
                         <input type="text" placeholder="youtube url" id="youtube_link" name="youtube_link"
                             value="{{ @$user->userProfile->youtube_link }}">
@@ -114,7 +117,7 @@
                             <span class="error error-message">{{ $errors->first('youtube_link') }}</span>
                         @endif
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-6">
                         <label>Instagram</label>
                         <input type="text" placeholder="youtube url" id="instagram_link" name="instagram_link"
                             value="{{ @$user->userProfile->instagram_link }}">
@@ -122,7 +125,7 @@
                             <span class="error error-message">{{ $errors->first('instagram_link') }}</span>
                         @endif
                     </div>
-                    <div class="mb-1 radio-main">
+                    <div class="mb-1 col-md-6">
                         <label>Seeking a film</label>
                         <select class="form-select" name="seekin_filmmaker"
                             value="{{ @$user->userProfile->seekin_filmmaker }}">
@@ -132,36 +135,28 @@
                             </option>
                         </select>
                     </div>
-                    <div class="row Upload-btn">
-                        <div class="col-md-3">
-                            <p>Image</p>
+                    <div class="col-md-6 Upload-btn">
+                        <div >
+                            <label>Image</label>
                             {{-- <img src="{{"uploads/filmmaker/" .@$user->image}}" id="customerimagePreview"> --}}
                         </div>
-                        <div class="col-md-3 Upload-img">
+                        <div class=" Upload-img">
 
                             <input type="file" class="real-file" id="other_id" name="image" value="{{ @$user->userProfile->image }}" hidden="hidden">
 
-                            <a type="button" class="custom-button" onclick="openfileDialog()">UPDATE IMAGE</a><br>
+                            <a type="button" class="custom-button mt-3" onclick="openfileDialog()">UPDATE IMAGE</a><br>
                             {{-- <span class="custom-text" id="other_text">No file chosen.</span> --}}
                             <div class="custom-text" id="other_text1"></div>
 
                         </div>
-
                         @if (@$user->userProfile->image)
                             <div class="col-md-3 Upload-img">
-
                                 <img id="other_id_preview"
                                     src="{{ asset('uploads/artist/' . $user->userProfile->image) }}"
                                     style="height: 80px; width:80px">
                             </div>
                         @endif
-
                     </div>
-
-
-
-
-
                     {{-- <div class="row ">
                 <div class="col-md-3">
                     <p>Headshot for your card</p>

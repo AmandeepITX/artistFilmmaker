@@ -17,7 +17,7 @@
                 <form action="{{ route('contact-store') }}" method="POST">
                     @csrf
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-8">
                             <input type="text" placeholder="Name" class="first-name" name="name">
                             @if($errors->has('name'))
                             <div class="error error-message">{{ $errors->first('name') }}</div>
@@ -31,7 +31,7 @@
                         </div> --}}
                     </div>
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-8">
                             <input type="text" placeholder="Email" class="email" name="email">
                             @if($errors->has('email'))
                             <div class="error error-message">{{ $errors->first('email') }}</div>
@@ -51,7 +51,7 @@
                         </div> --}}
                     </div>
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-8">
                             <textarea type="text" placeholder="Description" class="first-name" name="description"> </textarea>
                             @if($errors->has('description'))
                             <div class="error error-message">{{ $errors->first('description') }}</div>
