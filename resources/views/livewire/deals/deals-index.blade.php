@@ -21,9 +21,8 @@
                     <div class="col-md-5 sm-px-3">
                         <!-- <input type="search" class="form-control my-0" placeholder="search by city,name,zipcode etc.." > -->
                         <form class="search-form">
-                            <input type="search" class="form-control my-0"
-                                placeholder="Search by name, zip code & role" wire:model="searchTerm"
-                                placeholder="Search" class="searchTerm">
+                            <input type="search" class="form-control my-0" placeholder="Search by name, zip code "
+                                wire:model="searchTerm" placeholder="Search" class="searchTerm">
                             <button class="search-btn"><img src="./img/search.png"></button>
                         </form>
                     </div>
@@ -38,7 +37,7 @@
                     @endforeach
                 </select>
 
-                 {{-- <select wire:model="searchUserType">
+                {{-- <select wire:model="searchUserType">
                     <option value = 'filmmaker'> Film Maker </option>
                     <option value = 'artist'> Artist </option>
                 </select>  --}}
@@ -58,8 +57,12 @@
                                     <img src="https://via.placeholder.com/300?text=Black Chamber Network"
                                         class="card-img-top" alt="...">
                                 @else
-                                    <img src="{{ asset('uploads/filmmaker/' . @$user->userProfile->image) }}"
-                                        {{--   onerror="this.src='https://via.placeholder.com/300?text=Black Chamber Network'" --}} class="card-img-top" alt="...">
+                                    @if ($user->user_type == 'filmmaker')
+                                        <img src="{{ asset('uploads/filmmaker/' . @$user->userProfile->image) }}"
+                                            {{--   onerror="this.src='https://via.placeholder.com/300?text=Black Chamber Network'" --}} class="card-img-top" alt="...">
+                                    @elseif ($user->user_type == 'artist')
+                                        <img src="{{ asset('uploads/artist/' . @$user->userProfile->image) }}">
+                                    @endif
                                 @endif
                             </div>
                             <div class="card-body">
@@ -102,4 +105,3 @@
 <style>
 
 </style>
-
