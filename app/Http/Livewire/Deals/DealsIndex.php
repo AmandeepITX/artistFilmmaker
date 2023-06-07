@@ -16,6 +16,8 @@ class DealsIndex extends Component
 {
 
     use WithPagination;
+
+    protected $paginationTheme = 'bootstrap';
     public $searchTerm;
     public $searchGenre;
     public $searchUserType;
