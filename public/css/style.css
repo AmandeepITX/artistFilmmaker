@@ -345,7 +345,7 @@ ul.navbar-nav {
 
 .right-menu-section {
     display: flex;
-    gap: 30px;
+    gap: 0px;
 }
 
 
@@ -3143,11 +3143,7 @@ span.select2.select2-container .select2-container--default .select2-container--f
         left: 28% !important;
     }
 
-    .bottom-menu ul {
-        display: flex;
-        list-style: none;
-        gap: 5px;
-    }
+
 
     .profile-info {
         padding-top: 0px;
@@ -3943,10 +3939,6 @@ span.select2.select2-container .select2-container--default .select2-container--f
         margin-bottom: 20px;
     }
 
-    .loginbtn {
-        display: none;
-    }
-
     .listbtn {
         display: none;
     }
@@ -4223,10 +4215,12 @@ span.select2.select2-container .select2-container--default .select2-container--f
 
 @media (max-width: 991px) {
     .bottom-menu ul li a {
-        text-align: center;
+        text-align: left;
         display: block;
     }
-
+    .profile-titel h2 {
+        font-size: 50px;
+    }
     .row.adminsidebar {
         margin: 0px !important;
     }
@@ -4247,17 +4241,9 @@ span.select2.select2-container .select2-container--default .select2-container--f
     body .sign-up-2 .content-wrapper .create_form {
         padding: 0px;
     }
-
-    #contactpage .bottom-menu ul {
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-
     #contactpage .bottom-menu ul li {
-        margin-bottom: 5px;
+        margin-bottom: 10px;
         line-height: normal;
-        padding-left: 11px;
-        padding-right: 11px;
     }
 
     .bottom-text ul {
@@ -4375,8 +4361,22 @@ span.select2.select2-container .select2-container--default .select2-container--f
         padding-left: 0px !important;
         padding-right: 0px !important;
     }
+    .bottom-menu {
+        flex-direction: column  ;
 }
-
+.footer-left {
+    width: 100%;
+}
+.footer-right {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 10px;
+}
+.bottom-menu ul {
+    padding-top: 5px;
+}
+}
 select.form-select, option  {
     text-transform: capitalize;
 }
