@@ -927,7 +927,7 @@ a.custom-button {
     border-radius: 11px;
     border: 1px solid #D0D0D0;
     padding: 9px 32px;
-    
+
 }
 
 .sub-btn {
@@ -3112,6 +3112,12 @@ span.select2.select2-container .select2-container--default .select2-container--f
     display: flex;
     gap: 20px;
 }
+button, select {
+    text-transform: capitalize !important;
+}
+
+
+
 @media (min-width: 992px) {
     .navbar-expand-lg {
         flex-wrap: nowrap;

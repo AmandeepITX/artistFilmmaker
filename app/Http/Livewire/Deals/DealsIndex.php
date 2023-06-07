@@ -71,7 +71,7 @@ class DealsIndex extends Component
 
         $showList = $showList->whereNot('user_type', 'admin')
             ->latest()
-            ->get();
+            ->paginate(8);
 
         return view('livewire.deals.deals-index', ['users' => $showList, 'genreTypes' => $genreTypes]);
     }
