@@ -2483,7 +2483,7 @@ svg {
     padding: 20px;
     border-radius: 8px;
     min-height: 475px;
-
+    text-transform: capitalize;
 }
 
 .left-profile-section a {
@@ -3123,6 +3123,14 @@ button, select {
     list-style: none;
     padding-right: 105px;
 }
+
+/* new css start here */
+.card-body span {
+    text-transform: capitalize !important;
+}
+
+
+/* new css end here */
 
 @media (min-width: 992px) {
     .navbar-expand-lg {
