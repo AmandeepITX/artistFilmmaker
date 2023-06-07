@@ -5,6 +5,6 @@
     <div class="">
 
         @livewire('deals.deals-index')
- 
+
     </div>
     @endsection

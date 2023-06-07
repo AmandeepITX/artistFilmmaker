@@ -43,7 +43,7 @@ Route::get('/about-ahap', [CommonController::class, 'aboutView'])->name('about-a
 Route::get('/legal', [CommonController::class, 'legalView'])->name('legal');
 Route::get('/privacy-policy', [CommonController::class, 'privacyPolicyView'])->name('privacy-policy');
 
-Route::get('/signup', [AuthController::class, 'companySignUp'])->name('business-signup');
+Route::get('/sign-up', [AuthController::class, 'companySignUp'])->name('business-signup');
 Route::post('/get-sub-category', [AuthController::class, 'geSubCategory'])->name('get-sub-category');
 Route::get('/user-signup', [AuthController::class, 'userSignUp'])->name('user-signup');
 

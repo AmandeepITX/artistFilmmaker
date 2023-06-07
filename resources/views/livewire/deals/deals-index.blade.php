@@ -51,6 +51,7 @@
         <div class="container">
             <div class="row member-cards pt-5">
                 @foreach ($users as $user)
+                    @if($user->status == 'approved')
                     <div class="col-md-6 col-lg-3">
                         <div class="card deals-card">
                             <div class="card-img">
@@ -69,29 +70,25 @@
                             <div class="card-body">
                                 <h5 class="card-title">{{ $user->first_name }}</h5>
                                 {{-- <h5 class="card-title">{{ $user->user_type }}</h5> --}}
-                                <span class="">{{ @$user->userProfile->city }}</span>
-                                <span class="">{{ @$user->userProfile->state }}</span>
-                                <span class="">{{ @$user->userProfile->zip_code }}</span>
+                                <span class="">{{ $user->user_type }}</span>
+                                <span class="">{{ @$user->userProfile->city }} {{ @$user->userProfile->state }} {{ @$user->userProfile->zip_code }}</span>
+                                {{-- <span class="">{{ @$user->userProfile->state }}</span>
+                                <span class="">{{ @$user->userProfile->zip_code }}</span> --}}
                                 {{-- <span class="">{{ @$user->userProfile->genres_id }}</span> --}}
-                                <span class="">{{ @$user->userProfile->Genre->title }}</span>
-                                <span class="">{{ $user->website }}</span>
-                                {{-- @php
-                                    //$industrysId = explode(',', $show->industry ?? []);
-                                    //$industrys = App\models\Industry::whereIn('id', $industrysId)->get();
-                                @endphp
-                                <span>
-                                    @if (@$user->industries)
-                                        @foreach ($user->industries as $i => $industryData)
-                                            {{ @$i > 0 ? ', ' : '' }}{{ $industryData->industries->industry_name }}
-                    @endforeach
-                    @endif
-                    </span></strong> --}}
+                                {{-- <span class="">{{ @$user->userProfile->Genre->title }}</span>
+                                <span class="">{{ $user->website }}</span> --}}
                                 <p class="card-text">{{ $user->bio_info }}</p>
                                 <a href="{{ route('profilePage') . '?id=' . $user->id }}" class=" business-btn">View
                                     Profile</a>
                             </div>
                         </div>
                     </div>
+                    {{-- @else
+                    <div class=" no-result-text container">
+                        <br>
+                        <h1>No Result is found</h1>
+                    </div> --}}
+                    @endif
                 @endforeach
             </div>
         </div>
@@ -101,6 +98,9 @@
             <h1>No Result is found</h1>
         </div>
     @endif
+
+    {{$users->links()}}
+
 </div>
 
 <style>

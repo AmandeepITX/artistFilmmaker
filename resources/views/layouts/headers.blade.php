@@ -13,8 +13,8 @@
                   </div>
                   @if (Route::has('register'))
                       <div class="listbtn">
-                         {{--<a class="nav-link{{ request()->routeIs('business-signup') ? ' active' : '' }}" href="{{ route('business-signup') }}">JOIN</a>--}}
-                         <a class="nav-link{{ request()->routeIs('register') ? ' active' : '' }}" href="{{ route('register') }}">JOIN</a>
+                         <a class="nav-link{{ request()->routeIs('business-signup') ? ' active' : '' }}" href="{{ route('business-signup') }}">JOIN</a>
+                         {{-- <a class="nav-link{{ request()->routeIs('register') ? ' active' : '' }}" href="{{ route('register') }}">JOIN</a> --}}
                       </div>
                   @endif
 
@@ -38,7 +38,7 @@
                   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                      <span class="navbar-toggler-icon"><img src="{{ asset('/img/menu1.png') }}"></span>
                   </button>
-                 
+
                </div>
                <div class="collapse navbar-collapse" id="navbarNavDropdown">
                   <ul class="navbar-nav">

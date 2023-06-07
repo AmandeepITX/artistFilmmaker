@@ -19,7 +19,6 @@ class LoginResponse implements LoginResponseContract {
 
 		elseif($user->user_type == 'filmmaker')
 		{
-            // dd('loginrespkjkhj');
 			return redirect()->route('company-profile');
 		}
 
