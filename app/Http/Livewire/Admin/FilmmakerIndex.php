@@ -55,9 +55,9 @@ class FilmmakerIndex extends Component
         $this->first_name = $user->first_name;
         $this->website = $user->website;
         // $this->media_url = $user->media_url;
-        $this->city = $user->userProfile->city;
-        $this->state = $user->userProfile->state;
-        $this->bio_info = $user->userProfile->bio_info;
+        $this->city = isset($user->userProfile->city) ? $user->userProfile->city : '';
+        $this->state = isset($user->userProfile->state) ? $user->userProfile->state : '';
+        $this->bio_info = isset($user->userProfile->bio_info) ? $user->userProfile->bio_info : '';
 
     }
 

@@ -35,7 +35,7 @@
                     <a class="nav-link{{ request()->routeIs('company-index') ? ' active' : '' }}" href="{{ route('company-index') }}">
                         <i class="nav-icon far fa-plus-square"></i>
                         <p>
-                            Artist Listing
+                            Artist
                             <!-- <i class="fas fa-angle-left right"></i> -->
                         </p>
                     </a>
@@ -45,7 +45,7 @@
                     <a class="nav-link{{ request()->routeIs('filmaker-index') ? ' active' : '' }}" href="{{ route('filmaker-index') }}">
                         <i class="nav-icon far fa-plus-square"></i>
                         <p>
-                            Film Maker Listing
+                            Film Maker
                             <!-- <i class="fas fa-angle-left right"></i> -->
                         </p>
                     </a>

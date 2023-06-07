@@ -16,6 +16,8 @@ class DealsIndex extends Component
 {
 
     use WithPagination;
+
+    protected $paginationTheme = 'bootstrap';
     public $searchTerm;
     public $searchGenre;
     public $searchUserType;
@@ -71,7 +73,7 @@ class DealsIndex extends Component
 
         $showList = $showList->whereNot('user_type', 'admin')
             ->latest()
-            ->get();
+            ->paginate(8);
 
         return view('livewire.deals.deals-index', ['users' => $showList, 'genreTypes' => $genreTypes]);
     }

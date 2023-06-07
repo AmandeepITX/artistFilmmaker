@@ -126,7 +126,7 @@
                         @endif
                     </div>
                     <div class="mb-1 col-md-6">
-                        <label>Seeking a film</label>
+                        <label>Seeking a filmmaker</label>
                         <select class="form-select" name="seekin_filmmaker"
                             value="{{ @$user->userProfile->seekin_filmmaker }}">
                             <option value='1' {{ @$user->userProfile->seekin_filmmaker == '1' ? 'selected' : '' }}>Yes

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Categories;
+use App\Models\Genre;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Industry;
@@ -17,9 +18,10 @@ class AdminController extends Controller
         // $total_companies =  User::where('user_type', 'company')->count();
         $total_users =  User::where('user_type', 'artist')->count();
         $total_filmmaker = User::where('user_type','filmmaker')->count();
+        $total_genre = Genre::get()->count();
         // $category =  Categories::count();
         // $industry =  Industry::count();
-        return view('pages.admin.pages.dashboard.dashboard', \compact('total_registrations','total_users','total_filmmaker'));
+        return view('pages.admin.pages.dashboard.dashboard', \compact('total_registrations','total_users','total_filmmaker','total_genre'));
     }
 
     public function userListing()

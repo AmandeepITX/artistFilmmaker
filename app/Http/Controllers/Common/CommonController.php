@@ -83,7 +83,13 @@ class CommonController extends Controller
         // {
         //    return redirect()->route('login');
         // }
+        if(Auth::check()){
         return view('pages.common.dis-fre-ser');
+        }
+        else
+        {
+           return redirect()->route('login');
+        }
     }
 
     public function contactView()

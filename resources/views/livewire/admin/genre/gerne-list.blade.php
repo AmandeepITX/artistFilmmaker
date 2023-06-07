@@ -6,13 +6,13 @@
                 <div class="row mb-2">
                     <div class="col-sm-12">
                         <div class="genre-title">
-                        <h1 class="m-0">Genre</h1>
+                            <h1 class="m-0">Genre</h1>
 
-                        <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-                            Add
-                        </button>
-</div>
+                            <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                                Add
+                            </button>
+                        </div>
                         <!-- The Modal -->
                         <div wire:ignore class="modal" id="myModal">
                             <div class="modal-dialog">
@@ -26,8 +26,11 @@
 
                                     <!-- Modal body -->
                                     <div class="modal-body ">
-                                         <label>Title</label>
+                                        <label>Title</label>
                                         <input type="text" wire:model="title">
+                                        @error('title')
+                                            <div class="alert ">{{ $message }}</div>
+                                        @enderror
                                     </div>
 
                                     <!-- Modal footer -->
@@ -58,11 +61,14 @@
                                     @foreach ($genreTypes as $genreType)
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
-                                            <td> {{$genreType->title}}</td>
+                                            <td> {{ $genreType->title }}</td>
                                             <td>
-                                                <button type="submit" class="btn btn-info" wire:click="edit({{$genreType->id}})" data-toggle="modal" data-target="#editModal"> Edit </button>
+                                                <button type="submit" class="btn btn-info"
+                                                    wire:click="edit({{ $genreType->id }})" data-toggle="modal"
+                                                    data-target="#editModal"> Edit </button>
 
-                                                <a href="javascript::void(0)" type="submit" class="btn btn-danger" wire:click="deleteConfirm({{$genreType->id}})"> Delete </a>
+                                                <a href="javascript::void(0)" type="submit" class="btn btn-danger"
+                                                    wire:click="deleteConfirm({{ $genreType->id }})"> Delete </a>
                                             </td>
                                     @endforeach
                                 </tbody>
@@ -80,7 +86,7 @@
 
 
 
-{{-- //Edit-Model --}}
+    {{-- //Edit-Model --}}
     <div wire:ignore class="modal" id="editModal">
         <div class="modal-dialog">
             <div class="modal-content gn-modal">
@@ -95,6 +101,9 @@
                 <div class="modal-body ">
                     <label>Title</label>
                     <input type="text" wire:model="title">
+                    @error('title')
+                        <div class="alert ">{{ $message }}</div>
+                    @enderror
                 </div>
 
                 <!-- Modal footer -->
@@ -111,25 +120,29 @@
 </div>
 <style>
     .cus-action {
-    width: 15%;
-}
-.genre-title {
-    display: flex;
-    justify-content: space-between;
-    margin: 20px 0px;
-}
-.gn-modal input {
-    width: 100%;
-    width: 100%;
-    height: 44px;
-    border-radius: 8px;
-    border: 2px solid #e0e0e0;
-    margin: 10px 0;
-}
-.gn-modal .modal-footer {
-    border-top: 0px;
-}
-.gn-modal .modal-header {
-    border-bottom: 0px;
-}
+        width: 15%;
+    }
+
+    .genre-title {
+        display: flex;
+        justify-content: space-between;
+        margin: 20px 0px;
+    }
+
+    .gn-modal input {
+        width: 100%;
+        width: 100%;
+        height: 44px;
+        border-radius: 8px;
+        border: 2px solid #e0e0e0;
+        margin: 10px 0;
+    }
+
+    .gn-modal .modal-footer {
+        border-top: 0px;
+    }
+
+    .gn-modal .modal-header {
+        border-bottom: 0px;
+    }
 </style>
