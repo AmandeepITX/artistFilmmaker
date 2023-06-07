@@ -3116,7 +3116,13 @@ button, select {
     text-transform: capitalize !important;
 }
 
-
+.pagination {
+    display: flex;
+    padding-left: 0;
+    justify-content: end;
+    list-style: none;
+    padding-right: 105px;
+}
 
 @media (min-width: 992px) {
     .navbar-expand-lg {
