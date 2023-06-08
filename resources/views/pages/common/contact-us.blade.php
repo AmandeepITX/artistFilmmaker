@@ -52,7 +52,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-8">
-                            <textarea type="text" placeholder="Description" class="first-name" name="description"> </textarea>
+                            <textarea type="text" placeholder="Description" class="first-name" name="description"></textarea>
                             @if($errors->has('description'))
                             <div class="error error-message">{{ $errors->first('description') }}</div>
                             @endif
