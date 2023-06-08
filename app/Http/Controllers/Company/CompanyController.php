@@ -34,9 +34,17 @@ class CompanyController extends Controller
     {
         $user_id = Auth::user()->id;
         $user = User::where('id', $user_id)->first();
-        // dd($user->userProfile);
-        $selectedGenres = json_decode($user->userProfile['genres_id']);
-// dd($getGenres);
+        $selectedGenres = $user->userProfile ? json_decode($user->userProfile['genres_id']) : [];
+        //dd($selectedGenres);
+
+
+
+        // if ($user->userProfile && $user->userProfile['genres_id']) {
+        //     $selectedGenres = json_decode($user->userProfile['genres_id']);
+        // } else {
+        //     $selectedGenres = [];
+        // }
+
         $genres = Genre::all();
         $state = State::all();
         return view('pages.company.company_profile', \compact('user', 'state', 'genres', 'selectedGenres'));
