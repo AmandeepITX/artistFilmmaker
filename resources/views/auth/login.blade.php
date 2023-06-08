@@ -46,7 +46,6 @@
                 <div class="col-md-12 art-submit-btn py-2">
                     <p> Not a member? <a href="{{ route('business-signup') }}" >Sign up </a> </p>
                 </div>
-                <!-- @extends('layouts.signup-modal') -->
             </div>
         </form>
     </div>
