@@ -158,6 +158,9 @@
                             <option value= "{{$genre->id}}" @if(@$user->userProfile->genres_id == $genre->id) selected @endif>{{$genre->title}}</option>
                             @endforeach
                     </select>
+                  
+       
+        
                     </div>
                 </div>
             </div>
