@@ -1,5 +1,5 @@
 @extends('layouts.app-with-header-footer')
-@section('title', 'Company Profile')
+@section('title', 'Filmmaker Profile')
 @section('content')
 
     <div class="container">

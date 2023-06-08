@@ -11,7 +11,7 @@
     <!-- slider-link -->
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
   <!-- slider-link-end -->
-    <title>@yield('title') - Network Chambers</title>
+    <title>@yield('title') - Artist Replugged</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
