@@ -2956,6 +2956,13 @@ i.fa.fa-star.checked {
     background-size: 25px;
     margin-bottom: 0px;
 }
+.profile-social-icone .youtube {
+    background: url(/img/youtube.png);
+    background-repeat: no-repeat;
+    background-position-y: center;
+    background-size: 25px;
+    margin-bottom: 0px;
+}
 
 .text-box h4 {
     font-size: 19px;

@@ -62,7 +62,7 @@
     <!-- <div class="row">
         <div class="col-md-12">
             <label>Business Description</label>
-            <textarea class="personalization" name="description" placeholder="Business Description">{{@$company->company_deal->description}}</textarea>
+            <textarea class="personalization" name="description" placeholder="">{{@$company->company_deal->description}}</textarea>
             @if ($errors->has('description'))
             <span class="error error-message">{{ $errors->first('description') }}</span>
             @endif

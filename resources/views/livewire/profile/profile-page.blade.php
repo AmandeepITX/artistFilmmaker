@@ -31,6 +31,10 @@
                         <p class="instagram"> <a href="{{ @$profilePages->userProfile->instagram_link }}"
                                 target="_blank">{{ $profilePages->userProfile->instagram_link }}</a></p>
                     @endif
+                    @if (@$profilePages->userProfile->instagram_link)
+                        <p class="youtube"> <a href="{{ @$profilePages->userProfile->youtube_link }}"
+                                target="_blank">{{ $profilePages->userProfile->youtube_link }}</a></p>
+                    @endif
                 </div>
             </div>
             <div class="col-md-3 m-4 p-0">
