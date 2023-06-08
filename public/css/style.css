@@ -2926,7 +2926,7 @@ i.fa.fa-star.checked {
 }
 
 .profile-social-icone .facebook {
-    background: url(/public/img/facebook-icon-35px.png);
+    background: url(/img/facebook-icon-35px.png);
     background-repeat: no-repeat;
     background-position-y: center;
     background-size: 25px;
@@ -2934,7 +2934,7 @@ i.fa.fa-star.checked {
 }
 
 .profile-social-icone .linkedin {
-    background: url(/public/img/linkedin-icon-35px.png);
+    background: url(/img/linkedin-icon-35px.png);
     background-repeat: no-repeat;
     background-position-y: center;
     background-size: 25px;
@@ -2942,7 +2942,7 @@ i.fa.fa-star.checked {
 }
 
 .profile-social-icone .twitter {
-    background: url(/public/img/twitter-35px.png);
+    background: url(/img/twitter-35px.png);
     background-repeat: no-repeat;
     background-position-y: center;
     background-size: 25px;
@@ -2950,7 +2950,7 @@ i.fa.fa-star.checked {
 }
 
 .profile-social-icone .instagram {
-    background: url(/public/img/instagram-35px.png);
+    background: url(/img/instagram-35px.png);
     background-repeat: no-repeat;
     background-position-y: center;
     background-size: 25px;

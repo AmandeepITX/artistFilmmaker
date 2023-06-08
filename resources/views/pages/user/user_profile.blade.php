@@ -140,6 +140,7 @@
                             <label>Image</label>
                             {{-- <img src="{{"uploads/filmmaker/" .@$user->image}}" id="customerimagePreview"> --}}
                         </div>
+                        <div class="d-flex">
                         <div class=" Upload-img">
 
                             <input type="file" class="real-file" id="other_id" name="image" value="{{ @$user->userProfile->image }}" hidden="hidden">
@@ -150,12 +151,13 @@
 
                         </div>
                         @if (@$user->userProfile->image)
-                            <div class="col-md-3 Upload-img">
+                            <div class="col-md-3 Upload-img ms-3">
                                 <img id="other_id_preview"
                                     src="{{ asset('uploads/artist/' . $user->userProfile->image) }}"
                                     style="height: 80px; width:80px">
                             </div>
                         @endif
+                        </div>
                     </div>
                     {{-- <div class="row ">
                 <div class="col-md-3">
