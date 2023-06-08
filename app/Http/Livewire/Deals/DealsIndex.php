@@ -45,9 +45,14 @@ class DealsIndex extends Component
 
         if($this->searchGenre){
             $genre = $this->searchGenre;
-            $showList = $showList->whereHas('userProfile', function($query) use ($genre)  {
 
-                $query->where('genres_id', $genre);
+            // $showList = $showList->whereHas('userProfile', function($query) use ($genre)  {
+
+            //     $query->where('genres_id', $genre);
+            // });
+
+            $showList = $showList->whereHas('userProfile', function ($query) use ($genre) {
+                $query->whereRaw("JSON_CONTAINS(genres_id, ?)", ['"' . $genre . '"']);
             });
         }
 

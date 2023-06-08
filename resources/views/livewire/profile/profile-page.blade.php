@@ -31,6 +31,10 @@
                         <p class="instagram"> <a href="{{ @$profilePages->userProfile->instagram_link }}"
                                 target="_blank">{{ $profilePages->userProfile->instagram_link }}</a></p>
                     @endif
+                    @if (@$profilePages->userProfile->instagram_link)
+                        <p class="youtube"> <a href="{{ @$profilePages->userProfile->youtube_link }}"
+                                target="_blank">{{ $profilePages->userProfile->youtube_link }}</a></p>
+                    @endif
                 </div>
             </div>
             <div class="col-md-3 m-4 p-0">
@@ -38,9 +42,9 @@
                     @if (@$profilePages->userProfile->logo)
                         <img src="{{ asset($profilePages->userProfile->logo) }}">
                     @endif
-                    <h3> {{ $profilePages->first_name }} </h3>
+                    <h3> {{ $profilePages->first_name }} {{ $profilePages->last_name }} </h3>
 
-                    <h3>{{ $profilePages->last_name }}</h3>
+                    <!-- <h3>{{ $profilePages->last_name }}</h3> -->
                     <!--<p><u>{{ $profilePages->b_name }}</u></p>-->
                     <span>
                         @if (@$profilePages->industries)
@@ -76,7 +80,7 @@
             </div>
             <div class="col-md-5 mt-4 p-0">
                 <div class="text-box">
-                    <h4>Bio   </h4>
+                    <h4>Bio</h4>
                     <p>
                         {{ @$profilePages->userProfile->bio_info }}</p>
                 </div>
