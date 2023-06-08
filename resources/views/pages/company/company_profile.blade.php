@@ -81,9 +81,10 @@
                     </div>
                     <div class="col-md-4">
                         <label>State</label>
-                        <select class="form-select" name="state" value ="{{@$user->userProfile->state}}">
+                        <select class="form-select" name="state" value="{{ @$user->userProfile->state }}">
                             @foreach ($state as $show)
-                                <option value = "{{$show->state_name}}" @if (@$user->userProfile->state == $show->state_name) selected @endif >{{ $show->state_name }}</option>
+                                <option value="{{ $show->state_name }}" @if (@$user->userProfile->state == $show->state_name) selected @endif>
+                                    {{ $show->state_name }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -146,18 +147,30 @@
                     </div>
                     <div class="mb-1  col-md-6">
                         <label>Available to film</label>
-                         <select class="form-select" name="available_to_film"  value="{{ @$user->userProfile->available_to_film }}">
-                                <option value='1' {{@$user->userProfile->available_to_film == '1' ? 'selected' : ''}}>Yes</option>
-                                <option value='0' {{@$user->userProfile->available_to_film == '0' ? 'selected' : ''}}>No</option>
+                        <select class="form-select" name="available_to_film"
+                            value="{{ @$user->userProfile->available_to_film }}">
+                            <option value='1' {{ @$user->userProfile->available_to_film == '1' ? 'selected' : '' }}>
+                                Yes</option>
+                            <option value='0' {{ @$user->userProfile->available_to_film == '0' ? 'selected' : '' }}>
+                                No</option>
                         </select>
                     </div>
                     <div class="mb-1 col-md-6">
                         <label>Genre</label>
-                        <select class="form-select" name = "genres_id" value={{@$user->userProfile->genres_id}}>
-                            @foreach($genres as $genre)
-                            <option value= "{{$genre->id}}" @if(@$user->userProfile->genres_id == $genre->id) selected @endif>{{$genre->title}}</option>
+                        <select class="form-select" name="genres_id" value={{ @$user->userProfile->genres_id }}>
+                            @foreach ($genres as $genre)
+                                <option value="{{ $genre->id }}" @if (@$user->userProfile->genres_id == $genre->id) selected @endif>
+                                    {{ $genre->title }}</option>
                             @endforeach
-                    </select>
+                        </select>
+
+
+                        <select name="items[]" multiple id="multiselect">
+                            <option value="1">Item 1</option>
+                            <option value="2">Item 2</option>
+                            <option value="3">Item 3</option>
+                        </select>
+                        <input type="hidden" name="selectedItems" id="selectedItemsInput">
                     </div>
                 </div>
             </div>
@@ -179,20 +192,28 @@
         <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
         <!-- <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
 
-        <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+            <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
 
-        <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script> -->
+            <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script> -->
 
 
         <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
         <script src="https://unpkg.com/jquery-input-mask-phone-number@1.0.14/dist/jquery-input-mask-phone-number.js"></script>
 
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
         <style>
             .modal.fade:not(.show) {
                 opacity: 1;
             }
         </style>
         <script>
+
+
+
+
+
+
             // $('.data-table').DataTable({
             //     "lengthChange": false,
             //     "pageLength": 3,
@@ -204,16 +225,17 @@
 
             });
 
-            $('#industryname').select2({
-                placeholder: "Select Industry",
-            });
+            // $('#industryname').select2({
+            //     placeholder: "Select Industry",
+            // });
 
-            let industryname = $('#industryname').attr('value');
-            if (industryname != "") {
-                $("#industryname").val(industryname.split(",")).trigger('change');
-            }
+            // let industryname = $('#industryname').attr('value');
+            // if (industryname != "") {
+            //     $("#industryname").val(industryname.split(",")).trigger('change');
+            // }
 
             $(document).ready(function() {
+                // debugger;
                 $(".update_form").hide();
 
             });
@@ -293,6 +315,21 @@
                     });
                 });
 
+            });
+
+
+
+// .....aman
+
+            $(document).ready(function() {
+                // debugger;
+                $('#multiselect').select2();
+// debugger;
+                $('#multiselect').on('change', function() {
+                    debugger;
+                    var selectedItems = $(this).val();
+                    $('#selectedItemsInput').val(selectedItems);
+                });
             });
         </script>
     @endsection
