@@ -168,7 +168,7 @@
 
                     <div class="mb-1  col-md-6">
                         <label for="select2Multiple">Genre</label>
-                        <select class="js-example-basic-multiple-limit" name="genres_id[]"  value={{ @$user->userProfile['genres_id'] }} multiple>
+                        <select class="js-example-basic-multiple-limit" name="genres_id[]"  multiple>
 
                             @foreach ($genres as $genre)
                                 {{-- <option value="{{ $genre->id }}" @if (@$user->userProfile->genres_id == $genre->id) selected @endif>
