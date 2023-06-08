@@ -35,7 +35,7 @@ Route::get('/logout', function () {
 });
 
 Route::get('/', [CommonController::class, 'home'])->name('home');
-Route::get('/member-directory', [CommonController::class, 'disFreSerView'])->name('discounts-free-services');
+Route::get('/marketplace', [CommonController::class, 'disFreSerView'])->name('discounts-free-services');
 Route::get('/profilePage', [CommonController::class, 'profilePage'])->name('profilePage');
 Route::get('/contact-us', [CommonController::class, 'contactView'])->name('contact-us');
 Route::post('/contact-store', [CommonController::class, 'contactStore'])->name('contact-store');
@@ -43,9 +43,9 @@ Route::get('/about-ahap', [CommonController::class, 'aboutView'])->name('about-a
 Route::get('/legal', [CommonController::class, 'legalView'])->name('legal');
 Route::get('/privacy-policy', [CommonController::class, 'privacyPolicyView'])->name('privacy-policy');
 
-Route::get('/sign-up', [AuthController::class, 'companySignUp'])->name('business-signup');
+Route::get('/sign-up', [AuthController::class, 'companySignUp'])->name('business-signup')->middleware('guest');
 Route::post('/get-sub-category', [AuthController::class, 'geSubCategory'])->name('get-sub-category');
-Route::get('/user-signup', [AuthController::class, 'userSignUp'])->name('user-signup');
+Route::get('/user-signup', [AuthController::class, 'userSignUp'])->name('user-signup')->middleware('guest');
 
 Route::middleware(['auth', 'verified'])->group(function () {
     // Admin Panel

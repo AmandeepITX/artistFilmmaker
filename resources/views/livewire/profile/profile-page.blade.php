@@ -69,8 +69,7 @@
             </div>
             <div class="col-md-5 mt-4 p-0">
                 <div class="text-box">
-                    <h4>Business Description
-                    </h4>
+                    <h4>Bio   </h4>
                     <p>
                         {{ @$profilePages->userProfile->bio_info }}</p>
                 </div>
