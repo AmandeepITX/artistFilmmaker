@@ -35,9 +35,6 @@ class CompanyController extends Controller
         $user_id = Auth::user()->id;
         $user = User::where('id', $user_id)->first();
         $selectedGenres = $user->userProfile ? json_decode($user->userProfile['genres_id']) : [];
-        //dd($selectedGenres);
-
-
 
         // if ($user->userProfile && $user->userProfile['genres_id']) {
         //     $selectedGenres = json_decode($user->userProfile['genres_id']);

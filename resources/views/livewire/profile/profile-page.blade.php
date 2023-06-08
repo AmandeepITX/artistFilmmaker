@@ -31,7 +31,7 @@
                         <p class="instagram"> <a href="{{ @$profilePages->userProfile->instagram_link }}"
                                 target="_blank">{{ $profilePages->userProfile->instagram_link }}</a></p>
                     @endif
-                    @if (@$profilePages->userProfile->instagram_link)
+                    @if (@$profilePages->userProfile->youtube_link)
                         <p class="youtube"> <a href="{{ @$profilePages->userProfile->youtube_link }}"
                                 target="_blank">{{ $profilePages->userProfile->youtube_link }}</a></p>
                     @endif
@@ -59,11 +59,11 @@
                         {{ @$profilePages->userProfile->zip_code }}
                     </p>
                     <p class="mt-2">
-                        @foreach ($genres as $genre)
+                        {{-- @foreach ($genres as $genre)
                         <li>
                             {{ $genre->title }}
                         </li>
-                    @endforeach
+                    @endforeach --}}
 
 
                     @if (@$profilePages->website)
