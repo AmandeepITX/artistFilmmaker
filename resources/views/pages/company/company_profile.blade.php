@@ -1,5 +1,5 @@
 @extends('layouts.app-with-header-footer')
-@section('title', 'Company Profile')
+@section('title', 'Filmmaker Profile')
 @section('content')
 
     <div class="container">
@@ -81,9 +81,10 @@
                     </div>
                     <div class="col-md-4">
                         <label>State</label>
-                        <select class="form-select" name="state" value ="{{@$user->userProfile->state}}">
+                        <select class="form-select" name="state" value="{{ @$user->userProfile->state }}">
                             @foreach ($state as $show)
-                                <option value = "{{$show->state_name}}" @if (@$user->userProfile->state == $show->state_name) selected @endif >{{ $show->state_name }}</option>
+                                <option value="{{ $show->state_name }}" @if (@$user->userProfile->state == $show->state_name) selected @endif>
+                                    {{ $show->state_name }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -146,21 +147,38 @@
                     </div>
                     <div class="mb-1  col-md-6">
                         <label>Available to film</label>
-                         <select class="form-select" name="available_to_film"  value="{{ @$user->userProfile->available_to_film }}">
-                                <option value='1' {{@$user->userProfile->available_to_film == '1' ? 'selected' : ''}}>Yes</option>
-                                <option value='0' {{@$user->userProfile->available_to_film == '0' ? 'selected' : ''}}>No</option>
+                        <select class="form-select" name="available_to_film"
+                            value="{{ @$user->userProfile->available_to_film }}">
+                            <option value='1' {{ @$user->userProfile->available_to_film == '1' ? 'selected' : '' }}>
+                                Yes</option>
+                            <option value='0' {{ @$user->userProfile->available_to_film == '0' ? 'selected' : '' }}>
+                                No</option>
                         </select>
                     </div>
-                    <div class="mb-1 col-md-6">
+                    {{-- <div class="mb-1 col-md-6">
                         <label>Genre</label>
-                        <select class="form-select" name = "genres_id" value={{@$user->userProfile->genres_id}}>
-                            @foreach($genres as $genre)
-                            <option value= "{{$genre->id}}" @if(@$user->userProfile->genres_id == $genre->id) selected @endif>{{$genre->title}}</option>
+                        <select class="form-select" name="genres_id" value={{ @$user->userProfile->genres_id }}>
+                            @foreach ($genres as $genre)
+                                <option value="{{ $genre->id }}" @if (@$user->userProfile->genres_id == $genre->id) selected @endif>
+                                    {{ $genre->title }}</option>
                             @endforeach
-                    </select>
-                  
-       
-        
+                        </select>
+                    </div> --}}
+
+
+                    <div class="mb-1  col-md-6">
+                        <label for="select2Multiple">Genre</label>
+                        <select class="js-example-basic-multiple-limit" name="genres_id[]"  value={{ @$user->userProfile['genres_id'] }} multiple>
+
+                            @foreach ($genres as $genre)
+                                {{-- <option value="{{ $genre->id }}" @if (@$user->userProfile->genres_id == $genre->id) selected @endif>
+                                    {{ $genre->title }}</option> --}}
+
+                                    <option value="{{ $genre->id }}" @if(in_array($genre->id, $selectedGenres)) selected @endif>
+                                        {{ $genre->title }}
+                                    </option>
+                            @endforeach
+                        </select>
                     </div>
                 </div>
             </div>
@@ -182,19 +200,39 @@
         <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
         <!-- <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
 
-        <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+                <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
 
-        <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script> -->
+                <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script> -->
 
 
-        <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-        <script src="https://unpkg.com/jquery-input-mask-phone-number@1.0.14/dist/jquery-input-mask-phone-number.js"></script>
+
+        {{-- <script src="https://unpkg.com/jquery-input-mask-phone-number@1.0.14/dist/jquery-input-mask-phone-number.js"></script> --}}
+
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+        {{-- selec2 cdn --}}
+
+
 
         <style>
             .modal.fade:not(.show) {
                 opacity: 1;
             }
         </style>
+
+
+        <script>
+            $(document).ready(function() {
+                // Select2 Multiple
+                $(".js-example-basic-multiple-limit").select2({
+                    //   maximumSelectionLength: 2
+                });
+
+            });
+        </script>
+
         <script>
             // $('.data-table').DataTable({
             //     "lengthChange": false,
@@ -211,10 +249,10 @@
                 placeholder: "Select Industry",
             });
 
-            let industryname = $('#industryname').attr('value');
-            if (industryname != "") {
-                $("#industryname").val(industryname.split(",")).trigger('change');
-            }
+            // let industryname = $('#industryname').attr('value');
+            // if (industryname != "") {
+            //     $("#industryname").val(industryname.split(",")).trigger('change');
+            // }
 
             $(document).ready(function() {
                 $(".update_form").hide();

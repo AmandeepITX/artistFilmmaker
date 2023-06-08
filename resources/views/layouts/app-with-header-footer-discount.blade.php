@@ -13,6 +13,7 @@
   <!-- slider-link-end -->
  <title>@yield('title') | {{env('APP_NAME')}}</title>
     <!-- Required meta tags -->
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 

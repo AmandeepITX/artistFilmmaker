@@ -4405,7 +4405,8 @@ button, select {
     padding-top: 5px;
 }
 }
-select.form-select, option  {
+.select2-selection__choice__display,
+.select2-results__option {
     text-transform: capitalize;
 }
 .back-btn {

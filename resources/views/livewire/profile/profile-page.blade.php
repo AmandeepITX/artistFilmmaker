@@ -58,6 +58,13 @@
                         {{ @$profilePages->userProfile->state }}
                         {{ @$profilePages->userProfile->zip_code }}
                     </p>
+                    <p class="mt-2">
+                        @foreach ($genres as $genre)
+                        <li>
+                            {{ $genre->title }}
+                        </li>
+                    @endforeach
+
 
                     @if (@$profilePages->website)
                         <p class="web-link mt-4"><a href="{{ @$profilePages->website }}"
