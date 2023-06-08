@@ -155,7 +155,7 @@
                                 No</option>
                         </select>
                     </div>
-                    <div class="mb-1 col-md-6">
+                    {{-- <div class="mb-1 col-md-6">
                         <label>Genre</label>
                         <select class="form-select" name="genres_id" value={{ @$user->userProfile->genres_id }}>
                             @foreach ($genres as $genre)
@@ -163,15 +163,27 @@
                                     {{ $genre->title }}</option>
                             @endforeach
                         </select>
+                    </div> --}}
 
 
-                        <select name="items[]" multiple id="multiselect">
-                            <option value="1">Item 1</option>
-                            <option value="2">Item 2</option>
-                            <option value="3">Item 3</option>
+                    <div class="mb-1  col-md-6">
+                        <label for="select2Multiple">Genre</label>
+                        <select class="js-example-basic-multiple-limit" name="genres_id[]"  value={{ @$user->userProfile['genres_id'] }} multiple>
+
+                            @foreach ($genres as $genre)
+                                {{-- <option value="{{ $genre->id }}" @if (@$user->userProfile->genres_id == $genre->id) selected @endif>
+                                    {{ $genre->title }}</option> --}}
+
+                                    <option value="{{ $genre->id }}" @if(in_array($genre->id, $selectedGenres)) selected @endif>
+                                        {{ $genre->title }}
+                                    </option>
+                            @endforeach
                         </select>
-                        <input type="hidden" name="selectedItems" id="selectedItemsInput">
                     </div>
+
+
+
+
                 </div>
             </div>
 
@@ -192,28 +204,40 @@
         <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
         <!-- <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
 
-            <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+                <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
 
-            <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script> -->
+                <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script> -->
 
 
-        <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-        <script src="https://unpkg.com/jquery-input-mask-phone-number@1.0.14/dist/jquery-input-mask-phone-number.js"></script>
 
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+        {{-- <script src="https://unpkg.com/jquery-input-mask-phone-number@1.0.14/dist/jquery-input-mask-phone-number.js"></script> --}}
+
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+        {{-- selec2 cdn --}}
+
+
+
         <style>
             .modal.fade:not(.show) {
                 opacity: 1;
             }
         </style>
+
+
         <script>
+            $(document).ready(function() {
+                // Select2 Multiple
+                $(".js-example-basic-multiple-limit").select2({
+                    //   maximumSelectionLength: 2
+                });
 
+            });
+        </script>
 
-
-
-
-
+        <script>
             // $('.data-table').DataTable({
             //     "lengthChange": false,
             //     "pageLength": 3,
@@ -225,9 +249,9 @@
 
             });
 
-            // $('#industryname').select2({
-            //     placeholder: "Select Industry",
-            // });
+            $('#industryname').select2({
+                placeholder: "Select Industry",
+            });
 
             // let industryname = $('#industryname').attr('value');
             // if (industryname != "") {
@@ -235,7 +259,6 @@
             // }
 
             $(document).ready(function() {
-                // debugger;
                 $(".update_form").hide();
 
             });
@@ -315,21 +338,6 @@
                     });
                 });
 
-            });
-
-
-
-// .....aman
-
-            $(document).ready(function() {
-                // debugger;
-                $('#multiselect').select2();
-// debugger;
-                $('#multiselect').on('change', function() {
-                    debugger;
-                    var selectedItems = $(this).val();
-                    $('#selectedItemsInput').val(selectedItems);
-                });
             });
         </script>
     @endsection
