@@ -69,7 +69,8 @@ class CommonController extends Controller
     // }
     public function home()
     {
-        return view('auth.login');
+        //return view('auth.login');
+        return redirect()->route('login');
     }
 
 

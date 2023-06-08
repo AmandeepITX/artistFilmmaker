@@ -50,12 +50,12 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-6">
+                    {{-- <div class="col-md-6">
                         <input type="url" placeholder="Website" name="website" value="{{ old('website') }}">
                         @if ($errors->has('website'))
                             <span class="error error-message">{{ $errors->first('website') }}</span>
                         @endif
-                    </div>
+                    </div> --}}
                     <div class="col-md-6">
                         <input type="email" placeholder="Email" class="email" name="email"
                             value="{{ old('email') }}">

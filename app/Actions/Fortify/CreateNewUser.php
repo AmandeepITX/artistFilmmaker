@@ -75,7 +75,7 @@ class CreateNewUser implements CreatesNewUsers
             // 'image' => $file,
             'first_name' => $input['first_name'],
             'last_name' => $input['last_name'],
-            'website' => $input['website'],
+            // 'website' => $input['website'],
             'email' => $input['email'],
             'password' => Hash::make($input['password']),
             // 'bio_info' => $input['bio_info'],
@@ -95,7 +95,7 @@ class CreateNewUser implements CreatesNewUsers
             [
                 'first_name' => ['required', 'max:255'],
                 'last_name' => ['required', 'max:255'],
-                'website' => ['required'],
+                // 'website' => ['required'],
                 // 'image' => ['required'],
                 'user_type' => ['required'],
                 'email' => [
@@ -108,7 +108,7 @@ class CreateNewUser implements CreatesNewUsers
             [
                 'first_name.required' => 'First Name is Required',
                 'last_name.required' => 'Last Name is Required',
-                'website.required' => 'Website is Required',
+                // 'website.required' => 'Website is Required',
                 'confirm_password.required' => 'Confirm password required',
                 'confirm_password.same' => 'Password and Confirm password must be same',
             ]

@@ -29,7 +29,7 @@
 
                         <!-- START MAIN CONTENT AREA -->
                         <tr>
-                            <td class="wrapper" style="background-image: url('http://ahap.smallbizplace.com/public/img/banner-img.jpg')">
+                            <td class="wrapper" style="background-image">
                                 <table role="presentation" border="0" cellpadding="0" cellspacing="0">
                                     <tr>
                                         <td style="text-align: center;" class="mpbile-full">

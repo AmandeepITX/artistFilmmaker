@@ -3,7 +3,7 @@
         <div class="grey-bg container-fluid">
             <div class="container px-0">
                 <div class="discounts-services-titel">
-                    <h2>Member Services</h2>
+                    <h2>Search Filmmakers & Artists</h2>
 
 
                 </div>
@@ -20,7 +20,7 @@
 
                         <select class="filter-dropdown" wire:model="searchUserType">
                             <option value=''> User Roles </option>
-                            <option value='filmmaker'> Film Maker </option>
+                            <option value='filmmaker'> Filmmaker </option>
                             <option value='artist'> Artist </option>
                         </select>
                     </div>
@@ -39,7 +39,7 @@
                         <form class="search-form">
                             <input type="search" class="form-control my-0" placeholder="Search by name, zip code"
                                 wire:model="searchTerm" placeholder="Search" class="searchTerm">
-                            <button class="search-btn"><img src="./img/search.png"></button>
+                            {{-- <button class="search-btn"><img src="./img/search.png"></button> --}}
                         </form>
                     </div>
                 </div>
