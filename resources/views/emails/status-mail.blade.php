@@ -10,7 +10,7 @@
     @if(@$users->user_type == "artist")
 
     <div class="emailcard" style="background:#fff;width:500px;display:block;margin:0 auto;padding:50px;filter: drop-shadow(0 4px 3px rgb(0 0 0 / 0.07)) drop-shadow(0 2px 2px rgb(0 0 0 / 0.06));">
-<p style="color:#3d4852;font-size: 16px;line-height:1.5em; text-transform: capitalize;">User request approved!  </p>
+<p style="color:#3d4852;font-size: 16px;line-height:1.5em; text-transform: capitalize;">Artist request approved!  </p>
     <p style="color:#3d4852;font-size: 16px;line-height:1.5em;">Hi {{@$users->first_name}}, </p>
 
 

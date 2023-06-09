@@ -31,7 +31,7 @@ class statusMail extends Mailable
      */
     public function build()
     {
-      return $this->from('info@theahap.com', 'Artist Replugged')
+      return $this->from('info@artistreplugged.com', 'Artist Replugged')
             ->subject(Str::title($this->users->user_type) . ' ' . Str::title($this->users->status) . ' Email')
             ->view('emails.status-mail');
     }
