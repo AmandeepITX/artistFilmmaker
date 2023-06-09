@@ -115,7 +115,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <label>Facebook</label>
-                        <input type="text" placeholder="facebook url" class="facebook" name="facebook_link"
+                        <input type="text" placeholder="Facebook url" class="facebook" name="facebook_link"
                             value="{{ @$user->userProfile->facebook_link }}">
                         @if ($errors->has('facebook_link'))
                             <span class="error error-message">{{ $errors->first('facebook_link') }}</span>
@@ -131,7 +131,7 @@
                     </div>
                     <div class="col-md-6">
                         <label>Youtube</label>
-                        <input type="text" placeholder="youtube url" id="youtube_link" name="youtube_link"
+                        <input type="text" placeholder="Youtube url" id="youtube_link" name="youtube_link"
                             value="{{ @$user->userProfile->youtube_link }}">
                         @if ($errors->has('youtube_link'))
                             <span class="error error-message">{{ $errors->first('youtube_link') }}</span>
@@ -139,7 +139,7 @@
                     </div>
                     <div class="col-md-6">
                         <label>Instagram</label>
-                        <input type="text" placeholder="youtube url" id="instagram_link" name="instagram_link"
+                        <input type="text" placeholder="Instagram url" id="instagram_link" name="instagram_link"
                             value="{{ @$user->userProfile->instagram_link }}">
                         @if ($errors->has('instagram_link'))
                             <span class="error error-message">{{ $errors->first('instagram_link') }}</span>
