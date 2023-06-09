@@ -12,7 +12,7 @@ class FilmmakerIndex extends Component
     use WithPagination;
 
     public $searchTerm;
-    public $user_id, $first_name, $website, $bio_info, $city, $state;
+    public $user_id, $first_name, $website, $bio_info, $city, $state, $zip_code;
 
     public $view_page = false;
 
@@ -54,10 +54,10 @@ class FilmmakerIndex extends Component
         $this->user_id = $id;
         $this->first_name = $user->first_name;
         $this->website = $user->website;
-        // $this->media_url = $user->media_url;
         $this->city = isset($user->userProfile->city) ? $user->userProfile->city : '';
         $this->state = isset($user->userProfile->state) ? $user->userProfile->state : '';
         $this->bio_info = isset($user->userProfile->bio_info) ? $user->userProfile->bio_info : '';
+        $this->zip_code = isset($user->userProfile->zip_code) ? $user->userProfile->zip_code : '';
 
     }
 

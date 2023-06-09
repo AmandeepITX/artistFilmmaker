@@ -1,4 +1,4 @@
-<h4>Company View</h4>
+{{-- <h4>Filmmaker View</h4> --}}
 
 <div class="form-group ">
     <a href="{{ url()->previous() }}" class="btn btn-primary"><i class="fa fa-angle-left"></i>Back</a>
@@ -38,8 +38,14 @@
             <input type="text" class="form-control" id="exampleInputEmail1" wire:model="state">
         </div>
     </div>
-
     <div class="row">
+        <div class="">
+            <label for="exampleInputEmail1">Zip Code</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" wire:model="zip_code">
+        </div>
+    </div>
+    <div class="row">
+
         <div class="col-3">
             <label for="exampleInputEmail1">Bio Information</label>
             <textarea type="text" class="form-control" id="exampleInputEmail1" wire:model="bio_info"></textarea>
@@ -47,11 +53,8 @@
         {{-- <div class="col-3">
             <label for="exampleInputEmail1">State</label>
             <input type="text" class="form-control" id="exampleInputEmail1" wire:model="state">
-        </div>
-        <div class="col-2">
-            <label for="exampleInputEmail1">Zip Code</label>
-            <input type="text" class="form-control" id="exampleInputEmail1" wire:model="zip_code">
         </div> --}}
+
     </div>
 </div>
 <script>

@@ -28,7 +28,7 @@
                         <div class="inner">
                             <h3>{{@$total_filmmaker}}</h3>
 
-                            <p>Film Maker</p>
+                            <p>Filmmakers</p>
                         </div>
                         <div class="icon">
                             <i class="ion ion-bag"></i>

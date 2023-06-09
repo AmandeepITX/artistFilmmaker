@@ -65,6 +65,11 @@
                      <li class="nav-item contactbtn">
                         <a class="nav-link{{ request()->routeIs('contact-us') ? ' active' : '' }}" href="{{route('contact-us')}}">Contact Us</a>
                      </li>
+                     @if(Auth::check())
+                     <li class="nav-item contactbtn">
+                        <a class="nav-link{{ request()->routeIs('logout') ? ' active' : '' }}" href="{{route('logout')}}">Logout</a>
+                     </li>
+                     @endif
                      <!-- <li class="nav-item contactbtn">
                         <a class="nav-link{{ request()->routeIs('about-ahap') ? ' active' : '' }}" href="https://theahap.com/about-ahap/">ABOUT AHAP</a>
                      </li> -->

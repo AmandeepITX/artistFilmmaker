@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\Genre;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -24,14 +25,16 @@ class UserController extends Controller
     public function userProfile()
     {
         $user = User::find(Auth::user()->id);
+        $genres = Genre::get();
         $state = State::all();
-        return view('pages.user.user_profile', \compact('user', 'state'));
+        $selectedGenres = isset($user->userProfile['genres_id']) ? json_decode($user->userProfile['genres_id']) : [];
+
+        return view('pages.user.user_profile', \compact('user', 'state','genres', 'selectedGenres'));
     }
 
     public function changePassView()
     {
         $user = User::where('id', Auth::user()->id);
-        // $settings = SettingsModel::first();
         return view('pages.user.password_change', \compact('user'));
     }
 
@@ -75,6 +78,7 @@ class UserController extends Controller
                 'twitter_link' => 'nullable|url',
                 'city' => 'required',
                 'zip_code' => 'required',
+                // 'state' => 'required',
             ],
             [
                 'first_name.required' => 'The first name field is required.',
@@ -102,6 +106,7 @@ class UserController extends Controller
             $userProfile->twitter_link = $request->twitter_link;
             $userProfile->instagram_link = $request->instagram_link;
             $userProfile->youtube_link = $request->youtube_link;
+            $userProfile['genres_id'] = json_encode($request->genres_id);
 
             if ($request->hasfile('image')) {
 
@@ -128,7 +133,6 @@ class UserController extends Controller
 
             $userProfile = new UserProfile;
             $userProfile->user_id = $user->id;
-            $userProfile->genres_id = $request->genres_id;
             $userProfile->city = $request->city;
             $userProfile->state = $request->state;
             $userProfile->zip_code = $request->zip_code;
@@ -138,6 +142,7 @@ class UserController extends Controller
             $userProfile->twitter_link = $request->twitter_link;
             $userProfile->instagram_link = $request->instagram_link;
             $userProfile->youtube_link = $request->youtube_link;
+            $userProfile['genres_id'] = json_encode($request->genres_id);
 
             if ($request->hasfile('image')) {
 
@@ -160,10 +165,6 @@ class UserController extends Controller
 
             $userProfile->save();
         }
-
-
-
-
 
 
         // $user = User::where('id', Auth::user()->id)->first();
@@ -258,7 +259,6 @@ class UserController extends Controller
 
     public function heroCard()
     {
-        //    $settings=SettingsModel::first();
         $users = User::find(Auth::user()->id);
         return view('pages.user.hero_card', \compact('users'));
     }

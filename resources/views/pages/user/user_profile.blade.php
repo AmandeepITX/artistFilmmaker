@@ -119,7 +119,7 @@
                     </div>
                     <div class="col-md-6">
                         <label>Instagram</label>
-                        <input type="text" placeholder="youtube url" id="instagram_link" name="instagram_link"
+                        <input type="text" placeholder="Instagram url" id="instagram_link" name="instagram_link"
                             value="{{ @$user->userProfile->instagram_link }}">
                         @if ($errors->has('instagram_link'))
                             <span class="error error-message">{{ $errors->first('instagram_link') }}</span>
@@ -135,6 +135,19 @@
                             </option>
                         </select>
                     </div>
+                    <div class="mb-1  col-md-6">
+                        <label for="select2Multiple">Genre</label>
+                        <select class="js-example-basic-multiple-limit" name="genres_id[]"  multiple>
+
+                            @foreach ($genres as $genre)
+                                    <option value="{{ $genre->id }}" @if(in_array($genre->id, $selectedGenres)) selected @endif>
+                                        {{ $genre->title }}
+                                    </option>
+                            @endforeach
+                        </select>
+                    </div>
+
+
                     <div class="col-md-6 Upload-btn">
                         <div >
                             <label>Image</label>
@@ -199,6 +212,16 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
 
     <script>
+
+            $(document).ready(function() {
+                // Select2 Multiple
+                $(".js-example-basic-multiple-limit").select2({
+                    //   maximumSelectionLength: 2
+                });
+
+            });
+
+
         $(function() {
             $("#submit").click(function(event) {
                 var inactive_status = $("#service_inactive").prop("checked");

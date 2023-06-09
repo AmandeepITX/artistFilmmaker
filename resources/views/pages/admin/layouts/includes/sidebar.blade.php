@@ -45,7 +45,7 @@
                     <a class="nav-link{{ request()->routeIs('filmaker-index') ? ' active' : '' }}" href="{{ route('filmaker-index') }}">
                         <i class="nav-icon far fa-plus-square"></i>
                         <p>
-                            Film Maker
+                            Filmmaker
                             <!-- <i class="fas fa-angle-left right"></i> -->
                         </p>
                     </a>

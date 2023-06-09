@@ -34,13 +34,7 @@ class CompanyController extends Controller
     {
         $user_id = Auth::user()->id;
         $user = User::where('id', $user_id)->first();
-        $selectedGenres = $user->userProfile ? json_decode($user->userProfile['genres_id']) : [];
-
-        // if ($user->userProfile && $user->userProfile['genres_id']) {
-        //     $selectedGenres = json_decode($user->userProfile['genres_id']);
-        // } else {
-        //     $selectedGenres = [];
-        // }
+        $selectedGenres = isset($user->userProfile['genres_id']) ? json_decode($user->userProfile['genres_id']) : [];
 
         $genres = Genre::all();
         $state = State::all();
@@ -49,7 +43,6 @@ class CompanyController extends Controller
 
     public function changePassView()
     {
-        // $settings = SettingsModel::first();
         return view('pages.company.password_change');
     }
 
@@ -112,10 +105,7 @@ class CompanyController extends Controller
 
         $userProfile = UserProfile::where(['user_id' => $user->id])->first();
         if ($userProfile) {
-            // $userProfile->genres_id = $request->genres_id;
             $userProfile['genres_id'] = json_encode($request->genres_id);
-
-            // dd($userProfile['genres_id']);
             $userProfile->city = $request->city;
             $userProfile->state = $request->state;
             $userProfile->zip_code = $request->zip_code;
@@ -150,7 +140,6 @@ class CompanyController extends Controller
 
             $userProfile = new UserProfile;
             $userProfile->user_id = $user->id;
-            // $userProfile->genres_id = $request->genres_id;
             $userProfile['genres_id'] = json_encode($request->genres_id);
             $userProfile->city = $request->city;
             $userProfile->state = $request->state;
