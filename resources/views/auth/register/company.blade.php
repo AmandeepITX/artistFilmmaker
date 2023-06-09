@@ -13,7 +13,7 @@
 
                 <div class="row mt-5">
                 <div class="mb-1 radio-main">
-                    <label class="radio-nw"><input type="radio" name="type" value="filmmaker" /> Film Maker</label>
+                    <label class="radio-nw"><input type="radio" name="type" value="filmmaker" /> Filmmaker</label>
                     <label class="radio-nw"><input type="radio" name="type" value="artist" /> Artist</label>
 
                     <input type="hidden" class="radioBtnChoose" name="user_type" value="{{ old('user_type') }}">
@@ -43,7 +43,7 @@
                         @endif
                     </div>
                     <div class="col-md-6">
-                        <input type="text" placeholder="Last_Name" class="name" name="last_name" value="{{ old('last_name') }}">
+                        <input type="text" placeholder="Last Name" class="name" name="last_name" value="{{ old('last_name') }}">
                         @if ($errors->has('last_name'))
                             <span class="error error-message">{{ $errors->first('last_name') }}</span>
                         @endif

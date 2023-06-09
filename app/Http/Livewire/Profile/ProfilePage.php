@@ -13,11 +13,12 @@ class ProfilePage extends Component
     public function render()
     {
         $profilePage = User::findOrFail(request()->id);
-        // $selectedGenres = json_decode($profilePage->userProfile['genres_id']);
 
-        // $genres = Genre::whereIn('id', $selectedGenres)->get(['id', 'title']);
-        // , 'genres' => $genres
+        $selectedGenres = isset($profilePage->userProfile['genres_id']) ? json_decode($profilePage->userProfile['genres_id']) : [];
 
-        return view('livewire.profile.profile-page',['profilePages' => $profilePage]);
+        $genres = Genre::whereIn('id', $selectedGenres)->get(['id', 'title']);
+
+
+        return view('livewire.profile.profile-page',['profilePages' => $profilePage  , 'genres' => $genres]);
     }
 }

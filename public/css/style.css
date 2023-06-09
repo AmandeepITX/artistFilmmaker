@@ -1411,7 +1411,7 @@ span.error.error-message,
 
 input[type="search"], .filter-dropdown{
     height: 100%;
-    margin: 10px 0px !important;
+
     border-radius: 8px !important;
     border: none !important;
     font-size: 17px;
@@ -4419,4 +4419,17 @@ button, select {
 }
 .back-btn:hover {
  color: #FF00DD;
+}
+.genre-type li {
+    list-style: none;
+    background: #e3dede;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    padding: 5px 15px;
+}
+.genre-type {
+    padding: 0px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 11px;
 }

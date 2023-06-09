@@ -36,11 +36,11 @@
                     </div>
                     <div class="col-md-4 sm-px-3">
                         <!-- <input type="search" class="form-control my-0" placeholder="search by city,name,zipcode etc.." > -->
-                        <form class="search-form">
-                            <input type="search" class="form-control my-0" placeholder="Search by name, zip code"
+                        {{-- <form class="search-form"> --}}
+                            <input type="search" class="form-control m-0" placeholder="Search by name, zip code"
                                 wire:model="searchTerm" placeholder="Search" class="searchTerm">
                             {{-- <button class="search-btn"><img src="./img/search.png"></button> --}}
-                        </form>
+                        {{-- </form> --}}
                     </div>
                 </div>
             </div>
