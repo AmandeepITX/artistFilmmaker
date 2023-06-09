@@ -31,8 +31,19 @@ class statusMail extends Mailable
      */
     public function build()
     {
-      return $this->from('info@artistreplugged.com', 'Artist Replugged')
-            ->subject(Str::title($this->users->user_type) . ' ' . Str::title($this->users->status) . ' Email')
+        if($this->users->status == 'approved'){
+            $status = 'Approved';
+        }else{
+            $status = 'Unapproved';
+        }
+
+        if($this->users->user_type == 'filmmaker'){
+           $subject = "Filmmaker Profile $status";
+        }else{
+            $subject = "Artist Profile $status";
+        }
+      return $this->from('info@artistreplugged.com')
+            ->subject($subject)
             ->view('emails.status-mail');
     }
 }
