@@ -8,15 +8,15 @@ use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\WithPagination;
 
 class IndustryListing extends Component
-{ 
+{
     use WithPagination;
-    
+
     use LivewireAlert;
     protected $paginationTheme = 'bootstrap';
     public $list, $industry_name, $post, $user, $validate, $deleteId = '';
     public $is_update = false;
     public $searchTerm;
-    public $industryList;
+    public $industryList, $industry_id;
 
 
 

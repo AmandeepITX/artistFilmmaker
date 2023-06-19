@@ -32,7 +32,7 @@
                                 <div class="col-md-6">
                                     <label>First Name</label>
                                     <input type="text" placeholder="First Name" class="first-name" name="first_name"
-                                        value="{{ $user->first_name }}">
+                                        value="{{ old('first_name', $user->first_name) }}">
                                     @if ($errors->has('first_name'))
                                         <span class="error error-message">{{ $errors->first('first_name') }}</span>
                                     @endif
@@ -40,7 +40,7 @@
                                 <div class="col-md-6">
                                     <label>Last Name</label>
                                     <input type="text" placeholder="Last Name" class="last-name" name="last_name"
-                                        value="{{ $user->last_name }}">
+                                        value="{{ old('last_name', $user->last_name) }}">
                                     @if ($errors->has('last_name'))
                                         <span class="error error-message">{{ $errors->first('last_name') }}</span>
                                     @endif
@@ -52,8 +52,8 @@
                 <div class="row">
                     <div class="col-md-6">
                         <label>Email</label>
-                        <input type="email" placeholder="Email" class="email" name="email" value="{{ $user->email }}"
-                            readonly>
+                        <input type="email" placeholder="Email" class="email" name="email"
+                            value="{{ old('email', $user->email) }}" readonly>
                         @if ($errors->has('email'))
                             <span class="error error-message">{{ $errors->first('email') }}</span>
                         @endif
@@ -61,7 +61,7 @@
                     <div class="col-md-6">
                         <label>Website</label>
                         <input type="text" placeholder="Website" name="website" id="website"
-                            value="{{ $user->website }}">
+                            value="{{ old('website', $user->website) }}">
                         @if ($errors->has('website'))
                             <span class="error error-message">{{ $errors->first('website') }}</span>
                         @endif
@@ -74,37 +74,38 @@
                     <div class="col-md-4">
                         <label>City</label>
                         <input type="text" placeholder="City" class="city" name="city"
-                            value="{{ @$user->userProfile->city }}">
+                            value="{{ old('city', @$user->userProfile->city) }}">
                         @if ($errors->has('city'))
                             <span class="error error-message">{{ $errors->first('city') }}</span>
                         @endif
                     </div>
                     <div class="col-md-4">
                         <label>State</label>
-                        <select class="form-select" name="state" value="{{ @$user->userProfile->state }}">
+                        <select class="form-select" name="state" value="{{ old('state', @$user->userProfile->state) }}">
+                            <option value=''> Select State... </option>
                             @foreach ($state as $show)
-                                <option value="{{ $show->state_name }}" @if (@$user->userProfile->state == $show->state_name) selected @endif>
+                                <option value="{{ $show->state_name }}" @if (old('state', @$user->userProfile->state) == $show->state_name) selected @endif>
                                     {{ $show->state_name }}</option>
                             @endforeach
                         </select>
+                        @if ($errors->has('state'))
+                            <span class="error error-message">{{ $errors->first('state') }}</span>
+                        @endif
                     </div>
                     <div class="col-md-4">
                         <label>Zip code</label>
                         <input type="text" placeholder="Zip code" id="zip-code" name="zip_code"
-                            value="{{ @$user->userProfile->zip_code }}">
+                            value="{{ old('zip_code', @$user->userProfile->zip_code) }}">
                         @if ($errors->has('zip_code'))
                             <span class="error error-message">{{ $errors->first('zip_code') }}</span>
                         @endif
                     </div>
-
-
                 </div>
-
 
                 <div class="row">
                     <div class="col-md-12">
                         <label for="username">Bio Information</label>
-                        <textarea class="personalization" name="bio_info" value="" placeholder="Bio Information">{{ @$user->userProfile->bio_info }}</textarea>
+                        <textarea class="personalization" name="bio_info" value=" " placeholder="Bio Information">{{ old('bio_info', @$user->userProfile->bio_info) }}</textarea>
                         @if ($errors->has('bio_info'))
                             <span class="error error-message">{{ $errors->first('bio_info') }}</span>
                         @endif
@@ -116,7 +117,7 @@
                     <div class="col-md-6">
                         <label>Facebook</label>
                         <input type="text" placeholder="Facebook url" class="facebook" name="facebook_link"
-                            value="{{ @$user->userProfile->facebook_link }}">
+                            value="{{ old('facebook_link', @$user->userProfile->facebook_link) }}">
                         @if ($errors->has('facebook_link'))
                             <span class="error error-message">{{ $errors->first('facebook_link') }}</span>
                         @endif
@@ -124,7 +125,7 @@
                     <div class="col-md-6">
                         <label>Twitter</label>
                         <input type="text" placeholder="Twitter url" class="twitter_link" name="twitter_link"
-                            value="{{ @$user->userProfile->twitter_link }}">
+                            value="{{ old('twitter_link', @$user->userProfile->twitter_link) }}">
                         @if ($errors->has('twitter_link'))
                             <span class="error error-message">{{ $errors->first('twitter_link') }}</span>
                         @endif
@@ -132,7 +133,7 @@
                     <div class="col-md-6">
                         <label>Youtube</label>
                         <input type="text" placeholder="Youtube url" id="youtube_link" name="youtube_link"
-                            value="{{ @$user->userProfile->youtube_link }}">
+                            value="{{ old('youtube_link', @$user->userProfile->youtube_link) }}">
                         @if ($errors->has('youtube_link'))
                             <span class="error error-message">{{ $errors->first('youtube_link') }}</span>
                         @endif
@@ -140,7 +141,7 @@
                     <div class="col-md-6">
                         <label>Instagram</label>
                         <input type="text" placeholder="Instagram url" id="instagram_link" name="instagram_link"
-                            value="{{ @$user->userProfile->instagram_link }}">
+                            value="{{ old('instagram_link', @$user->userProfile->instagram_link) }}">
                         @if ($errors->has('instagram_link'))
                             <span class="error error-message">{{ $errors->first('instagram_link') }}</span>
                         @endif
@@ -148,37 +149,36 @@
                     <div class="mb-1  col-md-6">
                         <label>Available to film</label>
                         <select class="form-select" name="available_to_film"
-                            value="{{ @$user->userProfile->available_to_film }}">
-                            <option value='1' {{ @$user->userProfile->available_to_film == '1' ? 'selected' : '' }}>
+                            value="{{ old('available_to_film', @$user->userProfile->available_to_film) }}">
+                            <option value=''>Select Available to film..... </option>
+                            <option value='1'
+                                {{ old('available_to_film', @$user->userProfile->available_to_film) == '1' ? 'selected' : '' }}>
                                 Yes</option>
-                            <option value='0' {{ @$user->userProfile->available_to_film == '0' ? 'selected' : '' }}>
+                            <option value='0'
+                                {{ old('available_to_film', @$user->userProfile->available_to_film) == '0' ? 'selected' : '' }}>
                                 No</option>
                         </select>
+                        @if ($errors->has('available_to_film'))
+                            <span class="error error-message">{{ $errors->first('available_to_film') }}</span>
+                        @endif
                     </div>
-                    {{-- <div class="mb-1 col-md-6">
-                        <label>Genre</label>
-                        <select class="form-select" name="genres_id" value={{ @$user->userProfile->genres_id }}>
-                            @foreach ($genres as $genre)
-                                <option value="{{ $genre->id }}" @if (@$user->userProfile->genres_id == $genre->id) selected @endif>
-                                    {{ $genre->title }}</option>
-                            @endforeach
-                        </select>
-                    </div> --}}
 
 
                     <div class="mb-1  col-md-6">
                         <label for="select2Multiple">Genre</label>
-                        <select class="js-example-basic-multiple-limit" name="genres_id[]"  multiple>
+                        <select class="js-example-basic-multiple-limit" name="genres_id[]" multiple>
 
                             @foreach ($genres as $genre)
-                                {{-- <option value="{{ $genre->id }}" @if (@$user->userProfile->genres_id == $genre->id) selected @endif>
-                                    {{ $genre->title }}</option> --}}
+                                {{-- <option value="{{ $genre->id }}" @if (old('genres_id') && in_array(old('genres_id'), $genre->id, $selectedGenres)) selected @endif> --}}
 
-                                    <option value="{{ $genre->id }}" @if(in_array($genre->id, $selectedGenres)) selected @endif>
-                                        {{ $genre->title }}
-                                    </option>
+                                <option value="{{ $genre->id }}" @if (in_array($genre->id, $selectedGenres)) selected @endif>
+                                    {{ $genre->title }}
+                                </option>
                             @endforeach
                         </select>
+                        @if ($errors->has('genres_id'))
+                            <span class="error error-message">{{ $errors->first('genres_id') }}</span>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -200,9 +200,9 @@
         <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
         <!-- <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
 
-                <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+                    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
 
-                <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script> -->
+                    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script> -->
 
 
 
