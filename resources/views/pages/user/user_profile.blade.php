@@ -25,7 +25,7 @@
                     <div class="col-md-6">
                         <label>First Name</label>
                         <input type="text" placeholder="First Name" class="first-name" name="first_name"
-                            value="{{ $user->first_name }}">
+                            value="{{ old('first_name' , $user->first_name) }}">
                         @if ($errors->has('first_name'))
                             <span class="error error-message">{{ $errors->first('first_name') }}</span>
                         @endif
@@ -33,21 +33,21 @@
                     <div class="col-md-6">
                         <label>Last Name</label>
                         <input type="text" placeholder="Last Name" class="last-name" name="last_name"
-                            value="{{ $user->last_name }}">
+                            value="{{old('last_name' , $user->last_name) }}">
                         @if ($errors->has('last_name'))
                             <span class="error error-message">{{ $errors->first('last_name') }}</span>
                         @endif
                     </div>
                     <div class="col-md-6">
                         <label>Website</label><br>
-                        <input type="text" class="last-name" name="website" value="{{ $user->website }}">
+                        <input type="text" class="last-name" name="website" value="{{ old('website', $user->website) }}">
                         @if ($errors->has('website'))
                             <span class="error error-message">{{ $errors->first('website') }}</span>
                         @endif
                     </div>
                     <div class="col-md-6">
                         <label>Email</label><br>
-                        <input type="email" class="email" name="email" value="{{ $user->email }}">
+                        <input type="email" class="email" name="email" value="{{ old('email' , $user->email) }}">
                         @if ($errors->has('email'))
                             <span class="error error-message">{{ $errors->first('email') }}</span>
                         @endif
@@ -58,7 +58,7 @@
                     <div class="col-md-4">
                         <label>City</label>
                         <input type="text" placeholder="City" class="city" name="city"
-                            value="{{ @$user->userProfile->city }}">
+                            value="{{ old('city' ,@$user->userProfile->city) }}">
                         @if ($errors->has('city'))
                             <span class="error error-message">{{ $errors->first('city') }}</span>
                         @endif
@@ -67,15 +67,19 @@
                     <div class="col-md-4">
                         <label>State</label>
                         <select class="form-select" name="state" value="{{ @$user->userProfile->state }}">
+                            <option value= ''>Select State </option>
                             @foreach ($state as $show)
-                                <option value="{{ $show->state_name }}" @if (@$user->userProfile->state == $show->state_name) selected @endif>
+                                <option value="{{ $show->state_name }}" @if (old('state', @$user->userProfile->state) == $show->state_name) selected @endif>
                                     {{ $show->state_name }}</option>
                             @endforeach
                         </select>
+                        @if ($errors->has('state'))
+                        <span class="error error-message">{{ $errors->first('state') }}</span>
+                    @endif
                     </div>
                     <div class="col-md-4">
                         <label>Zip code</label><br>
-                        <input type="text" id="zip-code" name="zip_code" value="{{ @$user->userProfile->zip_code }}">
+                        <input type="text" id="zip-code" name="zip_code" value="{{ old('zip_code' , @$user->userProfile->zip_code) }}">
                         @if ($errors->has('zip_code'))
                             <span class="error error-message">{{ $errors->first('zip_code') }}</span>
                         @endif
@@ -86,7 +90,7 @@
                     <div class="col-md-12">
                         <label>Bio Information</label>
                         <br>
-                        <textarea type="text" class="personalization" name="bio_info" value="{{ @$user->userProfile->bio_info }}">{{@$user->userProfile->bio_info }}</textarea>
+                        <textarea type="text" class="personalization" name="bio_info" value="{{ @$user->userProfile->bio_info }}">{{old('bio_info' ,  @$user->userProfile->bio_info) }}</textarea>
                         @if ($errors->has('bio_info'))
                             <span class="error error-message">{{ $errors->first('bio_info') }}</span>
                         @endif
@@ -129,11 +133,15 @@
                         <label>Seeking a filmmaker</label>
                         <select class="form-select" name="seekin_filmmaker"
                             value="{{ @$user->userProfile->seekin_filmmaker }}">
-                            <option value='1' {{ @$user->userProfile->seekin_filmmaker == '1' ? 'selected' : '' }}>Yes
+                            <option value= ''>Select Seeking Filmmaker</option>
+                            <option value='1' {{ old( 'seekin_filmmaker' ,@$user->userProfile->seekin_filmmaker) == '1' ? 'selected' : '' }}>Yes
                             </option>
-                            <option value='0' {{ @$user->userProfile->seekin_filmmaker == '0' ? 'selected' : '' }}>No
+                            <option value='0' {{ old('seekin_filmmaker', @$user->userProfile->seekin_filmmaker) == '0' ? 'selected' : '' }}>No
                             </option>
                         </select>
+                        @if ($errors->has('seekin_filmmaker'))
+                        <span class="error error-message">{{ $errors->first('seekin_filmmaker') }}</span>
+                    @endif
                     </div>
                     <div class="mb-1  col-md-6">
                         <label for="select2Multiple">Genre</label>
@@ -145,6 +153,9 @@
                                     </option>
                             @endforeach
                         </select>
+                        @if ($errors->has('genres_id'))
+                        <span class="error error-message">{{ $errors->first('genres_id') }}</span>
+                    @endif
                     </div>
 
 
