@@ -4078,10 +4078,6 @@ button, select {
         width: 100%;
         margin: 0;
     }
-
-
-
-
     .discounts-services-titel {
         padding-top: 30px;
     }
@@ -4238,10 +4234,6 @@ button, select {
         font-size: 28px;
     }
 }
-
-
-
-
 @media (max-width: 991px) {
     .bottom-menu ul li a {
         text-align: left;
@@ -4382,14 +4374,19 @@ button, select {
 }
 
 @media (max-width: 767px) {
+    .back-btn {
+        top: 0px !important;
+        left: 10px !important;
+    }
     .left-profile-section {
         width: 100% !important;
-        margin: 0px 13px;
     }
     .adminsidebar:before {
         display: none !important;
     }
-
+    .left-profile-section img {
+        padding: 0px 27px;
+    }
     div#signupclient>.container {
         padding-left: 0px !important;
         padding-right: 0px !important;

@@ -106,7 +106,7 @@
                     @endif
                 </div>
             </div>
-            <div class="col-md-3 m-4 p-0">
+            <div class="col-md-3 m-sm-4 m-0 p-sm-0 p-4">
                 <div class="text-box">
                     @if (@$profilePages->userProfile->logo)
                         <img src="{{ asset($profilePages->userProfile->logo) }}">
@@ -162,7 +162,7 @@
                     <!--<p class="phone-link" ><a href="javascript::void(0)">{{ @$profilePages->phone }}</a></p>-->
                 </div>
             </div>
-            <div class="col-md-5 mt-4 p-0">
+            <div class="col-md-5 mt-4 p-sm-0 px-4">
                 <div class="text-box">
                     <h4>Bio</h4>
                     <p>
