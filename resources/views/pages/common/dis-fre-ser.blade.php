@@ -1,5 +1,5 @@
 @extends('layouts.app-with-header-footer-discount')
-@section('title', 'Market Place')
+@section('title', 'Marketplace')
 @section('content')
 <div class="discounts-services">
     <div class="">

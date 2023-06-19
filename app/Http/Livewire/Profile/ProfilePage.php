@@ -18,7 +18,8 @@ class ProfilePage extends Component
 
         $genres = Genre::whereIn('id', $selectedGenres)->get(['id', 'title']);
 
-
         return view('livewire.profile.profile-page',['profilePages' => $profilePage  , 'genres' => $genres]);
     }
+
+
 }

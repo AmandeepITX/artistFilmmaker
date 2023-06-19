@@ -2906,6 +2906,7 @@ i.fa.fa-star.checked {
     font-weight: 600;
     font-family: "Lato";
     text-decoration: none;
+    text-transform: initial;
 }
 
 .text-box a:hover,
