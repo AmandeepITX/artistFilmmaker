@@ -15,14 +15,21 @@
 
                 <div class="profile-social-icone">
                     @if (@$profilePages->userProfile->facebook_link)
-                    @php
+                        @php
                             $facebookLink = $profilePages->userProfile->facebook_link;
-                            $hasHttp = strpos($facebookLink, 'http') !== false;
-                            $formattedLink = $hasHttp ? $facebookLink : '//' . $facebookLink;
+
+                            $formattedLink = '';
+
+                            if (filter_var($facebookLink, FILTER_VALIDATE_URL)) {
+                                $parsedLink = parse_url($facebookLink);
+                                $formattedLink = isset($parsedLink['scheme']) ? $facebookLink : '//' . $facebookLink;
+                            } else {
+                                $formattedLink = '//' . $facebookLink;
+                            }
                         @endphp
                         <p class="facebook">
 
-                            <a href="{{ @$profilePages->userProfile->facebook_link }}" target="_blank">
+                            <a href="{{ $formattedLink }}" target="_blank">
 
                                 {{ $profilePages->userProfile->facebook_link }}
                             </a>
@@ -31,22 +38,70 @@
                     @if (@$profilePages->userProfile->linkedin_link)
                         @php
                             $linkedinLink = $profilePages->userProfile->linkedin_link;
-                            $hasHttp = strpos($linkedinLink, 'http') !== false;
-                            $formattedLink = $hasHttp ? $linkedinLink : '//' . $linkedinLink;
+
+                            $formattedLink = '';
+
+                            if (filter_var($linkedinLink, FILTER_VALIDATE_URL)) {
+                                $parsedLink = parse_url($linkedinLink);
+                                $formattedLink = isset($parsedLink['scheme']) ? $linkedinLink : '//' . $linkedinLink;
+                            } else {
+                                $formattedLink = '//' . $linkedinLink;
+                            }
                         @endphp
-                        <p class="linkedin"> <a href="{{ @$profilePages->userProfile->linkedin_link }}"
+                        <p class="linkedin"> <a href="{{ $formattedLink }}"
                                 target="_blank">{{ $profilePages->userProfile->linkedin_link }}</a></p>
                     @endif
                     @if (@$profilePages->userProfile->twitter_link)
-                        <p class="twitter"><a href="{{ @$profilePages->userProfile->twitter_link }}"
+                        @php
+                            $twitterLink = $profilePages->userProfile->twitter_link;
+
+                            $formattedLink = '';
+
+                            if (filter_var($twitterLink, FILTER_VALIDATE_URL)) {
+                                $parsedLink = parse_url($twitterLink);
+                                $formattedLink = isset($parsedLink['scheme']) ? $twitterLink : '//' . $twitterLink;
+                            } else {
+                                $formattedLink = '//' . $twitterLink;
+                            }
+                        @endphp
+
+                        <p class="twitter"><a href="{{ $formattedLink }}"
                                 target="_blank">{{ $profilePages->userProfile->twitter_link }}</a></p>
                     @endif
+
                     @if (@$profilePages->userProfile->instagram_link)
-                        <p class="instagram"> <a href="{{ @$profilePages->userProfile->instagram_link }}"
+                        @php
+                            $instagramLink = $profilePages->userProfile->instagram_link;
+
+                            $formattedLink = '';
+
+                            if (filter_var($instagramLink, FILTER_VALIDATE_URL)) {
+                                $parsedLink = parse_url($instagramLink);
+                                $formattedLink = isset($parsedLink['scheme']) ? $instagramLink : '//' . $instagramLink;
+                            } else {
+                                $formattedLink = '//' . $instagramLink;
+                            }
+                        @endphp
+
+                        <p class="instagram"> <a href="{{ $formattedLink }}"
                                 target="_blank">{{ $profilePages->userProfile->instagram_link }}</a></p>
                     @endif
+
                     @if (@$profilePages->userProfile->youtube_link)
-                        <p class="youtube"> <a href="{{ @$profilePages->userProfile->youtube_link }}"
+                        @php
+                            $youtubeLink = $profilePages->userProfile->youtube_link;
+
+                            $formattedLink = '';
+
+                            if (filter_var($youtubeLink, FILTER_VALIDATE_URL)) {
+                                $parsedLink = parse_url($youtubeLink);
+                                $formattedLink = isset($parsedLink['scheme']) ? $youtubeLink : '//' . $youtubeLink;
+                            } else {
+                                $formattedLink = '//' . $youtubeLink;
+                            }
+                        @endphp
+
+                        <p class="youtube"> <a href="{{ $formattedLink }}"
                                 target="_blank">{{ $profilePages->userProfile->youtube_link }}</a></p>
                     @endif
                 </div>
@@ -83,7 +138,20 @@
                     </ul>
 
                     @if (@$profilePages->website)
-                        <p class="web-link mt-4"><a href="{{ @$profilePages->website }}"
+                        @php
+                            $websiteLink = $profilePages->website;
+                            $formattedLink = '';
+
+                            if (filter_var($websiteLink, FILTER_VALIDATE_URL)) {
+                                $parsedLink = parse_url($websiteLink);
+                                $formattedLink = isset($parsedLink['scheme']) ? $websiteLink : '//' . $websiteLink;
+                            } else {
+                                $formattedLink = '//' . $websiteLink;
+                            }
+                        @endphp
+
+
+                        <p class="web-link mt-4"><a href="{{ $formattedLink }}"
                                 target="_blank">{{ $profilePages->website }}</a></p>
                     @endif
                     {{-- @if (@$profilePages->media_url)

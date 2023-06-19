@@ -2906,6 +2906,7 @@ i.fa.fa-star.checked {
     font-weight: 600;
     font-family: "Lato";
     text-decoration: none;
+    text-transform: initial;
 }
 
 .text-box a:hover,
@@ -4381,6 +4382,10 @@ button, select {
 }
 
 @media (max-width: 767px) {
+    .left-profile-section {
+        width: 100% !important;
+        margin: 0px 13px;
+    }
     .adminsidebar:before {
         display: none !important;
     }
