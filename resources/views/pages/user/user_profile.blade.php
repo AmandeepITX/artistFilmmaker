@@ -1,5 +1,5 @@
 @extends('layouts.app-with-header-footer')
-@section('title', 'Hero Profile')
+@section('title', 'Artist Profile')
 @section('content')
 
     <div class=" sign-up" id="signupclient">
