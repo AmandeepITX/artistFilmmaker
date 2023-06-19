@@ -90,6 +90,7 @@ class CompanyController extends Controller
             [
                 'first_name.required' => 'The first name field is required.',
                 'last_name.required' => 'The last name field is required.',
+                'genres_id.required' => 'The Genre field is required',
             ]
         );
 
