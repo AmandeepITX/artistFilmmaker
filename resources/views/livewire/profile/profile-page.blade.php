@@ -4,22 +4,36 @@
             <div class="col-md-3 px-0  left-profile-section">
 
                 @if (empty($profilePages->userProfile->image))
-                    <img src="https://via.placeholder.com/300?text=Artist Replugged" >
+                    <img src="https://via.placeholder.com/300?text=Artist Replugged">
                 @else
                     @if ($profilePages->user_type == 'filmmaker')
-
-                        <img src="{{ asset('uploads/filmmaker/' . @$profilePages->userProfile->image) }}"  >
+                        <img src="{{ asset('uploads/filmmaker/' . @$profilePages->userProfile->image) }}">
                     @elseif ($profilePages->user_type == 'artist')
-                        <img src="{{ asset('uploads/artist/' . @$profilePages->userProfile->image) }}" >
+                        <img src="{{ asset('uploads/artist/' . @$profilePages->userProfile->image) }}">
                     @endif
                 @endif
 
                 <div class="profile-social-icone">
                     @if (@$profilePages->userProfile->facebook_link)
-                        <p class="facebook"> <a href="{{ @$profilePages->userProfile->facebook_link }}"
-                                target="_blank">{{ $profilePages->userProfile->facebook_link }}</a></p>
+                    @php
+                            $facebookLink = $profilePages->userProfile->facebook_link;
+                            $hasHttp = strpos($facebookLink, 'http') !== false;
+                            $formattedLink = $hasHttp ? $facebookLink : '//' . $facebookLink;
+                        @endphp
+                        <p class="facebook">
+
+                            <a href="{{ @$profilePages->userProfile->facebook_link }}" target="_blank">
+
+                                {{ $profilePages->userProfile->facebook_link }}
+                            </a>
+                        </p>
                     @endif
                     @if (@$profilePages->userProfile->linkedin_link)
+                        @php
+                            $linkedinLink = $profilePages->userProfile->linkedin_link;
+                            $hasHttp = strpos($linkedinLink, 'http') !== false;
+                            $formattedLink = $hasHttp ? $linkedinLink : '//' . $linkedinLink;
+                        @endphp
                         <p class="linkedin"> <a href="{{ @$profilePages->userProfile->linkedin_link }}"
                                 target="_blank">{{ $profilePages->userProfile->linkedin_link }}</a></p>
                     @endif
@@ -53,20 +67,20 @@
                             @endforeach
                         @endif
                     </span>
-                    <p class="mt-2"> {{ @$profilePages->userProfile->city }}
-                        <br>
+                    <p class="mt-2"> {{ @$profilePages->userProfile->city }} ,
+
                         {{ @$profilePages->userProfile->state }}
+                        <br>
                         {{ @$profilePages->userProfile->zip_code }}
                     </p>
                     <p class="mt-2">
-                        <ul class="genre-type">
+                    <ul class="genre-type">
                         @foreach ($genres as $genre)
-
-                        <li>
-                            {{ $genre->title }}
-                        </li>
-                    @endforeach
-                        </ul>
+                            <li>
+                                {{ $genre->title }}
+                            </li>
+                        @endforeach
+                    </ul>
 
                     @if (@$profilePages->website)
                         <p class="web-link mt-4"><a href="{{ @$profilePages->website }}"

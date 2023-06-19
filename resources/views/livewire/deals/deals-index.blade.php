@@ -71,7 +71,7 @@
                                 <h5 class="card-title">{{ $user->first_name }}</h5>
                                 {{-- <h5 class="card-title">{{ $user->user_type }}</h5> --}}
                                 <span class="">{{ $user->user_type }}</span>
-                                <span class="">{{ @$user->userProfile->city }} {{ @$user->userProfile->state }} {{ @$user->userProfile->zip_code }}</span>
+                                <span class="">{{ @$user->userProfile->city }} {{ @$user->userProfile->state }}</span>
                                 {{-- <span class="">{{ @$user->userProfile->state }}</span>
                                 <span class="">{{ @$user->userProfile->zip_code }}</span> --}}
                                 {{-- <span class="">{{ @$user->userProfile->genres_id }}</span> --}}
