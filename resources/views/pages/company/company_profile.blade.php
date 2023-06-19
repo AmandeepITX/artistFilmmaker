@@ -171,7 +171,7 @@
                             @foreach ($genres as $genre)
                                 {{-- <option value="{{ $genre->id }}" @if (old('genres_id') && in_array(old('genres_id'), $genre->id, $selectedGenres)) selected @endif> --}}
 
-                                <option value="{{ $genre->id }}" @if (in_array($genre->id, $selectedGenres)) selected @endif>
+                                <option value="{{ $genre->id }}" @if (in_array($genre->id, old('genres_id', $selectedGenres))) selected @endif>
                                     {{ $genre->title }}
                                 </option>
                             @endforeach

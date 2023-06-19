@@ -71,20 +71,16 @@ class UserController extends Controller
             [
                 'first_name' => 'required|max:100',
                 'last_name' => 'required|max:100',
-                // 'website' => 'required|url',
-                // 'facebook_link' => 'nullable|url',
-                // 'youtube_link' => 'nullable|url',
-                // 'instagram_link' => 'nullable|url',
-                // 'twitter_link' => 'nullable|url',
                 'city' => 'required',
                 'zip_code' => 'required',
                 'state' => 'required',
                 'seekin_filmmaker' => 'required',
-                'genres_id' => 'required',
+                'genres_id' => 'required|array',
             ],
             [
                 'first_name.required' => 'The first name field is required.',
                 'last_name.required' => 'The last name field is required.',
+                'genres_id.required' => 'The Genre field is required',
             ]
         );
 
