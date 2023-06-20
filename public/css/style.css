@@ -3473,7 +3473,11 @@ select {
 
 @media screen and (max-width: 1024px) {
 
+<<<<<<< HEAD
 
+=======
+
+>>>>>>> 65b0930ca6df413bf621e50af39ac88d77cadb6d
     .top-menu {
         width: 100%;
         left: 0px;
