@@ -4438,3 +4438,11 @@ button, select {
     flex-wrap: wrap;
     gap: 11px;
 }
+.page-item.active .page-link {
+    background: #FF00DD !important;
+    border: #FF00DD !important;
+    height: 100%;
+}
+button.page-link {
+    color: #000 !important;
+}
