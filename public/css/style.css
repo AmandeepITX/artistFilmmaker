@@ -3473,7 +3473,11 @@ select {
 
 @media screen and (max-width: 1024px) {
 
- 
+<<<<<<< HEAD
+
+=======
+
+>>>>>>> 65b0930ca6df413bf621e50af39ac88d77cadb6d
     .top-menu {
         width: 100%;
         left: 0px;
@@ -4436,6 +4440,10 @@ select {
     .profile-titel h2 {
         font-size: 36px;
     }
+    .profile-titel {
+        background: #f8f8f8;
+        padding: 47px 0px;
+    }
     .contact-us-titel {
         padding: 35px 0px;
         margin-bottom: 5px;
@@ -4445,7 +4453,7 @@ select {
     }
 
     .back-btn {
-        top: 0px !important;
+        top: 10px !important;
         left: 10px !important;
     }
 
@@ -4493,6 +4501,9 @@ select {
         max-height: 55px;
         height: 100%;
     }
+    .text-box {
+        min-height: auto;
+    }
 }
 
 .select2-selection__choice__display,
@@ -4526,4 +4537,12 @@ select {
     display: flex;
     flex-wrap: wrap;
     gap: 11px;
+}
+.page-item.active .page-link {
+    background: #FF00DD !important;
+    border: #FF00DD !important;
+    height: 100%;
+}
+button.page-link {
+    color: #000 !important;
 }

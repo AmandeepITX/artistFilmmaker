@@ -75,7 +75,9 @@ class UserController extends Controller
                 'zip_code' => 'required',
                 'state' => 'required',
                 'seekin_filmmaker' => 'required',
-                'genres_id' => 'required|array',
+                // 'genres_id' => 'required',
+                'genres_id' => 'required|array|min:1',
+                'genres_id.*' => 'integer|exists:genres,id',
             ],
             [
                 'first_name.required' => 'The first name field is required.',
@@ -120,8 +122,6 @@ class UserController extends Controller
                     $new_file = auth()->user()->id . uniqid(time()) . '.' . $file->getClientOriginalExtension();
                     $file->move($path, $new_file);
 
-
-
                     $userProfile->image = $new_file;
                 }
 
@@ -155,8 +155,6 @@ class UserController extends Controller
 
                 $new_file = auth()->user()->id . uniqid(time()) . '.' . $file->getClientOriginalExtension();
                 $file->move($path, $new_file);
-
-
 
                 $userProfile->image = $new_file;
             }
