@@ -5,14 +5,17 @@
     font-family: "Fjalla One";
     src: url("../font/Fjalla_One/FjallaOne-Regular.ttf") format("truetype");
 }
+
 @font-face {
     font-family: "roboto";
     src: url("../font/Roboto/Roboto-Regular.ttf") format("truetype");
 }
+
 @font-face {
     font-family: "lato";
     src: url("../font/lato/Lato-Regular.ttf") format("truetype");
 }
+
 @font-face {
     font-family: "merriweather";
     src: url("../font/Merriweather/Merriweather-Regular.ttf") format("truetype");
@@ -157,12 +160,14 @@ body p {
     font-family: 'roboto';
     overflow: hidden !important;
 }
+
 .sign-up input[type="radio"] {
     width: 20px;
     height: 20px;
     margin-left: 0px;
-    accent-color: #FF00DD!important;
+    accent-color: #FF00DD !important;
 }
+
 label {
     line-height: 27px !important;
     font-family: 'Fjalla One';
@@ -251,6 +256,7 @@ input[type="submit"] {
 ul.navbar-nav {
     width: 96%;
 }
+
 .nav-item.loginbtn .active {
     background: url(/img/profile1.png);
     background-repeat: no-repeat;
@@ -258,6 +264,7 @@ ul.navbar-nav {
     background-position: left;
     background-position-y: 54%;
 }
+
 .loginbtn a:hover {
     background: url(/img/profile1.png);
     background-repeat: no-repeat;
@@ -265,6 +272,7 @@ ul.navbar-nav {
     background-position: left;
     background-position-y: 54%;
 }
+
 .navbar {
     border-radius: 0 !important;
     margin-bottom: 0px !important;
@@ -286,28 +294,33 @@ ul.navbar-nav {
     border-top: 1px solid;
     border-bottom: 1px solid;
 }
+
 .main-footer-text {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
 }
+
 .footer-icons {
     display: flex;
     align-items: center;
     gap: 26px;
     justify-content: center;
 }
+
 .copyrights {
     color: #1C1B19 !important;
     font-family: 'rsoboto';
     padding: 30px 0px 12px;
 }
+
 .copyrights a {
     text-align: center;
     background: #fff !important;
     color: #000;
     font-family: 'roboto';
 }
+
 .footer-right {
     display: flex;
     justify-content: space-between;
@@ -952,21 +965,24 @@ a.custom-button {
     border-radius: 8px;
     background-color: #FF00DD;
     font-size: 20px;
-    color:#fff ;
+    color: #fff;
     text-transform: uppercase;
     font-weight: 500;
     font-family: 'Mohave', sans-serif;
     border: none;
 }
 
-.sub-btn input[type="submit"]:hover,input[type="submit"]:hover {
+.sub-btn input[type="submit"]:hover,
+input[type="submit"]:hover {
     color: #fff;
     background-color: #1F1F1F;
     transition: 0.5s ease;
 }
-.file-upload{
+
+.file-upload {
     padding: 0px !important;
 }
+
 /* sign-up page end */
 /* Login page*/
 .login-form input {
@@ -983,7 +999,7 @@ a.custom-button {
     width: 162px;
     height: 50px;
     border-radius: 8px;
-    background-color:#FF00DD;
+    background-color: #FF00DD;
     font-size: 20px;
     color: #fff;
     font-weight: 600;
@@ -1036,6 +1052,7 @@ form.login-form {
     left: -15px;
     top: 25px;
 }
+
 .art-submit-btn {
     display: flex;
     justify-content: center;
@@ -1409,7 +1426,8 @@ span.error.error-message,
 }
 
 
-input[type="search"], .filter-dropdown{
+input[type="search"],
+.filter-dropdown {
     height: 100%;
 
     border-radius: 8px !important;
@@ -1546,7 +1564,7 @@ option.first-option {
 
 a.nav-link.active {
     color: #FF00DD !important;
-    border-color: #FF00DD!important;
+    border-color: #FF00DD !important;
 }
 
 .about-section3::before {
@@ -1699,6 +1717,7 @@ ul.footer-lnk {
     padding: 0px;
     list-style: none;
 }
+
 .bottom-menu ul li a {
     font-size: 16px;
     color: #00041A !important;
@@ -1706,26 +1725,32 @@ ul.footer-lnk {
     font-family: roboto;
     text-decoration: none;
 }
+
 .bottom-menu ul li a:hover {
-text-decoration: underline !important;
+    text-decoration: underline !important;
 }
+
 .bottom-menu h4 {
     font-family: Fjalla One;
     font-size: 19px;
     line-height: 24px;
 }
+
 .footer-uppr {
     display: flex;
     justify-content: space-between;
 }
+
 .footer-left {
     width: 50%;
 }
+
 .footer-right {
     display: flex;
     justify-content: space-between;
     width: 35%;
 }
+
 .bottom-text a {
     font-size: 17px;
     line-height: 27px;
@@ -2402,6 +2427,7 @@ svg {
     font-size: 14px;
     min-width: 140px;
 }
+
 .sign-up textarea {
     width: 100%;
     height: 150px;
@@ -2410,6 +2436,7 @@ svg {
     border-radius: 8px;
     border: 2px solid #e0e0e0;
 }
+
 .member-cards {
     padding-top: 25px;
     padding-bottom: 25px;
@@ -2525,11 +2552,13 @@ svg {
     height: 20px;
     overflow: hidden;
     text-transform: lowercase;
-  }
-  .discounts-services-inner  .col-md-5.sm-px-3 {
+}
+
+.discounts-services-inner .col-md-5.sm-px-3 {
     margin-top: auto;
     margin-bottom: auto;
-  }
+}
+
 .deals-card .card-title {
     font-size: 19px;
     margin: 0;
@@ -2537,17 +2566,19 @@ svg {
     color: #5E5959;
     text-transform: capitalize;
 }
+
 .b_name {
-  font-size: 15px;
-  color: #B3B0B0;
-  font-family: 'lato';
-  min-height: 15px;
-  display: block;
-  height: 20px;
-  overflow: hidden;
-  text-transform: capitalize  !important;
-  text-decoration: underline;
+    font-size: 15px;
+    color: #B3B0B0;
+    font-family: 'lato';
+    min-height: 15px;
+    display: block;
+    height: 20px;
+    overflow: hidden;
+    text-transform: capitalize !important;
+    text-decoration: underline;
 }
+
 .grey-bg {
     background: #F8F8F8;
     padding: 70px 0px 65px;
@@ -2562,7 +2593,7 @@ select {
     margin: 10px 0 !important;
     outline: none !important;
     box-shadow: none !important;
-  }
+}
 
 .discounts-services-inner select.form-select {
     font-size: 16px;
@@ -2958,6 +2989,7 @@ i.fa.fa-star.checked {
     background-size: 25px;
     margin-bottom: 0px;
 }
+
 .profile-social-icone .youtube {
     background: url(/img/youtube.png);
     background-repeat: no-repeat;
@@ -3009,10 +3041,11 @@ button.btn.btn-warning:hover,
 input.file-upload::-webkit-file-upload-button {
     visibility: hidden;
 }
+
 textarea.select2-search__field {
     margin-bottom: 0 !important;
     padding-bottom: 26px !important;
-  }
+}
 
 .file-upload {
     border: none !important;
@@ -3051,45 +3084,56 @@ a.nav-link {
 span.select2.select2-container .select2-container--default .select2-container--focus {
     width: 100% !important;
 }
+
 .inner-box img {
     height: 50px;
-  }
-  a.b-box {
+}
+
+a.b-box {
     text-decoration: none;
-  }
-  .slick-arrow {
+}
+
+.slick-arrow {
     display: none;
-  }
-  .slick-arrow {
+}
+
+.slick-arrow {
     display: none;
-  }
-  .slick-arrow {
+}
+
+.slick-arrow {
     display: none !important;
-  }
-  ul.slick-dots {
+}
+
+ul.slick-dots {
     list-style: none;
     display: flex;
     justify-content: center;
     gap: 25px;
-  }
-  ul.slick-dots li button {
+}
+
+ul.slick-dots li button {
     font-size: 0px;
     width: 20px;
     height: 20px;
     border-radius: 50%;
     border: none;
-  }
-  ul.slick-dots .slick-active button{
+}
+
+ul.slick-dots .slick-active button {
     background-color: #FF00DD;
-  }
-  .card.deals-card {
+}
+
+.card.deals-card {
     margin-right: 10px;
-  }
-  .slick-list.draggable {
+}
+
+.slick-list.draggable {
     padding-left: 0;
     padding-right: 0;
-  }
-  span.select2-selection.select2-selection--multiple {
+}
+
+span.select2-selection.select2-selection--multiple {
     background-image: url(../img/downarrow.png) !important;
     background-size: auto !important;
     background-position-x: 95% !important;
@@ -3098,30 +3142,36 @@ span.select2.select2-container .select2-container--default .select2-container--f
     font-weight: 600 !important;
     background-repeat: no-repeat;
     background-position-y: 50%;
-  }
-  .no-result-text h1 {
+}
+
+.no-result-text h1 {
     text-align: center;
     font-family: 'lato-black';
-  }
-  .no-result-text {
+}
+
+.no-result-text {
     padding: 75px 0px 115px;
-  }
+}
 
 .radio-main {
     display: flex;
     gap: 20px;
     align-items: center;
 }
+
 .radio-nw {
     display: flex;
     align-items: center;
     gap: 10px;
 }
+
 .upload-file-sections {
     display: flex;
     gap: 20px;
 }
-button, select {
+
+button,
+select {
     text-transform: capitalize !important;
 }
 
@@ -3149,9 +3199,10 @@ button, select {
     .offset-3 {
         margin-left: 0px;
     }
+
     a.nav-link {
         font-size: 15px;
-      }
+    }
 }
 
 @media screen and (max-width: 767px) {
@@ -3422,10 +3473,7 @@ button, select {
 
 @media screen and (max-width: 1024px) {
 
-    form.login-form {
-        height: calc(100vh - 461px) !important;
-    }
-
+ 
     .top-menu {
         width: 100%;
         left: 0px;
@@ -3542,6 +3590,7 @@ button, select {
         padding-top: 50px;
     }
 }
+
 @media screen and (max-width: 820px) {
     .business-bottom-section h2 {
         padding-top: 50px;
@@ -3549,20 +3598,22 @@ button, select {
         font-family: 'lato-black';
         color: #fff;
         line-height: 45px;
-      }
+    }
 
-      .business-bottom-section p {
+    .business-bottom-section p {
         color: #fff;
         font-size: 17px;
         font-family: 'merriweather';
         margin-bottom: 30px;
-      }
-      .yellow-btn {
+    }
+
+    .yellow-btn {
         font-size: 18px;
         border-radius: 8px;
         margin-bottom: 30px;
-      }
+    }
 }
+
 @media screen and (max-width: 768px) {
     td.wrapper {
         position: relative;
@@ -4078,6 +4129,7 @@ button, select {
         width: 100%;
         margin: 0;
     }
+
     .discounts-services-titel {
         padding-top: 30px;
     }
@@ -4192,9 +4244,6 @@ button, select {
         padding-top: 0px;
     }
 
-    form.login-form {
-        margin-bottom: 125px;
-    }
 
     h2.login-titel {
         margin-top: 40px;
@@ -4234,14 +4283,17 @@ button, select {
         font-size: 28px;
     }
 }
+
 @media (max-width: 991px) {
     .bottom-menu ul li a {
         text-align: left;
         display: block;
     }
+
     .profile-titel h2 {
         font-size: 50px;
     }
+
     .row.adminsidebar {
         margin: 0px !important;
     }
@@ -4262,6 +4314,7 @@ button, select {
     body .sign-up-2 .content-wrapper .create_form {
         padding: 0px;
     }
+
     #contactpage .bottom-menu ul li {
         margin-bottom: 10px;
         line-height: normal;
@@ -4374,43 +4427,79 @@ button, select {
 }
 
 @media (max-width: 767px) {
+    span.select2.select2-container.select2-container--default {
+        width: 100% !important;
+    }
+    .offset-3 {
+        margin-left: 0 !important;
+    }
+    .profile-titel h2 {
+        font-size: 36px;
+    }
+    .contact-us-titel {
+        padding: 35px 0px;
+        margin-bottom: 5px;
+    }
+    .footer-uppr {
+        display: block;
+    }
+
     .back-btn {
         top: 0px !important;
         left: 10px !important;
     }
+
     .left-profile-section {
         width: 100% !important;
     }
+
     .adminsidebar:before {
         display: none !important;
     }
+
     .left-profile-section img {
         padding: 0px 27px;
     }
+
     div#signupclient>.container {
         padding-left: 0px !important;
         padding-right: 0px !important;
     }
+
     .bottom-menu {
-        flex-direction: column  ;
+        flex-direction: column-reverse;
+        gap: 10px;
+    }
+
+    .footer-left {
+        width: 100%;
+    }
+
+    .footer-right {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .bottom-menu ul {
+        padding-top: 5px;
+    }
+    .main-footer-text {
+        gap: 18px;
+    }
+    .deals-card .card-body .card-text {
+        max-height: 55px;
+        height: 100%;
+    }
 }
-.footer-left {
-    width: 100%;
-}
-.footer-right {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    margin-top: 10px;
-}
-.bottom-menu ul {
-    padding-top: 5px;
-}
-}
+
 .select2-selection__choice__display,
 .select2-results__option {
     text-transform: capitalize;
 }
+
 .back-btn {
     font-size: 30px;
     position: absolute;
@@ -4419,9 +4508,11 @@ button, select {
     color: #000;
     cursor: pointer;
 }
+
 .back-btn:hover {
- color: #FF00DD;
+    color: #FF00DD;
 }
+
 .genre-type li {
     list-style: none;
     background: #e3dede;
@@ -4429,6 +4520,7 @@ button, select {
     border-radius: 5px;
     padding: 5px 15px;
 }
+
 .genre-type {
     padding: 0px;
     display: flex;
