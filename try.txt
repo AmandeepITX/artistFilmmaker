@@ -1,0 +1,1 @@
+echo "try to create from git (remote repo) and set in local repository"
